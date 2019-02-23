@@ -58,13 +58,13 @@ main.products-field {
         margin-top: 20px;
         margin-bottom: 10px;
         background: #fff;
-        .product-name {
+        &__name {
         }
-        .product-price {
+        &__price{
           font-weight: bold;
           font-size: 16px;
         }
-        .product-tax {
+        &__tax {
            font-size: 10px;
         }
        }

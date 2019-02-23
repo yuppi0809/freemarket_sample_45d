@@ -9,7 +9,7 @@
     }
     width: 750px;
     margin: 0 auto;
-    &--left {
+    &-left {
       float:left;
       color: #fff;
       margin-top: 20px;
@@ -39,7 +39,7 @@
         }
       }
     }
-    &--right {
+    &-right {
       float: right;
       margin-left: 50px;
       img {
