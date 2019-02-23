@@ -24,7 +24,6 @@
 
 ### Association
 - has_many :products
-- has_many :product_payments
 - has_many :likes
 
 ## Products table
