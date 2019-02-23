@@ -1,8 +1,15 @@
-%main
-  .products-field
-    .pickup-category-field
-      %h2.product-field__header
-        ピックアップカテゴリー
-      %h3.products-field__header-new-iten
-        = link_to 'レディース　新着アイテム', "#"
-    .pickup-brand-field
+%main.products-field
+  .pickup-products-container
+    %h2.pickup-head
+      ピックアップカテゴリー
+    = render "category"
+    = render "category"
+    = render "category"
+
+  .pickup-products-container
+    %h2.pickup-head
+      ピックアップブランド
+    = render "category"
+    = render "category"
+    = render "category"
+
