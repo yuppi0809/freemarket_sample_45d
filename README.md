@@ -14,6 +14,16 @@
 |birth_year|integer|null: false|
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
+
+### Association
+- has_many :products
+- has_many :likes
+- has_one :profile
+
+## Profiles table
+
+|Column|Type|Options|
+|------|----|-------|
 |profile|text||
 |prefecture|integer|null: false|
 |city|string|null: false|
@@ -21,10 +31,10 @@
 |postal_code|integer|null: false|
 |building_name|string||
 |telephone_num|integer||
+|user_id|references|foreign_key: true|
 
-### Association
-- has_many :products
-- has_many :likes
+## Association
+- belongs_to :user
 
 ## Products table
 
