@@ -35,7 +35,7 @@
 |price|integer|null: false|
 |likes_count|integer||
 |size|integer||
-|product_status|integer|null:false|
+|product_status|integer|null: false|
 |transaction_status|integer|null: false|
 |delivery_fee|integer|null: false|
 |local|integer|null: false|
@@ -47,7 +47,7 @@
 |category_small_id|references|foreign_key: true|
 
 ### Association
-- has_mant :product_images, dependent: :destroy
+- has_many :product_images, dependent: :destroy
 - has_many :likes, dependent: :destroy
 - has_many :comments, dependent: :destroy
 - belongs_to :user
@@ -55,7 +55,7 @@
 - belongs_to :category_middle_id
 - belongs_to :category_small_id
 
-## Products_images table
+## Product_images table
 
 |Column|Type|Options|
 |------|----|-------|
