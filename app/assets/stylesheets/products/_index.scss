@@ -44,7 +44,7 @@ main.products-field {
       text-decoration: underline;
      }
   }
-  .item-box {
+  &__item-box {
     width: 100%;
     display: flex;
     justify-content: space-between;
