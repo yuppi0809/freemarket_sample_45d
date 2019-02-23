@@ -1,0 +1,77 @@
+.banner
+  .banner-container
+    .banner-container-left
+      %h2
+        スマホで簡単フリマアプリ
+      %p
+        今すぐ無料ダウンロード!
+      .link-to-app
+        %ul
+          %li
+            = image_tag('mercari_icon.png')
+          %li
+            = link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8" do
+              = image_tag('applestore.png')
+          %li
+            = link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja" do
+              = image_tag('googleplay')
+    .banner-container-right
+      = image_tag('phone.png')
+%footer
+  .footer-container
+    %ul
+      %li
+        %h3
+          メルカリについて
+        %ul
+          %li
+            = link_to '会社概要(運営会社)', "#"
+            = link_to 'プライバシーポリシー', "#"
+            = link_to 'メルカリ利用規約', "#"
+            = link_to '有償ポイントに関する特約', "#"
+            = link_to '安心スマホサポートに関する利用規約', "#"
+            = link_to 'コンプライアンスポリシー', "#"
+            = link_to '個人データの安全管理に関わる基本方針', "#"
+            = link_to '特定商取引に関する表記', "#"
+            = link_to '資金決済法に基づく表示', "#"
+            = link_to '法令順守と犯罪抑止のために', "#"
+            = link_to '採用情報', "#"
+      %li
+        %h3
+          メルカリを見る
+        %ul
+          %li
+            = link_to 'カテゴリー一覧', "#"
+            = link_to 'ブランド一覧', "#"
+            = link_to '出品地域一覧', "#"
+            = link_to '公式ブログ', "#"
+            = link_to '公式Twitter', "#"
+            = link_to '公式Facebook', "#"
+      %li
+        %h3
+          ヘルプ&ガイド
+        %ul
+          %li
+            = link_to 'メルカリガイド', "#"
+            = link_to 'メルカリロゴ利用ガイドライン', "#"
+            = link_to 'お知らせ', "#"
+            = link_to 'らくらくメルカリ便とは', "#"
+            = link_to 'ゆうゆうメルカリ便とは', "#"
+            = link_to '大型らくらくメルカリ便とは', "#"
+            = link_to '車体取引ガイド', "#"
+            = link_to '返品・返金ポリシー', "#"
+            = link_to 'メルカリあんしん・あんぜん宣言！', "#"
+            = link_to '偽ブランド品撲滅への取り組み', "#"
+            = link_to 'メルカリボックス', "#"
+      %li
+        %h3
+          国
+        %ul
+          %li
+            = link_to 'United State', "#"
+            = link_to 'United kingdom', "#"
+            = link_to '日本', "#"
+
+  .copy-right
+    = link_to 'merukari', '#'
+    © 2019 Mercari
