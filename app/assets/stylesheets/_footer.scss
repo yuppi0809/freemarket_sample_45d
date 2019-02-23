@@ -9,44 +9,44 @@
     }
     width: 750px;
     margin: 0 auto;
-   .banner-container--left {
-    float:left;
-    color: #fff;
-    margin-top: 20px;
-    h2 {
-      font-weight: bold;
-      font-size: 20px;
-    }
-    p {
-      font-size: 30px;
-      margin-bottom: 10px;
-    }
-    .link-to-app {
-      &:after {
-        content: "";
-        display: block;
-        clear: both;
+    &--left {
+      float:left;
+      color: #fff;
+      margin-top: 20px;
+      h2 {
+        font-weight: bold;
+        font-size: 20px;
       }
-      ul {
-        li {
-          float: left;
-          margin-right: 10px;
+      p {
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
+      .link-to-app {
+        &:after {
+          content: "";
+          display: block;
+          clear: both;
         }
-      }
-       img {
+        ul {
+          li {
+            float: left;
+            margin-right: 10px;
+          }
+        }
+        img {
         width: 100px;
         height: 100px;
-       }
-     }
-   }
-   .banner-container--right {
-    float: right;
-    // margin-left: 50px;
-     img {
-      width: 300px;
-      height: 262px;
-     }
-   }
+        }
+      }
+    }
+    &--right {
+      float: right;
+      margin-left: 50px;
+      img {
+        width: 300px;
+        height: 262px;
+      }
+    }
   }
 }
 
