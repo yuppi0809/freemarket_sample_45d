@@ -1,0 +1,98 @@
+.sell-form-wrapper {
+  width: 100%;
+  &__header-logo {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .sell-form {
+    width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    &__header {
+      text-align: center;
+      font-weight: bold;
+      font-size: 22px;
+      padding: 20px 0 20px;
+      border-bottom: 1px solid #eeeeee;
+    }
+    .sell-form-container {
+      padding: 40px;
+      border-bottom: 1px solid #eeeeee;
+      box-sizing: border-box;
+      &__label {
+        font-weight: bold;
+      }
+      &__require {
+        font-weight: bold;
+        color: #fff;
+        background: #EA352D;
+        padding: 5px;
+        border-radius: 5px;
+        font-size: 10px;
+        margin-left: 5px;
+      }
+      .form-group {
+        margin-bottom: 20px;
+        &__label {
+          font-weight: bold;
+        }
+        &__require {
+          font-weight: bold;
+          color: #fff;
+          background: #EA352D;
+          padding: 5px;
+          border-radius: 5px;
+          font-size: 10px;
+          margin-left: 5px;
+        }
+        &__product-name {
+          border: 1px solid #CCCCCC;
+          border-radius: 5px;
+          margin-top: 10px;
+          width: 620px;
+          padding: 10px 8px 16px;
+        }
+        &__product-description {
+          padding: 10px 8px 16px;
+          width: 598px;
+          height: 120px;
+          padding: 10px;
+          border: 1px solid #CCCCCC;
+          margin-top: 10px;
+        }
+      }
+      &__sell-sub-head {
+        float: left;
+      }
+      &__sell-form-box {
+        float: left;
+        margin-left: 140px;
+        .form-group {
+          .select-wrapper {
+            position: relative;
+            &__select {
+              appearance: none;
+              margin-top: 10px;
+              width: 400px;
+              box-sizing: border-box;
+              height: 50px;
+              background: #fff;
+              border: 1px solid #CCCCCC;
+            }
+            &__icon {
+              position: absolute;
+              top: 0;
+              right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: "";
+}
