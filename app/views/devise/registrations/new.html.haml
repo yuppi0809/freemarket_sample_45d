@@ -2,20 +2,45 @@
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = render "devise/shared/error_messages", resource: resource
   .field
-    = f.label :email
+    = f.label 'ニックネーム'
+    %br/
+    = f.text_field :nickname
+  .field
+    = f.label 'メールアドレス'
     %br/
     = f.email_field :email, autofocus: true, autocomplete: "email"
   .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
+    = f.label 'パスワード'
     %br/
     = f.password_field :password, autocomplete: "new-password"
   .field
-    = f.label :password_confirmation
+    = f.label 'パスワード（確認）'
     %br/
     = f.password_field :password_confirmation, autocomplete: "new-password"
+  .field
+    = f.label '姓（全角）'
+    %br/
+    = f.text_field :first_name
+  .field
+    = f.label '名（全角）'
+    %br/
+    = f.text_field :last_name
+  .field
+    = f.label '姓カナ（全角）'
+    %br/
+    = f.text_field :first_name_kana
+  .field
+    = f.label '名カナ（全角）'
+    %br/
+    = f.text_field :last_name_kana
+  .field
+    = f.label '生年月日'
+    %br/
+    = f.select :birth_year, (1900..Date.today.year), include_blank: '---'
+    %br/
+    = f.select :birth_month, (1..12), include_blank: '---'
+    %br/
+    = f.select :birth_day, (1..31), include_blank: '---'
   .actions
     = f.submit "Sign up"
 = render "devise/shared/links"
