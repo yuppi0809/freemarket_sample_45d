@@ -1,3 +1,4 @@
+@import "variable";
 .sell-form-wrapper {
   width: 100%;
   &__header-logo {
@@ -8,17 +9,17 @@
   .sell-form {
     width: 700px;
     margin: 0 auto;
-    background: #fff;
+    background: $white;
     &__header {
       text-align: center;
       font-weight: bold;
       font-size: 22px;
       padding: 20px 0 20px;
-      border-bottom: 1px solid #eeeeee;
+      border-bottom: 1px solid $bottom-color;
     }
     .sell-form-container {
       padding: 40px;
-      border-bottom: 1px solid #eeeeee;
+      border-bottom: 1px solid $bottom-color;
       box-sizing: border-box;
       &__label {
         font-weight: bold;
@@ -47,7 +48,7 @@
           margin-left: 5px;
         }
         &__product-name {
-          border: 1px solid #CCCCCC;
+          border: 1px solid $border-color;
           border-radius: 5px;
           margin-top: 10px;
           width: 620px;
@@ -58,7 +59,7 @@
           width: 598px;
           height: 120px;
           padding: 10px;
-          border: 1px solid #CCCCCC;
+          border: 1px solid $border-color;
           margin-top: 10px;
         }
       }
@@ -80,7 +81,7 @@
               box-sizing: border-box;
               height: 50px;
               background: #fff;
-              border: 1px solid #CCCCCC;
+              border: 1px solid $border-color;
               padding: 10px;
             }
             &__icon {
@@ -93,7 +94,7 @@
         .form-group-price {
           width: 400px;
           padding: 25px 0;
-          border-bottom: 1px solid #CCCCCC;
+          border-bottom: 1px solid $border-color;
           &__left {
             float: left;
             &__label {
@@ -112,7 +113,7 @@
               border-radius: 5px;
               width: 160px;
               box-sizing: border-box;
-              border: 1px solid #CCCCCC;
+              border: 1px solid $border-color;
               padding: 10px 16px 8px 16px;
             }
           }
@@ -151,6 +152,11 @@
     width: 456px;
     margin: auto;
     text-align: center;
+    a {
+      text-decoration: none;
+      color: black;
+      margin-top: 20px;
+    }
     ul {
       margin-bottom: 30px;
       li {
