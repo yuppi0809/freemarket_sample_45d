@@ -66,12 +66,14 @@
         float: left;
       }
       &__sell-form-box {
-        float: left;
-        margin-left: 140px;
+        float: right;
         .form-group {
           .select-wrapper {
             position: relative;
             &__select {
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
               appearance: none;
               margin-top: 10px;
               width: 400px;
@@ -79,13 +81,89 @@
               height: 50px;
               background: #fff;
               border: 1px solid #CCCCCC;
+              padding: 10px;
             }
             &__icon {
               position: absolute;
-              top: 0;
-              right: 0;
+              top: 25px;
+              right: 20px;
             }
           }
+        }
+        .form-group-price {
+          width: 400px;
+          padding: 25px 0;
+          border-bottom: 1px solid #CCCCCC;
+          &__left {
+            float: left;
+            &__label {
+              font-weight: bold;
+            }
+            &__require {
+              font-weight: bold;
+              color: #fff;
+              background: #EA352D;
+              padding: 5px;
+              border-radius: 5px;
+              font-size: 10px;
+              margin-left: 5px;
+            }
+            &__input {
+              border-radius: 5px;
+              width: 160px;
+              box-sizing: border-box;
+              border: 1px solid #CCCCCC;
+              padding: 10px 16px 8px 16px;
+            }
+          }
+          &__right {
+            float: right;
+          }
+        }
+      }
+    }
+    .sell-form-btn-content {
+      padding: 40px;
+      &__submit {
+        width: 620px;
+        height: 50px;
+        margin: 40px auto;
+        background: #EA352D;
+        color: #fff;
+        cursor: pointer;
+      }
+      &__back {
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        width: 280px;
+        height: 50px;
+        background: #aaa;
+        color: #fff;
+        line-height: 50px;
+        cursor: pointer;
+      }
+    }
+  }
+  .sell-form-footer {
+    padding-top: 30px;
+    padding-bottom: 40px;
+    width: 456px;
+    margin: auto;
+    text-align: center;
+    ul {
+      margin-bottom: 30px;
+      li {
+        float: left;
+        margin-left: 30px;
+          &:hover {
+            opacity: 0.6;
+            text-decoration: none;
+          }
+        a {
+          font-size: 10px;
+          color: black;
+          text-decoration: none;
         }
       }
     }

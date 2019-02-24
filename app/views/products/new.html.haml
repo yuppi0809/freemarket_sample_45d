@@ -34,12 +34,96 @@
               必須
           .select-wrapper
             %select.select-wrapper__select
+              %option
+                %span ---
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
         .form-group
           %label.form-group__label
             カテゴリー
             %span.form-group__require
-              商品の状態
+              必須
           .select-wrapper
             %select.select-wrapper__select
+              %option
+                %span ---
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
+    .sell-form-container.clearfix
+      %h3.sell-form-container__sell-sub-head
+        配送料について
+      .sell-form-container__sell-form-box
+        .form-group
+          %label.form-group__label
+            配送料の負担
+            %span.form-group__require
+              必須
+          .select-wrapper
+            %select.select-wrapper__select
+              %option
+                %span ---
+            = fa_icon 'chevron-down', class: "select-wrapper__icon"
+        .form-group
+          %label.form-group__label
+            発送元の地域
+            %span.form-group__require
+              必須
+          .select-wrapper
+            %select.select-wrapper__select
+              %option
+                %span ---
+            = fa_icon 'chevron-down', class: "select-wrapper__icon"
+        .form-group
+          %label.form-group__label
+            発送までの日数
+            %span.form-group__require
+              必須
+          .select-wrapper
+            %select.select-wrapper__select
+              %option
+                %span ---
+            = fa_icon 'chevron-down', class: "select-wrapper__icon"
+    .sell-form-container.clearfix
+      %h3.sell-form-container__sell-sub-head
+        販売価格
+      .sell-form-container__sell-form-box
+        .form-group-price.clearfix
+          .form-group-price__left
+            %label.form-group-price__left__label
+              価格
+              %span.form-group-price__left__require
+                必須
+          .form-group-price__right
+            ¥
+            %input{type: "text", placeholder: "例) 300", class: "form-group-price__left__input"}
+        .form-group-price.clearfix
+          .form-group-price__left
+            販売手数料(10%)
+          .form-group-price__right
+            %span -
+        .form-group-price.clearfix
+          .form-group-price__left
+            販売利益
+          .form-group-price__right
+            %span -
+    .sell-form-btn-content
+      %p
+        禁止されている出品、行為を必ずご確認ください。
+      %p
+        またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+      %p
+        また、出品をもちまして加盟店規約に同意したことになります。
+      %input{type: "submit", value: "出品する", class: "sell-form-btn-content__submit"}
+      %a.sell-form-btn-content__back
+        戻る
+  .sell-form-footer
+    .nav
+      %ul.clearfix
+        %li
+          = link_to 'プライバシーポリシー', "#"
+        %li
+          = link_to 'メルカリ利用条約', "#"
+        %li
+          = link_to '特定商品取引に関する表記', "#"
+
+    = link_to 'メルカリ', "https://www.mercari.com/jp/", style: "text-decoration: none; color: black; margin-top: 20px;"
+    .p
+      2019 merukari
