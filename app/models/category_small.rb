@@ -1,0 +1,2 @@
+class CategorySmall < ApplicationRecord
+end

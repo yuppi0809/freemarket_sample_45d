@@ -1,0 +1,2 @@
+class CategoryLarge < ApplicationRecord
+end
