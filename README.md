@@ -143,7 +143,3 @@
 
 - has_many :products
 - belongs_to :category_middles
-<<<<<<< HEAD
->>>>>>> JJ-302/master
-=======
->>>>>>> JJ-302/master
