@@ -24,6 +24,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_hash (2.2.0)
+      activesupport (>= 5.0.0)
     activejob (5.0.7.1)
       activesupport (= 5.0.7.1)
       globalid (>= 0.3.6)
@@ -187,6 +189,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_hash
   byebug
   coffee-rails (~> 4.2)
   erb2haml
@@ -208,4 +211,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.16.6
+   1.17.3
