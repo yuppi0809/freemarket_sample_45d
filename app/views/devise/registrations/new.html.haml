@@ -1,46 +1,94 @@
 %h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label 'ニックネーム'
-    %br/
-    = f.text_field :nickname
-  .field
-    = f.label 'メールアドレス'
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label 'パスワード'
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label 'パスワード（確認）'
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label '姓（全角）'
-    %br/
-    = f.text_field :first_name
-  .field
-    = f.label '名（全角）'
-    %br/
-    = f.text_field :last_name
-  .field
-    = f.label '姓カナ（全角）'
-    %br/
-    = f.text_field :first_name_kana
-  .field
-    = f.label '名カナ（全角）'
-    %br/
-    = f.text_field :last_name_kana
-  .field
-    = f.label '生年月日'
-    %br/
-    = f.select :birth_year, (1900..Date.today.year), include_blank: '---'
-    %br/
-    = f.select :birth_month, (1..12), include_blank: '---'
-    %br/
-    = f.select :birth_day, (1..31), include_blank: '---'
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.registration
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id: 'registration-form'}) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .registration-user
+      .field
+        = f.label 'ニックネーム'
+        %br/
+        = f.text_field :nickname
+      .field
+        = f.label 'メールアドレス'
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      .field
+        = f.label 'パスワード'
+        %br/
+        = f.password_field :password, autocomplete: "new-password"
+      .field
+        = f.label 'パスワード（確認）'
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "new-password"
+      .field
+        = f.label '姓（全角）'
+        %br/
+        = f.text_field :first_name
+      .field
+        = f.label '名（全角）'
+        %br/
+        = f.text_field :last_name
+      .field
+        = f.label '姓カナ（全角）'
+        %br/
+        = f.text_field :first_name_kana
+      .field
+        = f.label '名カナ（全角）'
+        %br/
+        = f.text_field :last_name_kana
+      .field
+        = f.label '生年月日'
+        %br/
+        = f.select :birth_year, (1900..Date.today.year), include_blank: '---'
+        %br/
+        = f.select :birth_month, (1..12), include_blank: '---'
+        %br/
+        = f.select :birth_day, (1..31), include_blank: '---'
+      = f.button '次へ進む', type: 'button', class: 'registration-user__btn'
+
+    .registration-verify
+      .field
+        = f.label '携帯電話の番号'
+        %br/
+      = f.button '次へ進む', type: 'button', class: 'registration-verify__btn'
+
+
+    .registration-delivery
+      = f.fields_for :profile, Profile.new do |profile|
+        .field
+          = profile.label 'お名前'
+          %br/
+          = profile.text_field :delv_first_name
+          %br/
+          = profile.text_field :delv_last_name
+        .field
+          = profile.label 'お名前カナ'
+          %br/
+          = profile.text_field :delv_first_name_kana
+          %br/
+          = profile.text_field :delv_last_name_kana
+        .field
+          = profile.label '郵便番号'
+          %br
+          = profile.text_field :postal_code
+        .field
+          = profile.label '都道府県'
+          %br/
+          = profile.select :prefecture, Profile.prefectures.keys, include_blank: '---'
+        .field
+          = profile.label '市区町村'
+          %br/
+          = profile.text_field :city
+        .field
+          = profile.label '番地'
+          %br/
+          = profile.text_field :address
+        .field
+          = profile.label '建物名'
+          %br/
+          = profile.text_field :building_name
+        .field
+          = profile.label '電話番号'
+          %br/
+          = profile.text_field :telephone_num
+    .actions
+      = f.submit "Sign up", class: 'registration-form__submit'
