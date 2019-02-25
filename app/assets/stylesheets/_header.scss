@@ -1,10 +1,10 @@
 html {
   width: 100%;
   height: 100%;
+  background: #fafafa;
 }
 
 body {
-  background: #fafafa;
 }
 
 header {
@@ -49,9 +49,6 @@ header {
         position: absolute;
         right: 0;
         top:5px;
-      }
-      .header-submit-icon {
-
       }
       .header-top__submit {
         display: none;

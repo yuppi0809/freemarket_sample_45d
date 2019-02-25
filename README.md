@@ -67,11 +67,23 @@
 
 ## Product_images table
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+* ...
+=======
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
 |product_id|references|foreign_key: true|
 
+=======
+|Column|Type|Options|
+|------|----|-------|
+|image|string|null: false|
+|product_id|references|foreign_key: true|
+
+>>>>>>> JJ-302/master
 ### Association
 - belongs_to :product
 

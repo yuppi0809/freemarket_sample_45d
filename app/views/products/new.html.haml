@@ -1,0 +1,129 @@
+.sell-form-wrapper
+  %h1.sell-form-wrapper__header-logo
+    = link_to 'https://www.mercari.com/jp/' do
+      = image_tag('mercari_logo_horizontal.png', size: "200x100")
+  %form.sell-form
+    %h2.sell-form__header
+      商品情報を入力
+    .sell-form-container
+      %label.sell-form-container__label
+        出品画像
+      %span.sell-form-container__require
+        必須
+    .sell-form-container
+      .form-group
+        %label.form-group__label
+          商品名
+          %span.form-group__require
+            必須
+        %input{type: "text", placeholder: "商品名（必須40字まで）", class: "form-group__product-name"}
+      .form-group
+        %label.form-group__label
+          商品名
+          %span.form-group__require
+            必須
+        %input{type: "textarea", placeholder: "商品の説明(必須1,000文字以内) （色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでオススメです。", class: "form-group__product-description"}
+    .sell-form-container.clearfix
+      %h3.sell-form-container__sell-sub-head
+        商品の詳細
+      .sell-form-container__sell-form-box
+        .form-group
+          %label.form-group__label
+            商品名
+            %span.form-group__require
+              必須
+          .select-wrapper
+            %select.select-wrapper__select
+              %option
+                %span ---
+            = fa_icon 'chevron-down', class: "select-wrapper__icon"
+        .form-group
+          %label.form-group__label
+            カテゴリー
+            %span.form-group__require
+              必須
+          .select-wrapper
+            %select.select-wrapper__select
+              %option
+                %span ---
+            = fa_icon 'chevron-down', class: "select-wrapper__icon"
+    .sell-form-container.clearfix
+      %h3.sell-form-container__sell-sub-head
+        配送料について
+      .sell-form-container__sell-form-box
+        .form-group
+          %label.form-group__label
+            配送料の負担
+            %span.form-group__require
+              必須
+          .select-wrapper
+            %select.select-wrapper__select
+              %option
+                %span ---
+            = fa_icon 'chevron-down', class: "select-wrapper__icon"
+        .form-group
+          %label.form-group__label
+            発送元の地域
+            %span.form-group__require
+              必須
+          .select-wrapper
+            %select.select-wrapper__select
+              %option
+                %span ---
+            = fa_icon 'chevron-down', class: "select-wrapper__icon"
+        .form-group
+          %label.form-group__label
+            発送までの日数
+            %span.form-group__require
+              必須
+          .select-wrapper
+            %select.select-wrapper__select
+              %option
+                %span ---
+            = fa_icon 'chevron-down', class: "select-wrapper__icon"
+    .sell-form-container.clearfix
+      %h3.sell-form-container__sell-sub-head
+        販売価格
+      .sell-form-container__sell-form-box
+        .form-group-price.clearfix
+          .form-group-price__left
+            %label.form-group-price__left__label
+              価格
+              %span.form-group-price__left__require
+                必須
+          .form-group-price__right
+            ¥
+            %input{type: "text", placeholder: "例) 300", class: "form-group-price__left__input"}
+        .form-group-price.clearfix
+          .form-group-price__left
+            販売手数料(10%)
+          .form-group-price__right
+            %span -
+        .form-group-price.clearfix
+          .form-group-price__left
+            販売利益
+          .form-group-price__right
+            %span -
+    .sell-form-btn-content
+      %p
+        禁止されている出品、行為を必ずご確認ください。
+      %p
+        またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+      %p
+        また、出品をもちまして加盟店規約に同意したことになります。
+      %input{type: "submit", value: "出品する", class: "sell-form-btn-content__submit"}
+      %a.sell-form-btn-content__back
+        戻る
+  .sell-form-footer
+    .nav
+      %ul.clearfix
+        %li
+          = link_to 'プライバシーポリシー', "#"
+        %li
+          = link_to 'メルカリ利用条約', "#"
+        %li
+          = link_to '特定商品取引に関する表記', "#"
+
+    = link_to 'メルカリ', "https://www.mercari.com/jp/"
+    .p
+      2019 merukari
