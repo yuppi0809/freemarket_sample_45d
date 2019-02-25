@@ -13,13 +13,13 @@
 ActiveRecord::Schema.define(version: 20190225034920) do
 
   create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "profile",              limit: 65535, null: false
+    t.text     "profile",              limit: 65535
     t.integer  "prefecture",                         null: false
     t.string   "city",                               null: false
     t.string   "address",                            null: false
     t.integer  "postal_code",                        null: false
     t.string   "building_name"
-    t.integer  "telephone_num"
+    t.string   "telephone_num"
     t.string   "delv_first_name",                    null: false
     t.string   "delv_last_name",                     null: false
     t.string   "delv_first_name_kana",               null: false
