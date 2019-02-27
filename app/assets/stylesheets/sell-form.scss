@@ -34,6 +34,12 @@
         margin-left: 5px;
       }
       .form-group {
+        &#size {
+          display: none;
+        }
+        &#brand {
+          display: none;
+        }
         margin-bottom: 20px;
         &__label {
           font-weight: bold;
@@ -42,6 +48,15 @@
           font-weight: bold;
           color: #fff;
           background: #EA352D;
+          padding: 5px;
+          border-radius: 5px;
+          font-size: 10px;
+          margin-left: 5px;
+        }
+        &__optional {
+          font-weight: bold;
+          color: #fff;
+          background: #cccccc;
           padding: 5px;
           border-radius: 5px;
           font-size: 10px;
@@ -69,6 +84,29 @@
       &__sell-form-box {
         float: right;
         .form-group {
+          .select-wrapper-all {
+            .select-wrapper {
+            position: relative;
+            &__select {
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+              appearance: none;
+              margin-top: 10px;
+              width: 400px;
+              box-sizing: border-box;
+              height: 50px;
+              background: #fff;
+              border: 1px solid $border-color;
+              padding: 10px;
+            }
+            &__icon {
+              position: absolute;
+              top: 25px;
+              right: 20px;
+            }
+          }
+        }
           .select-wrapper {
             position: relative;
             &__select {

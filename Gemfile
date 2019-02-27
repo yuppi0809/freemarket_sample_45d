@@ -57,4 +57,5 @@ gem 'erb2haml'
 gem 'font-awesome-rails'
 gem 'pry-rails'
 gem 'active_hash'
-
+gem 'ancestry'
+gem ''

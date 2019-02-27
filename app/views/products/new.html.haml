@@ -32,18 +32,34 @@
             カテゴリー
             %span.form-group__require
               必須
+          .select-wrapper-all
+            .select-wrapper
+              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "---"}, { class: "select-wrapper__select", id: "large_category"}
+              = fa_icon 'chevron-down', class: "select-wrapper__icon"
+        .form-group#size
+          %label.form-group__label
+            サイズ
+            %span.form-group__require
+              必須
           .select-wrapper
-            = f.collection_select :category_large_id, CategoryLarge.all, :id, :name, {prompt: "---"}, { class: "select-wrapper__select"}
+            = f.select :product_status, Product.sizes.keys.to_a, {prompt: "---"}, {class: "select-wrapper__select"}
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
+        .form-group#brand
+          %label.form-group__label
+            ブランド
+            %span.form-group__optional
+              任意
+          .select-wrapper
+            = f.select :product_status, Product.product_statuses.keys.to_a, {prompt: "---"}, {class: "select-wrapper__select"}
+            = fa_icon 'chevron-down', class: "select-wrapper__icon"
+
         .form-group
           %label.form-group__label
             商品の状態
             %span.form-group__require
               必須
           .select-wrapper
-            %select.select-wrapper__select
-              %option
-                %span ---
+            = f.select :product_status, Product.product_statuses.keys.to_a, {prompt: "---"}, {class: "select-wrapper__select"}
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
     .sell-form-container.clearfix
       %h3.sell-form-container__sell-sub-head
@@ -63,9 +79,7 @@
             %span.form-group__require
               必須
           .select-wrapper
-            %select.select-wrapper__select
-              %option
-                %span ---
+            = f.select :delivery_fee, Product.locals.keys.to_a, {prompt: "---"}, { class: "select-wrapper__select"}
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
         .form-group
           %label.form-group__label
@@ -73,9 +87,7 @@
             %span.form-group__require
               必須
           .select-wrapper
-            %select.select-wrapper__select
-              %option
-                %span ---
+            = f.select :delivery_fee, Product.lead_times.keys.to_a, {prompt: "---"}, { class: "select-wrapper__select"}
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
     .sell-form-container.clearfix
       %h3.sell-form-container__sell-sub-head
