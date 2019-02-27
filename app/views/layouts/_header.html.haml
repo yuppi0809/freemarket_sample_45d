@@ -1,0 +1,23 @@
+%header
+  .header-container
+    .header-top
+      .header-top__logo
+        メルカリ
+      .header-top__search
+      %form.header-top__form
+        %input{type: "text", class: "header-top__search", placeholder: "キーワードから探す"}
+        %label{for: "header-submit", class: "header-submit-label"}
+          = fa_icon "search", id: "header-submit-icon"
+          %input{type: "submit", class: "header-top__submit hidden", id: "header-submit"}
+    .header-bottom
+      %nav.header-bottom__nav
+        %ul.header-bottom__nav--left
+          %li
+            = link_to "カテゴリーから探す", "#", id: "header-category-button"
+          %li
+            = link_to "ブランドから探す", "#", id: "header-brand-button"
+        %ul.header-bottom__nav--right
+          %li
+            = link_to "ログイン", "#", class: "header-login-button"
+          %li
+            = link_to "新規会員登録", "#", class: "header-signup-button"

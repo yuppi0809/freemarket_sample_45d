@@ -1,0 +1,105 @@
+.banner {
+  width: 100%;
+  background-image: url(http://cly7796.net/wp/wp-content/uploads/2017/07/implement-background-loop-animation-with-css-250x188.jpg);
+  .banner-container {
+    &:after {
+      content: "";
+      clear: both;
+      display: block;
+    }
+    width: 750px;
+    margin: 0 auto;
+    &-left {
+      float:left;
+      color: #fff;
+      margin-top: 20px;
+      h2 {
+        font-weight: bold;
+        font-size: 20px;
+      }
+      p {
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
+      .link-to-app {
+        &:after {
+          content: "";
+          display: block;
+          clear: both;
+        }
+        ul {
+          li {
+            float: left;
+            margin-right: 10px;
+          }
+        }
+        img {
+        width: 100px;
+        height: 100px;
+        }
+      }
+    }
+    &-right {
+      float: right;
+      margin-left: 50px;
+      img {
+        width: 300px;
+        height: 262px;
+      }
+    }
+  }
+}
+
+footer {
+  background: #212121;
+  padding-top: 60px;
+  &:after {
+    content: "";
+    display:block;
+    clear: both;
+  }
+  .footer-container {
+  &:after {
+    content: "";
+    display:block;
+    clear: both;
+  }
+    width: 1020px;
+    margin: 0 auto;
+    ul {
+      color: #fff;
+      li {
+        width: 200px;
+        ul {
+          li {
+        a {
+          margin-top: 5px;
+          display: block;
+        }
+          }
+        }
+        h3 {
+          font-weight: bold;
+          margin-bottom: 20px;
+        }
+        a {
+          color: #fff;
+          text-decoration: none;
+        }
+        float: left;
+        margin-right: 40px;
+      }
+    }
+  }
+  .copy-right {
+    margin-top: 20px;
+    color: #fff;
+    text-align: center;
+    a {
+      display: block;
+      text-decoration: none;
+      color: white;
+      color: #fff;
+    }
+  }
+}
