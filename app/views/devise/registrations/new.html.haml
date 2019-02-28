@@ -6,43 +6,43 @@
       .field
         = f.label 'ニックネーム'
         %br/
-        = f.text_field :nickname
+        = f.text_field :nickname, class: 'registration-user__nickname'
       .field
         = f.label 'メールアドレス'
         %br/
-        = f.email_field :email, autofocus: true, autocomplete: "email"
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: 'registration-user__email'
       .field
         = f.label 'パスワード'
         %br/
-        = f.password_field :password, autocomplete: "new-password"
+        = f.password_field :password, autocomplete: "new-password", class: 'registration-user__password'
       .field
         = f.label 'パスワード（確認）'
         %br/
-        = f.password_field :password_confirmation, autocomplete: "new-password"
+        = f.password_field :password_confirmation, autocomplete: "new-password", class: 'registration-user__password-confirmation'
       .field
         = f.label '姓（全角）'
         %br/
-        = f.text_field :first_name
+        = f.text_field :first_name, class: 'registration-user__first-name'
       .field
         = f.label '名（全角）'
         %br/
-        = f.text_field :last_name
+        = f.text_field :last_name, class: 'registration-user__last-name'
       .field
         = f.label '姓カナ（全角）'
         %br/
-        = f.text_field :first_name_kana
+        = f.text_field :first_name_kana, class: 'registration-user__first-name-kana'
       .field
         = f.label '名カナ（全角）'
         %br/
-        = f.text_field :last_name_kana
+        = f.text_field :last_name_kana, class: 'registration-user__last-name-kana'
       .field
         = f.label '生年月日'
         %br/
-        = f.select :birth_year, (1900..Date.today.year), include_blank: '---'
+        = f.select :birth_year, (1900..Date.today.year), {include_blank: '---'}, {class: 'registration-user__birth-year'}
         %br/
-        = f.select :birth_month, (1..12), include_blank: '---'
+        = f.select :birth_month, (1..12), {include_blank: '---'}, {class: 'registration-user__birth-month'}
         %br/
-        = f.select :birth_day, (1..31), include_blank: '---'
+        = f.select :birth_day, (1..31), {include_blank: '---'}, {class: 'registration-user__birth-day'}
       = f.button '次へ進む', type: 'button', class: 'registration-user__btn'
 
     .registration-verify
