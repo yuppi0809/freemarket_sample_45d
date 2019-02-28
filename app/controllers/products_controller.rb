@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @product.product_images.build
     render layout: 'sell-form'
   end
 
@@ -18,6 +19,12 @@ class ProductsController < ApplicationController
 
   def create
     binding.pry
+    Product.create(product_parameter)
+  end
+
+  private
+  def product_parameter
+    params.require(:product).permit(:name, :description, :category_id, :product_status, :delivery_fee, :local, :lead_time, :price, product_images_attributes: [:image])
   end
 
 end
