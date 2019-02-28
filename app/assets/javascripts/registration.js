@@ -77,6 +77,21 @@ $(function(){
     }
   }
 
+  function validateVerifySms(){
+    var verifyAlert = 'の書式を確認してください'
+    var regexNum = verifySms.val().replace(/[━.*‐.*―.*－.*\-.*ー.*\-]/gi,'')
+    verifySms.nextAll('.alert-message').remove()
+    if(regexNum == ''){
+      appendAlert(verifySms, blankAlert)
+      return false
+    }else if(!regexNum.match(/^(0[5-9]0[0-9]{8}|0[1-9][1-9][0-9]{7})$/)){
+      appendAlert(verifySms, verifyAlert)
+      return false
+    }else{
+      return true
+    }
+  }
+
   function nextPage(elements){
     var count = elements.length
     for(var i = 0; i < count; i++){
@@ -90,6 +105,7 @@ $(function(){
 
   var registrationUser = $('.registration-user')
   var registrationVerify = $('.registration-verify')
+  var registrationDelivery = $('.registration-delivery')
   var blankAlert = 'を入力してください'
   var nickname = $('.registration-user__nickname')
   var email = $('.registration-user__email')
@@ -102,6 +118,7 @@ $(function(){
   var birthYear = $('.registration-user__birth-year')
   var birthMonth = $('.registration-user__birth-month')
   var birthDay = $('.registration-user__birth-day')
+  var verifySms = $('.registration-verify__verify-sms')
   var userElements = [nickname, email, password, passwordConfirmation, firstName, lastName, firstNameKana, lastNameKana, birthYear, birthMonth, birthDay]
 
   $('.registration-user__btn').on('click', function(){
@@ -116,5 +133,14 @@ $(function(){
       registrationUser.hide()
       registrationVerify.show()
     }
+  })
+  $('.registration-verify__btn').on('click', function(){
+    if(validateVerifySms()){
+      registrationVerify.hide()
+      registrationDelivery.show()
+    }else{
+      $(window).scrollTop(0)
+    }
+
   })
 })
