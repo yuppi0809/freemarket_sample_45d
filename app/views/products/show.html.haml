@@ -23,3 +23,26 @@
               = image_tag "product_page_item3.jpg"
             .dot{data: "3"}
               = image_tag "product_page_item4.jpg"
+      .item-container__price-info
+        %span.price ¥ 1,100
+        %span.taxes (税込)
+        %span.shipping-fee 送料込み
+
+      =link_to "購入画面に進む", root_path, class: "item-container__purchase-btn"
+
+      .item-container__description
+        %p NOLLEY'S（ノーリーズ）の店舗で購入したFREDY & GLOSTER （フレディアンドグロスター）の赤いカーディガンです。綺麗な発色で、落ち着いた赤色です。<br>ウール100%で上質なお品です。サイズは38なのでMサイズですが、やや小さめなのでSサイズの方や細身の方の方がよいと思います。<br><br>着用回数は3回ほどで少ないのですが、肩に小さなひっかけ傷（穴）があります（四枚目）
+
+      .item-container__links.group
+        .item-container__links__left
+          %button.link
+            %i.fa.fa-heart-o
+            %span いいね！
+            %span 1
+          =link_to root_path, class: "link report" do
+            %i.fa.fa-flag-o
+            %span 不適切な商品の報告
+        .item-container__links__right
+          =link_to root_path, class: "link safety" do
+            %i.fa.fa-lock
+            %span あんしん・安全への取り組み
