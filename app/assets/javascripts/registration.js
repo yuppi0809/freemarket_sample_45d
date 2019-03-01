@@ -8,7 +8,7 @@ $(function(){
   function appendAlert(element, text){
     var label = element.prevAll('label').text()
     var alert = `<p class='alert-message'>
-                   ${ label } ${ text }
+                   ${ label }${ text }
                  </p>`
     if(!element.next().length){
       element.parent().append(alert)
@@ -92,10 +92,22 @@ $(function(){
     }
   }
 
+  function validatePostalCode(){
+    var postalCodeAlert = 'のフォーマットが不適切です'
+    var input = postalCode.val().replace(/-/g, '').slice(0,7)
+    if(input.match(/^\d{7}/)){
+      postalCode.nextAll('.alert-message').remove()
+      var regexInput = input.replace(input, input.slice(0,3) + '-' + input.slice(3,7))
+      postalCode.val(regexInput)
+    }else{
+      appendAlert(postalCode, postalCodeAlert)
+    }
+  }
+
   function nextPage(elements){
     var count = elements.length
     for(var i = 0; i < count; i++){
-      if(elements[i].val() == ''){
+      if(elements[i].nextAll('.alert-message').length !== 0){
         $(window).scrollTop(0)
         return false
       }
@@ -106,6 +118,7 @@ $(function(){
   var registrationUser = $('.registration-user')
   var registrationVerify = $('.registration-verify')
   var registrationDelivery = $('.registration-delivery')
+  var registrationPayment = $('.registration-payment')
   var blankAlert = 'を入力してください'
   var nickname = $('.registration-user__nickname')
   var email = $('.registration-user__email')
@@ -120,6 +133,15 @@ $(function(){
   var birthDay = $('.registration-user__birth-day')
   var verifySms = $('.registration-verify__verify-sms')
   var userElements = [nickname, email, password, passwordConfirmation, firstName, lastName, firstNameKana, lastNameKana, birthYear, birthMonth, birthDay]
+  var delvFirstName = $('.registration-delivery__first-name')
+  var delvLasttName = $('.registration-delivery__last-name')
+  var delvFirstNameKana = $('.registration-delivery__first-name-kana')
+  var delvLasttNameKana = $('.registration-delivery__last-name-kana')
+  var postalCode = $('.registration-delivery__postal-code')
+  var prefecture = $('.registration-delivery__prefecture')
+  var city = $('.registration-delivery__city')
+  var address = $('.registration-delivery__address')
+  var deliveryElements = [delvFirstName, delvLasttName, delvFirstNameKana, delvLasttNameKana, postalCode, prefecture, city, address]
 
   $('.registration-user__btn').on('click', function(){
     validateBlank(userElements)
@@ -141,6 +163,15 @@ $(function(){
     }else{
       $(window).scrollTop(0)
     }
-
+  })
+  $('.registration-delivery__btn').on('click', function(){
+    validateBlank(deliveryElements)
+    if(nextPage(deliveryElements)){
+      registrationDelivery.hide()
+      registrationPayment.show()
+    }
+  })
+  postalCode.on('blur', function(){
+    validatePostalCode()
   })
 })
