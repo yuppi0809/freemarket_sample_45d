@@ -1,3 +1,33 @@
+@import '../variable';
+
+img{
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+.container{
+  background-color: #fafafa;
+  margin: 40px 0;
+}
+
+.vertical-container{
+  width: 700px;
+  margin: 0 auto;
+}
+
+.item-container{
+  background-color: $white;
+  padding:20px 30px 50px 30px;
+  box-sizing:border-box;
+
+  &__title{
+    font-weight:bold;
+    font-size: 130%;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
   &__float{
     position:relative;
   }
