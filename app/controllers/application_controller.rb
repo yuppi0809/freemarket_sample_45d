@@ -12,6 +12,9 @@ class ApplicationController < ActionController::Base
           :prefecture, :city, :address, :postal_code, :building_name,
           :telephone_num, :delv_first_name, :delv_last_name,
           :delv_first_name_kana, :delv_last_name_kana
+        ],
+        payments_attributes: [
+          :card_num, :expiration_month, :expiration_year, :security_code
         ]
       ])
   end
