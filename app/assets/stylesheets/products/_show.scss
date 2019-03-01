@@ -265,6 +265,63 @@ table{
     }
   }
 }
+
+.items-container{
+
+  &__title{
+    font-size: 150%;
+    font-weight: bold;
+    margin-top: 30px;
+
+      a{
+        text-decoration: none;
+        color:$skyBlue;
+      }
+  }
+
+  &__images{
+  margin-top:10px;
+
+    .item{
+    width:32%;
+    float:left;
+    margin:0 2% 2% 0;
+    box-shadow: 0 0 30px rgb(194, 195, 196);
+
+      &__image{
+        height:224px;
+      }
+
+      &__info{
+        background-color: $white;
+        padding:15px 15px 10px;
+        height: 80px;
+
+        &__name{
+        height:50px;
+        overflow: hidden;
+        margin-bottom:10px;
+        }
+
+        &__nums{
+
+          .likes{
+          float:right;
+          }
+          .price{
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    .item:nth-child(3),
+    .item:nth-child(6){
+      margin-right:0;
+    }
+  }
+}
+
 .group:before,
 .group:after {
   content: "";
