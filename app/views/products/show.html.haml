@@ -58,11 +58,9 @@
 
     .page-navigator.group
       = link_to root_path, class: "prev-item" do
-        %i.fa.fa-chevron-left
-        %span  前のアイテム
+        =fa_icon("chevron-left", text:"前のアイテム")
       = link_to root_path, class: "next-item" do
-        %span  次のアイテム
-        %i.fa.fa-chevron-right
+        =fa_icon("chevron-right",text:"次のアイテム", right: true)
 
     .sns-icons-container.group
       .sns-icons
