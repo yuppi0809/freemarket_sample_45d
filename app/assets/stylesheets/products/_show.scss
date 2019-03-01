@@ -1,0 +1,36 @@
+  &__float{
+    position:relative;
+  }
+
+  &__images{
+    width:47.5%;
+    height:400px;
+    overflow:none;
+    overflow: hidden;
+
+
+    .slides-container{
+      height:80%;
+      width: (calc(304px*4));
+
+
+      .my-slides{
+        height:100%;
+        width:304px;
+        float: left;
+      }
+    }
+
+    &__dots{
+      width:100%;
+      height: 20%;
+      margin:0;
+
+      .dot{
+        width:25%;
+        height:100%;
+        float:left;
+      }
+    }
+  }
+
