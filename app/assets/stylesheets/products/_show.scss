@@ -206,6 +206,23 @@ table{
     cursor:pointer;
   }
 }
+
+//前後のアイテムに移動するリンク
+.page-navigator{
+
+  padding:20px 0;
+
+  .prev-item{
+    color: $skyBlue;
+    text-decoration:none;
+  }
+
+  .next-item{
+    @extend .prev-item;
+    float:right;
+  }
+}
+
 .sns-icons-container{
   background-color: $white;
   height:100px;
