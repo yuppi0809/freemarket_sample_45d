@@ -4,4 +4,7 @@ class ProductsController < ApplicationController
     render layout: 'sell-form'
   end
 
+  def show
+  end
+
 end
