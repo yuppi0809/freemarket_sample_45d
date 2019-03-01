@@ -144,3 +144,35 @@ table{
   }
 }
 
+.show-page-comments{
+  background-color: $white;
+  padding:30px;
+  box-sizing:border-box;
+  margin-top:15px;
+
+  &__warning{
+    background-color:#ffeedb;
+    font-size: 85%;
+    padding:5px;
+  }
+
+  &__text{
+    width:100%;
+    height:100px;
+    display:block;
+    box-sizing:border-box;
+    margin-top:10px;
+  }
+
+  &__submit-btn{
+    display:block;
+    width:100%;
+    border:none;
+    padding: 15px;
+    font-size: 90%!Important;
+    background-color: grey;
+    margin-top:10px;
+    color: $white;
+    cursor:pointer;
+  }
+}
