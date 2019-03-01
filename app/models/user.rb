@@ -4,5 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_one :profile
+  has_many :payments
   accepts_nested_attributes_for :profile
+  accepts_nested_attributes_for :payments
 end
