@@ -1,0 +1,6 @@
+@import "variable";
+
+@mixin setStyleToLink{
+  text-decoration:none;
+  color:$skyBlue;
+}

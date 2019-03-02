@@ -7,4 +7,8 @@ class ProductsController < ApplicationController
   def show
   end
 
+  def confirm_purchase
+    render layout: false
+  end
+
 end
