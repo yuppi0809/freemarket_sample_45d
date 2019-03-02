@@ -13,10 +13,23 @@ height: 100%;
   &__logo{
     text-align: center;
     padding:30px 0;
+
+    @media screen and (max-width:700px){
+       padding:10px 0;
+    }
+
     img{
       width:231px;
       height:69px;
       text-align:center;
+
+    @media screen and (max-width:700px){
+      width:154px;
+      height:46px;
+      }
+    }
+  }
+
 
   &__main{
       max-width: 700px;
@@ -32,6 +45,13 @@ height: 100%;
         h2{
           font-size: 130%;
           font-weight: bold;
+
+          @media screen and (max-width:700px){
+            font-size: 110%;
+          }
+        }
+      }
+
       &__mid{
         padding:30px 12.5%;
         border-bottom: 0.5px solid $lightGrey-ish;
@@ -81,10 +101,21 @@ height: 100%;
         .purchase-price-label{
           font-size: 160%;
           float:left;
+
+          @media screen and (max-width:700px){
+            font-size: 130%;
+          }
+        }
+
         .purchase-price{
           font-size:180%;
           float:right;
 
+          @media screen and (max-width:700px){
+            font-size: 150%;
+          }
+        }
+      }
 
       .purchase-btn{
         border:none;
