@@ -97,3 +97,26 @@ height: 100%;
         cursor: pointer;
       }
     }
+
+    &__shipping p:nth-child(1){
+      font-weight: bold;
+    }
+
+    &__shipping{
+      text-align: left;
+      @extend .buy-container__main__mid;
+      font-size:90%;
+
+        &__content{
+          max-width: 350px;
+          margin:0 auto;
+        }
+
+      .shipping-edit{
+        text-align:right;
+
+        &__link{
+          @include setStyleToLink;
+        }
+      }
+    }
