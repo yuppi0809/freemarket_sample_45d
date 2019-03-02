@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 root 'products#index'
 resources :products, only: [:new, :show] do
-    get 'buy', on: :member
+    get 'purchase_confirm', on: :member
     end
 end
