@@ -1,0 +1,58 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}/
+    %title FreemarketSample45d
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  %body
+    .buy-container
+      .buy-container__logo
+        =link_to root_path do
+          =image_tag "mercari_logo_horizontal.png"
+      .buy-container__main
+        .buy-container__main__top
+          %h2 購入を確定しますか?
+        .buy-container__main__mid
+          .buy-container__main__mid__content
+            =image_tag "product_page_item1.jpg"
+            %p.product-description アーバンリサーチ✨シフォンの刺繍スカート
+            %form#purchase-form
+              .product-info
+                %span.product-info__price ¥ 800
+                %span.product-info__shipping-fee 送料込み
+              .point-btn ポイントはありません
+              .purchase-info.group
+                %p.purchase-price-label 支払い金額
+                %p.purchase-price ¥ 800
+              %input{type:"submit", value:"購入する", class: "purchase-btn"}
+
+        .buy-container__main__shipping
+          .buy-container__main__shipping__content
+            %p 配送先
+            %p
+              〒333-0869
+              %br>/
+              埼玉県 XX市 XXXX11-30
+              %br>/
+              笠原優子
+            .shipping-edit
+              =link_to root_path, class: "shipping-edit__link" do
+                =fa_icon("chevron-right", text:"変更する", right:true)
+
+        .buy-container__main__payment
+          .buy-container__main__payment__content
+            %p 支払方法
+            %p
+              ************4300
+              %br>/
+              03/20
+            =image_tag("master-card.svg")
+            .payment-edit
+              =link_to root_path, class: "payment-edit__link" do
+                =fa_icon("chevron-right", text:"変更する", right:true)
+
+      =render 'buy-footer'

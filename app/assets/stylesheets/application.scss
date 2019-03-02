@@ -1,6 +1,8 @@
 @import "reset";
+@import "products/mixin";
 @import "products/index";
 @import "products/show";
+@import "products/confirm_purchase";
 @import "variable";
 @import "header";
 @import "footer";
