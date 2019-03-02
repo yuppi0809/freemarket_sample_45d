@@ -32,3 +32,68 @@ height: 100%;
         h2{
           font-size: 130%;
           font-weight: bold;
+      &__mid{
+        padding:30px 12.5%;
+        border-bottom: 0.5px solid $lightGrey-ish;
+
+        &__content{
+          max-width:350px;
+          margin: 0 auto;
+        }
+
+        img{
+          width:50%;
+          height:50%;
+        }
+
+      .product-description{
+          font-weight: bold;
+      }
+
+      .product-info{
+        padding:20px 0;
+
+        &__price{
+          font-weight: bold;
+          font-size: 160%;
+          letter-spacing: 1px;
+        }
+
+        &__shipping-fee{
+         font-size: 85%;
+         margin-left:3px;
+        }
+      }
+
+      .point-btn{
+        width:100%;
+        background-color: lightgrey;
+        padding:15px 0;
+        box-sizing:border-box;
+        font-size: 90%;
+      }
+
+      .purchase-info{
+        margin: 10px 0 20px 0;
+        font-weight: bold;
+        line-height: 50px;
+
+        .purchase-price-label{
+          font-size: 160%;
+          float:left;
+        .purchase-price{
+          font-size:180%;
+          float:right;
+
+
+      .purchase-btn{
+        border:none;
+        width:100%;
+        background-color:red;
+        color:$white;
+        padding:15px 0;
+        font-weight: bold;
+        box-sizing:border-box;
+        cursor: pointer;
+      }
+    }
