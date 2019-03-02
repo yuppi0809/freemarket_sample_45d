@@ -1,0 +1,182 @@
+@import "variable";
+.sell-form-wrapper {
+  width: 100%;
+  &__header-logo {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .sell-form {
+    width: 700px;
+    margin: 0 auto;
+    background: $white;
+    &__header {
+      text-align: center;
+      font-weight: bold;
+      font-size: 22px;
+      padding: 20px 0 20px;
+      border-bottom: 1px solid $bottom-color;
+    }
+    .sell-form-container {
+      padding: 40px;
+      border-bottom: 1px solid $bottom-color;
+      box-sizing: border-box;
+      &__label {
+        font-weight: bold;
+      }
+      &__require {
+        font-weight: bold;
+        color: #fff;
+        background: #EA352D;
+        padding: 5px;
+        border-radius: 5px;
+        font-size: 10px;
+        margin-left: 5px;
+      }
+      .form-group {
+        margin-bottom: 20px;
+        &__label {
+          font-weight: bold;
+        }
+        &__require {
+          font-weight: bold;
+          color: #fff;
+          background: #EA352D;
+          padding: 5px;
+          border-radius: 5px;
+          font-size: 10px;
+          margin-left: 5px;
+        }
+        &__product-name {
+          border: 1px solid $border-color;
+          border-radius: 5px;
+          margin-top: 10px;
+          width: 620px;
+          padding: 10px 8px 16px;
+        }
+        &__product-description {
+          padding: 10px 8px 16px;
+          width: 598px;
+          height: 120px;
+          padding: 10px;
+          border: 1px solid $border-color;
+          margin-top: 10px;
+        }
+      }
+      &__sell-sub-head {
+        float: left;
+      }
+      &__sell-form-box {
+        float: right;
+        .form-group {
+          .select-wrapper {
+            position: relative;
+            &__select {
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+              appearance: none;
+              margin-top: 10px;
+              width: 400px;
+              box-sizing: border-box;
+              height: 50px;
+              background: #fff;
+              border: 1px solid $border-color;
+              padding: 10px;
+            }
+            &__icon {
+              position: absolute;
+              top: 25px;
+              right: 20px;
+            }
+          }
+        }
+        .form-group-price {
+          width: 400px;
+          padding: 25px 0;
+          border-bottom: 1px solid $border-color;
+          &__left {
+            float: left;
+            &__label {
+              font-weight: bold;
+            }
+            &__require {
+              font-weight: bold;
+              color: #fff;
+              background: #EA352D;
+              padding: 5px;
+              border-radius: 5px;
+              font-size: 10px;
+              margin-left: 5px;
+            }
+            &__input {
+              border-radius: 5px;
+              width: 160px;
+              box-sizing: border-box;
+              border: 1px solid $border-color;
+              padding: 10px 16px 8px 16px;
+            }
+          }
+          &__right {
+            float: right;
+          }
+        }
+      }
+    }
+    .sell-form-btn-content {
+      padding: 40px;
+      &__submit {
+        width: 620px;
+        height: 50px;
+        margin: 40px auto;
+        background: #EA352D;
+        color: #fff;
+        cursor: pointer;
+      }
+      &__back {
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        width: 280px;
+        height: 50px;
+        background: #aaa;
+        color: #fff;
+        line-height: 50px;
+        cursor: pointer;
+      }
+    }
+  }
+  .sell-form-footer {
+    padding-top: 30px;
+    padding-bottom: 40px;
+    width: 456px;
+    margin: auto;
+    text-align: center;
+    a {
+      text-decoration: none;
+      color: black;
+      margin-top: 20px;
+    }
+    ul {
+      margin-bottom: 30px;
+      li {
+        float: left;
+        margin-left: 30px;
+          &:hover {
+            opacity: 0.6;
+            text-decoration: none;
+          }
+        a {
+          font-size: 10px;
+          color: black;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: "";
+}

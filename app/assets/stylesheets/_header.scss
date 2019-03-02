@@ -1,0 +1,104 @@
+html {
+  width: 100%;
+  height: 100%;
+  background: #fafafa;
+}
+
+body {
+}
+
+header {
+  width: 100%;
+  background: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.header-container {
+  width: 1020px;
+  margin: 0 auto;
+   &:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+  .header-top {
+    &:after {
+    content: "";
+    clear: both;
+    display: block;
+    }
+    &__logo {
+     float: left;
+     width: 134px;
+    }
+    &__form {
+      float: left;
+      width: calc(100% - 144px);
+      margin-left: 10px;
+      position: relative;
+      .header-top__search {
+        width: 100%;
+        height: auto;
+        padding: 5px;
+        background: #fafafa;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+      }
+      .header-submit-label {
+        position: absolute;
+        right: 0;
+        top:5px;
+      }
+      .header-top__submit {
+        display: none;
+      }
+    }
+  }
+  .header-bottom {
+    &:after {
+    content: "";
+    clear: both;
+  }
+    display: block;
+    &__nav--left {
+      float: left;
+      margin-top: 10px;
+      li {
+        float: left;
+        margin-right: 20px;
+      }
+      a {
+        color: black;
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+      }
+    }
+    &__nav--right {
+      float: right;
+      margin-top: 10px;
+      li {
+        float: left;
+        margin-left: 10px;
+      }
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+      .header-login-button {
+        background:#ea352a;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 3px;
+      }
+      .header-signup-button {
+        background: #fff;
+        color: #0399e8;
+        border: 1px solid #0399e8;
+        padding: 5px 10px;
+        border-radius: 3px;
+      }
+    }
+  }
+}
