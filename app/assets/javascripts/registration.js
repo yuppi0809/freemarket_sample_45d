@@ -104,6 +104,22 @@ $(function(){
     }
   }
 
+  function validateCardNum(){
+    var cardNumAlert = 'のフォーマットが不適切です'
+    var input = cardNum.val()
+    if(!input.match(/^\d{14,16}$/)){
+      appendAlert(cardNum, cardNumAlert)
+    }
+  }
+
+  function validateSecurityCode(){
+    var securityCodeAlert = 'は3桁または4桁の半角数字で入力してください'
+    var input = securityCode.val()
+    if(!input.match(/^\d{3,4}$/)){
+      appendAlert(securityCode, securityCodeAlert)
+    }
+  }
+
   function nextPage(elements){
     var count = elements.length
     for(var i = 0; i < count; i++){
@@ -142,6 +158,11 @@ $(function(){
   var city = $('.registration-delivery__city')
   var address = $('.registration-delivery__address')
   var deliveryElements = [delvFirstName, delvLasttName, delvFirstNameKana, delvLasttNameKana, postalCode, prefecture, city, address]
+  var cardNum = $('.registration-payment__card-num')
+  var expirationMonth = $('.registration-payment__expiration-month')
+  var expirationYear = $('.registration-payment__expiration-year')
+  var securityCode = $('.registration-payment__security-code')
+  var paymentElements = [cardNum, expirationMonth, expirationYear, securityCode]
 
   $('.registration-user__btn').on('click', function(){
     validateBlank(userElements)
@@ -169,6 +190,14 @@ $(function(){
     if(nextPage(deliveryElements)){
       registrationDelivery.hide()
       registrationPayment.show()
+    }
+  })
+  $('.registration-payment__btn').on('click', function(){
+    validateBlank(paymentElements)
+    validateCardNum()
+    validateSecurityCode()
+    if(nextPage(paymentElements)){
+      $('#registration-form').submit()
     }
   })
   postalCode.on('blur', function(){
