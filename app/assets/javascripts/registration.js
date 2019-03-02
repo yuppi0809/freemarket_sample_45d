@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   function removeAlert(userElements){
     userElements.forEach(function(element){
       element.nextAll('.alert-message').remove()
