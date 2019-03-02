@@ -1,0 +1,6 @@
+.registration-verify
+  .field
+    = f.label '携帯電話の番号'
+    %br/
+    = f.text_field :verify_sms, class: 'registration-verify__verify-sms'
+  = f.button '次へ進む', type: 'button', class: 'registration-verify__btn'
