@@ -42,3 +42,14 @@
               =link_to root_path, class: "shipping-edit__link" do
                 =fa_icon("chevron-right", text:"変更する", right:true)
 
+        .buy-container__main__payment
+          .buy-container__main__payment__content
+            %p 支払方法
+            %p
+              ************4300
+              %br>/
+              03/20
+            =image_tag("master-card.svg")
+            .payment-edit
+              =link_to root_path, class: "payment-edit__link" do
+                =fa_icon("chevron-right", text:"変更する", right:true)

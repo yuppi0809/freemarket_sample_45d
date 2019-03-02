@@ -120,3 +120,28 @@ height: 100%;
         }
       }
     }
+
+    &__payment{
+      @extend .buy-container__main__shipping;
+
+      &__content{
+        max-width: 350px;
+        margin:0 auto;
+      }
+
+      img{
+        width:8%;
+        height:8%;
+      }
+
+      .payment-edit{
+        text-align: right;
+
+        &__link{
+          @include setStyleToLink;
+
+        }
+      }
+    }
+  }
+
