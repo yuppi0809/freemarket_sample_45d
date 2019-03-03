@@ -1,0 +1,69 @@
+.wrapper {
+  width: 1020px;
+  margin: 0 auto;
+  display: flex;
+  padding: 40px 0;
+  .side-bar {
+    width: 280px;
+    padding: 0 40px;
+    .information {
+      width: 100%;
+      height: 658px;
+      background-color: #fff;
+      ul{
+        font-size: 14px;
+        li{
+          border-bottom: solid 2px;
+          min-height: 48px;
+          line-height: 48px;
+          padding-left: 16px;
+        }
+      }
+    }
+    .merpay {
+      width: 100%;
+      height: 96px;
+      background-color: #fff;
+      margin-top: 20px;
+      ul{
+        font-size: 14px;
+        li{
+          border-bottom: solid 2px;
+          min-height: 48px;
+          line-height: 48px;
+          padding-left: 16px;
+        }
+      }
+    }
+    .user-info {
+      width: 100%;
+      height: 356px;
+      background-color: #fff;
+      margin-top: 20px;
+      ul{
+        font-size: 14px;
+        li{
+          border-bottom: solid 2px;
+          min-height: 48px;
+          line-height: 48px;
+          padding-left: 16px;
+        }
+      }
+    }
+  }
+  .sign-out {
+    width: 700px;
+    height: 179px;
+    background-color: #fff;
+    &__btn {
+      height: 48px;
+      width: 300px;
+      background-color: red;
+      margin: 65.5px auto;
+      color: #fff;
+      text-align: center;
+      font-size: 14px;
+      line-height: 48px;
+    }
+  }
+}
