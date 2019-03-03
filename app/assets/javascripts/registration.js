@@ -1,4 +1,19 @@
 $(document).on('turbolinks:load', function(){
+  function validateRecaptcha(){
+    var response = grecaptcha.getResponse()
+    $('.g-recaptcha').children('.alert-message').remove()
+    if(response == ''){
+      var alert = `<p class='alert-message'>
+                     選択してください
+                   </p>`
+      $('.g-recaptcha').append(alert)
+      $(window).scrollTop(0)
+      return false
+    }else{
+      return true
+    }
+  }
+
   function removeAlert(userElements){
     userElements.forEach(function(element){
       element.nextAll('.alert-message').remove()
@@ -172,9 +187,11 @@ $(document).on('turbolinks:load', function(){
     validateNameCharacter()
     validateNameKana()
     validateBirthDay()
-    if(nextPage(userElements)){
-      registrationUser.hide()
-      registrationVerify.show()
+    if(validateRecaptcha()){
+      if(nextPage(userElements)){
+        registrationUser.hide()
+        registrationVerify.show()
+      }
     }
   })
   $('.registration-verify__btn').on('click', function(){
