@@ -39,7 +39,7 @@ $(document).on('turbolinks:load', function(){
     })
   }
 
-  function validateEmail(){
+  function validateEmail(email){
     var emailAlert = 'を正しく入力してください'
     var emailAdress = email.val()
     if(!emailAdress.match(/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/)){
@@ -47,7 +47,7 @@ $(document).on('turbolinks:load', function(){
     }
   }
 
-  function validatePassword(){
+  function validatePassword(password){
     var passwordAlert = 'は6文字以上128文字以下で入力してください'
     var passwordLength = password.val().length
     if(passwordLength < 6 || passwordLength >128){
@@ -181,8 +181,8 @@ $(document).on('turbolinks:load', function(){
 
   $('.registration-user__btn').on('click', function(){
     validateBlank(userElements)
-    validateEmail()
-    validatePassword()
+    validateEmail(email)
+    validatePassword(password)
     validatePasswordConfirmation()
     validateNameCharacter()
     validateNameKana()
@@ -219,5 +219,20 @@ $(document).on('turbolinks:load', function(){
   })
   postalCode.on('blur', function(){
     validatePostalCode()
+  })
+
+  $('.session-form__btn').on('click', function(e){
+    e.preventDefault()
+    var email = $('.session-form__email')
+    var password = $('.session-form__password')
+    var sessionElements = [email, password]
+    validateBlank(sessionElements)
+    validateEmail(email)
+    validatePassword(password)
+    if(validateRecaptcha()){
+      if(nextPage(sessionElements)){
+        $('#session-form').submit()
+      }
+    }
   })
 })
