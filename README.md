@@ -131,3 +131,5 @@
 
 - has_many :products
 - belongs_to :category_middles
+
+
