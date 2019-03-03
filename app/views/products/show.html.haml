@@ -1,0 +1,193 @@
+.container
+  .vertical-container
+    .item-container
+      %h2.item-container__title FREDY & GLOSTER 38 M カーディガン 赤
+
+      .item-container__float.group
+        .item-container__images
+          .slides-container.group
+            .my-slides
+              = image_tag "product_page_item1.jpg"
+            .my-slides
+              = image_tag "product_page_item2.jpg"
+            .my-slides
+              = image_tag "product_page_item3.jpg"
+            .my-slides
+              = image_tag "product_page_item4.jpg"
+          .item-container__images__dots
+            .dot{data: "0"}
+              = image_tag "product_page_item1.jpg"
+            .dot{data: "1"}
+              = image_tag "product_page_item2.jpg"
+            .dot{data: "2"}
+              = image_tag "product_page_item3.jpg"
+            .dot{data: "3"}
+              = image_tag "product_page_item4.jpg"
+
+        =render "show-table"
+
+      .item-container__price-info
+        %span.price ¥ 1,100
+        %span.taxes (税込)
+        %span.shipping-fee 送料込み
+
+      =link_to "購入画面に進む", root_path, class: "item-container__purchase-btn"
+
+      .item-container__description
+        %p NOLLEY'S（ノーリーズ）の店舗で購入したFREDY & GLOSTER （フレディアンドグロスター）の赤いカーディガンです。綺麗な発色で、落ち着いた赤色です。<br>ウール100%で上質なお品です。サイズは38なのでMサイズですが、やや小さめなのでSサイズの方や細身の方の方がよいと思います。<br><br>着用回数は3回ほどで少ないのですが、肩に小さなひっかけ傷（穴）があります（四枚目）
+
+      .item-container__links.group
+        .item-container__links__left
+          %button.link
+            %i.fa.fa-heart-o
+            %span いいね！
+            %span 1
+          =link_to root_path, class: "link report" do
+            %i.fa.fa-flag-o
+            %span 不適切な商品の報告
+        .item-container__links__right
+          =link_to root_path, class: "link safety" do
+            %i.fa.fa-lock
+            %span あんしん・安全への取り組み
+
+    .show-page-comments
+      %form
+        %p.show-page-comments__warning 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %input.show-page-comments__text{type:"textarea"}
+        %input.show-page-comments__submit-btn{type: "submit", value: "コメントする", style: "font-size:20px"}
+
+    .page-navigator.group
+      = link_to root_path, class: "prev-item" do
+        =fa_icon("chevron-left", text:"前のアイテム")
+      = link_to root_path, class: "next-item" do
+        =fa_icon("chevron-right",text:"次のアイテム", right: true)
+
+    .sns-icons-container.group
+      .sns-icons
+        =link_to root_path do
+          %li.sns-icon
+        =link_to root_path do
+          %li.sns-icon
+        =link_to root_path do
+          %li.sns-icon
+        =link_to root_path do
+          %li.sns-icon
+
+    .items-container
+      %h2.items-container__title
+        =link_to "ゆうこ 値引き交渉OKです(^^)さんのその他の出品", "#"
+      .items-container__images.group
+        .item
+          =image_tag "product_page_item1.jpg", class: "item__image", class: "item__image"
+          .item__info
+            %p.item__info__name FREDY & GLOSTER 38 M カーディガン 赤FREDY & GLOSTER 38 M カーディガン 赤
+            .item__info__nums
+              %span.price ¥ 5,900
+              %span.likes
+                %i.fa.fa-heart-o
+                %span 1
+        .item
+          =image_tag "product_page_item1.jpg", class: "item__image"
+          .item__info
+            %p.item__info__name アイテム名
+            .item__info__nums
+              %span.price ¥ 5,900
+              %span.likes
+                %i.fa.fa-heart-o
+                %span 1
+        .item
+          =image_tag "product_page_item1.jpg", class: "item__image"
+          .item__info
+            %p.item__info__name アイテム名
+            .item__info__nums
+              %span.price ¥ 5,900
+              %span.likes
+                %i.fa.fa-heart-o
+                %span 1
+        .item
+          =image_tag "product_page_item1.jpg", class: "item__image"
+          .item__info
+            %p.item__info__name アイテム名
+            .item__info__nums
+              %span.price ¥ 5,900
+              %span.likes
+                %i.fa.fa-heart-o
+                %span 1
+        .item
+          =image_tag "product_page_item1.jpg", class: "item__image"
+          .item__info
+            %p.item__info__name アイテム名
+            .item__info__nums
+              %span.price ¥ 5,900
+              %span.likes
+                %i.fa.fa-heart-o
+                %span 1
+        .item
+          =image_tag "product_page_item1.jpg", class: "item__image"
+          .item__info
+            %p.item__info__name アイテム名
+            .item__info__nums
+              %span.price ¥ 5,900
+              %span.likes
+                %i.fa.fa-heart-o
+                %span 1
+
+    .items-container
+      %h2.items-container__title
+        =link_to "フレディアンドグロスターのカーディガン/ボレロ その他の商品", "#"
+      .items-container__images.group
+        .item
+          .item-image-container
+            =image_tag "product_page_item1.jpg", class: "item__image"
+            .item__info
+              %p.item__info__name アイテム名
+              .item__info__nums
+                %span.price ¥ 5,900
+                %span.likes
+                  %i.fa.fa-heart-o
+                  %span 1
+        .item
+          =image_tag "product_page_item1.jpg", class: "item__image"
+          .item__info
+            %p.item__info__name アイテム名
+            .item__info__nums
+              %span.price ¥ 5,900
+              %span.likes
+                %i.fa.fa-heart-o
+                %span 1
+        .item
+          =image_tag "product_page_item1.jpg", class: "item__image"
+          .item__info
+            %p.item__info__name アイテム名
+            .item__info__nums
+              %span.price ¥ 5,900
+              %span.likes
+                %i.fa.fa-heart-o
+                %span 1
+        .item
+          =image_tag "product_page_item1.jpg", class: "item__image"
+          .item__info
+            %p.item__info__name アイテム名
+            .item__info__nums
+              %span.price ¥ 5,900
+              %span.likes
+                %i.fa.fa-heart-o
+                %span 1
+        .item
+          =image_tag "product_page_item1.jpg", class: "item__image"
+          .item__info
+            %p.item__info__name アイテム名
+            .item__info__nums
+              %span.price ¥ 5,900
+              %span.likes
+                %i.fa.fa-heart-o
+                %span 1
+        .item
+          =image_tag "product_page_item1.jpg", class: "item__image"
+          .item__info
+            %p.item__info__name アイテム名
+            .item__info__nums
+              %span.price ¥ 5,900
+              %span.likes
+                %i.fa.fa-heart-o
+                %span 1
