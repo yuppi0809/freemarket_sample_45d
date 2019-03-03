@@ -18,6 +18,6 @@
             = link_to "ブランドから探す", "#", id: "header-brand-button"
         %ul.header-bottom__nav--right
           %li
-            = link_to "ログイン", "#", class: "header-login-button"
+            = link_to "ログイン", new_user_session_path, class: "header-login-button"
           %li
             = link_to "新規会員登録", new_user_registration_path, class: "header-signup-button"
