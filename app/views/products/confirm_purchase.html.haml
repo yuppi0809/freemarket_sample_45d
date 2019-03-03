@@ -7,7 +7,6 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-
   %body
     .buy-container
       .buy-container__logo
@@ -29,7 +28,6 @@
                 %p.purchase-price-label 支払い金額
                 %p.purchase-price ¥ 800
               %input{type:"submit", value:"購入する", class: "purchase-btn"}
-
         .buy-container__main__shipping
           .buy-container__main__shipping__content
             %p 配送先
@@ -42,7 +40,6 @@
             .shipping-edit
               =link_to root_path, class: "shipping-edit__link" do
                 =fa_icon("chevron-right", text:"変更する", right:true)
-
         .buy-container__main__payment
           .buy-container__main__payment__content
             %p 支払方法
@@ -54,5 +51,4 @@
             .payment-edit
               =link_to root_path, class: "payment-edit__link" do
                 =fa_icon("chevron-right", text:"変更する", right:true)
-
       =render 'buy-footer'

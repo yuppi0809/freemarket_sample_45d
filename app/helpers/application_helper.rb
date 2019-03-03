@@ -1,4 +1,23 @@
 module ApplicationHelper
+  def get_expiration_month
+    month = []
+    1.upto(12) do |num|
+      num = '%02d' % num
+      month << num
+    end
+    return month
+  end
+
+  def get_expiration_year
+    current_year = Date.today.strftime('%y').to_i
+    year = [current_year]
+    10.times do
+      current_year += 1
+      year << current_year
+    end
+    return year
+  end
+
   def mypage_elements
     elements = ['マイページ', 'お知らせ', 'やることリスト', 'いいね！一覧', '出品する', '出品した商品 - 出品中', '出品した商品 - 取引中', '出品した商品 - 売却済み', '購入した商品 - 過去の取引', 'ニュース一覧', '評価一覧', 'ガイド', 'お問い合わせ']
   end
