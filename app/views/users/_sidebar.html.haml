@@ -1,0 +1,23 @@
+.side-bar
+  .mypage
+    %ul.content
+      - mypage_elements.each do |element|
+        %li.content__mypage
+          = link_to element, "#", class: 'mypage__link'
+          = fa_icon("angle-right")
+
+  %h3 メルペイ
+  .mypage
+    %ul.content
+      - mypage_elements_merpay.each do |element|
+        %li.content__mypage
+          = link_to element, "#", class: 'mypage__link'
+          = fa_icon("angle-right")
+
+  %h3 設定
+  .mypage
+    %ul.content
+      - mypage_elements_setting.each do |element|
+        %li.content__mypage
+          = link_to element, "#", class: 'mypage__link'
+          = fa_icon("angle-right")
