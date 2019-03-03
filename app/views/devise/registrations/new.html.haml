@@ -46,6 +46,7 @@
         %br/
         = f.select :birth_day, (1..31), {include_blank: '---'}, {class: 'registration-user__birth-day'}
         日
+      = recaptcha_tags
       = f.button '次へ進む', type: 'button', class: 'registration-user__btn'
 
     = render 'verify', f: f
