@@ -10,38 +10,18 @@
     %h3 メルペイ
     .merpay
       %ul.content
-        %li.content
-          %a 売上・振込申請
-          %i.fa.fa-angle-right
-        %li.content
-          %a ポイント
-          %i.fa.fa-angle-right
-
+        - mypage_elements_merpay.each do |element|
+          %li.content
+            = link_to element, "#"
+            = fa_icon("angle-right")
 
     %h3 設定
     .user-info
       %ul.content
-        %li.content
-          %a プロフィール
-          %i.fa.fa-angle-right
-        %li.content
-          %a 発送元・お届け先住所変更
-          %i.fa.fa-angle-right
-        %li.content
-          %a 支払い方法
-          %i.fa.fa-angle-right
-        %li.content
-          %a メール/パスワード
-          %i.fa.fa-angle-right
-        %li.content
-          %a 本人情報
-          %i.fa.fa-angle-right
-        %li.content
-          %a 電話番号の確認
-          %i.fa.fa-angle-right
-        %li.content
-          %a ログアウト
-          %i.fa.fa-angle-right
+        - mypage_elements_setting.each do |element|
+          %li.content
+            = link_to element, "#"
+            = fa_icon("angle-right")
 
   .sign-out
     .sign-out__btn
