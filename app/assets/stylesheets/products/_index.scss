@@ -51,7 +51,13 @@ main.products-field {
     .item {
       text-decoration: none;
       background: #fff;
+      height: 322px;
+      width: 213px;
       display: block;
+      img {
+        width: 213px;
+        height: 213px;
+      }
       .product-info {
         padding: 5px 10px;
         color: black;
