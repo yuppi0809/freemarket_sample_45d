@@ -1,0 +1,39 @@
+.registration-delivery
+  = f.fields_for :profile, Profile.new do |profile|
+    .field
+      = profile.label 'お名前'
+      %br/
+      = profile.text_field :delv_first_name, class: 'registration-delivery__first-name'
+      %br/
+      = profile.text_field :delv_last_name, class: 'registration-delivery__last-name'
+    .field
+      = profile.label 'お名前カナ'
+      %br/
+      = profile.text_field :delv_first_name_kana, class: 'registration-delivery__first-name-kana'
+      %br/
+      = profile.text_field :delv_last_name_kana, class: 'registration-delivery__last-name-kana'
+    .field
+      = profile.label '郵便番号'
+      %br
+      = profile.text_field :postal_code, class: 'registration-delivery__postal-code'
+    .field
+      = profile.label '都道府県'
+      %br/
+      = profile.select :prefecture, Profile.prefectures.keys, {include_blank: '---'}, {class: 'registration-delivery__prefecture'}
+    .field
+      = profile.label '市区町村'
+      %br/
+      = profile.text_field :city, class: 'registration-delivery__city'
+    .field
+      = profile.label '番地'
+      %br/
+      = profile.text_field :address, class: 'registration-delivery__address'
+    .field
+      = profile.label '建物名'
+      %br/
+      = profile.text_field :building_name, class: 'registration-delivery__building-name'
+    .field
+      = profile.label '電話番号'
+      %br/
+      = profile.text_field :telephone_num, class: 'registration-delivery__telephone-num'
+    = profile.button '次へ進む', type: 'button', class: 'registration-delivery__btn'
