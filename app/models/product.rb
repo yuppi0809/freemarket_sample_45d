@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  belongs_to :category
+  belongs_to :category, optional: true
   has_many :product_images
   accepts_nested_attributes_for :product_images
 
@@ -20,4 +20,5 @@ class Product < ActiveRecord::Base
   validates :lead_time, presence: true
   validates :price, presence: true
   validates :transaction_status, presence: true
+  validates :category_id, presence: true
 end
