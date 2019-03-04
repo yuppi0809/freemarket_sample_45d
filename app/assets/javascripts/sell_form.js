@@ -36,9 +36,6 @@ $(function() {
       select_wrapper.append('<i class="fa fa-chevron-down select-wrapper__icon"></i>')
       $('.select-wrapper-all').append(select_wrapper);
     })
-    .fail(function() {
-      console.log('failed')
-    })
   })
   $('.select-wrapper-all').on('change', '#middle_category', function() {
     $('#small_category').remove();
@@ -59,9 +56,6 @@ $(function() {
       select_wrapper.append(select)
       select_wrapper.append('<i class="fa fa-chevron-down select-wrapper__icon"></i>')
       $('.select-wrapper-all').append(select_wrapper);
-    })
-    .fail(function() {
-      console.log('failed')
     })
   })
   $('.select-wrapper-all').on('change', '#small_category', function() {

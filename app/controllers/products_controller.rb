@@ -19,7 +19,6 @@ class ProductsController < ApplicationController
 
   def create
     product = Product.create(product_parameter)
-    binding.pry
     redirect_to root_path
   end
 

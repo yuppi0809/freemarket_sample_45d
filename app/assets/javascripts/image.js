@@ -29,7 +29,6 @@ $(function(){
           var preview = $('#preview')
           preview.append(div);
         })
-        console.log(fr)
         fr.readAsDataURL(files[i]);
       })();
       formData.append('file', files[i]);
@@ -52,8 +51,6 @@ $(function(){
       }
       reader.onload = (function(file) {
         return function(event) {
-          // preview.empty();
-
           var img = $('<div class= "img_view"><img alt="" class="img"><span class="img_del">画像を削除する</span></div>');
           img.find('img').attr({
             src: event.target.result
