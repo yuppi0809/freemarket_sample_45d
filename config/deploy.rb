@@ -16,6 +16,14 @@ set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 
+set :default_env, {
+  rbenv_root: "/usr/local/rbenv",
+  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
+  RECAPTCHA_SITE_KEY: ENV["RECAPTCHA_SITE_KEY"],
+  RECAPTCHA_SECRET_KEY: ENV["RECAPTCHA_SECRET_KEY"],
+  BASIC_AUTH_USER: ENV["BASIC_AUTH_USER:"],
+  BASIC_AUTH_PASSWORD: ENV["BASIC_AUTH_PASSWORD"]
+}
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
