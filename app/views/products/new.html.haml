@@ -11,12 +11,10 @@
       %span.sell-form-container__require
         必須
       = f.fields_for :product_images do |image|
-        .dz-message.needsclick
-          %h3 ドラッグ&ドロップ
-          またはクリックしてアップロード
-          .preview#preview
-        .fallback
-          = image.file_field :image
+        .dropzone-area#preview
+          = image.label :image, class: "dropzone-box", for: "upload-image" do
+            ここに写真をドラッグアンドまたはクリックしてください
+            = image.file_field :image, multiple: true, id: "upload-image", class: "upload-image"
     .sell-form-container
       .form-group
         %label.form-group__label
@@ -49,7 +47,7 @@
             %span.form-group__require
               必須
           .select-wrapper
-            = f.select :product_status, Product.sizes.keys.to_a, {prompt: "---"}, {class: "select-wrapper__select"}
+            = f.select :size, Product.sizes.keys.to_a, {prompt: "---"}, {class: "select-wrapper__select"}
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
         .form-group#brand
           %label.form-group__label
@@ -57,7 +55,7 @@
             %span.form-group__optional
               任意
           .select-wrapper
-            = f.select :product_status, Product.product_statuses.keys.to_a, {prompt: "---"}, {class: "select-wrapper__select"}
+            = f.select :brand, Product.product_statuses.keys.to_a, {prompt: "---"}, {class: "select-wrapper__select"}
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
 
         .form-group
