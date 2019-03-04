@@ -1,0 +1,19 @@
+.registration-payment
+  = f.fields_for :payments, Payment.new do |payment|
+    .field
+      = payment.label 'カード番号'
+      %br
+      = payment.text_field :card_num, class: 'registration-payment__card-num'
+    .field
+      = payment.label '有効期限'
+      %br/
+      = payment.select :expiration_month, (get_expiration_month), {include_blank: '---'}, {class: 'registration-payment__expiration-month'}
+      月
+      %br/
+      = payment.select :expiration_year, (get_expiration_year), {include_blank: '---'}, {class: 'registration-payment__expiration-year'}
+      年
+    .field
+      = payment.label 'セキュリティコード'
+      %br/
+      = payment.text_field :security_code, class: 'registration-payment__security-code'
+    = payment.button '次へ進む', type: 'button', class: 'registration-payment__btn'
