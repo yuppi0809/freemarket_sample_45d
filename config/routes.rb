@@ -6,4 +6,6 @@ resources :products, only: [:new, :show] do
     end
 resources :users, only: :index
 
+  get '/users/mypage/identification' => 'users#identification'
+
 end
