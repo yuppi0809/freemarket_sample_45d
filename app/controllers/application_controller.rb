@@ -1,10 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-<<<<<<< HEAD
-=======
   before_action :basic_auth, if: :production?
->>>>>>> JJ-302/master
 
   private
 
@@ -22,8 +19,6 @@ class ApplicationController < ActionController::Base
         ]
       ])
   end
-<<<<<<< HEAD
-=======
 
   def production?
     Rails.env.production?
@@ -34,5 +29,4 @@ class ApplicationController < ActionController::Base
       username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
     end
   end
->>>>>>> JJ-302/master
 end
