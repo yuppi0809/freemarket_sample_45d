@@ -21,7 +21,7 @@ set :default_env, {
   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
   RECAPTCHA_SITE_KEY: ENV["RECAPTCHA_SITE_KEY"],
   RECAPTCHA_SECRET_KEY: ENV["RECAPTCHA_SECRET_KEY"],
-  BASIC_AUTH_USER: ENV["BASIC_AUTH_USER:"],
+  BASIC_AUTH_USER: ENV["BASIC_AUTH_USER"],
   BASIC_AUTH_PASSWORD: ENV["BASIC_AUTH_PASSWORD"]
 }
 after 'deploy:publishing', 'deploy:restart'
