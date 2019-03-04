@@ -23,5 +23,23 @@ describe Product do
       product.valid?
       expect(product.errors[:category_id]).to include("can't be blank")
     end
+
+    it 'is invalid without product_status' do
+     product = build(:product, product_status: nil)
+     product.valid?
+     expect(product.errors[:product_status]).to include("can't be blank")
+    end
+
+    it 'is invalid without delivery_fee' do
+      product = build(:product, delivery_fee: nil)
+      product.valid?
+      expect(product.errors[:delivery_fee]).to include("can't be blank")
+    end
+
+    it 'is invalid without local' do
+      product = build(:product, local: nil)
+      product.valid?
+      expect(product.errors[:local]).to include("can't be blank")
+    end
   end
 end
