@@ -21,7 +21,7 @@ $(function() {
     var category_id = $(this).val();
     $.ajax({
       type: 'GET',
-      url: 'middlecategory',
+      url: 'http://localhost:3000/categories/new',
       data: {category_id: category_id},
       dateType: 'json'
     })
@@ -42,7 +42,7 @@ $(function() {
     var category_id = $(this).val();
     $.ajax({
       type: 'GET',
-      url: 'middlecategory',
+      url: 'http://localhost:3000/categories/new',
       data: {category_id: category_id},
       dateType: 'json'
     })
