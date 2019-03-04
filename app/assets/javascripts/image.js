@@ -15,7 +15,7 @@ $(function(){
     e.preventDefault();
 
     var files = e.originalEvent.dataTransfer.files;
-    console.log(files)
+
     for(var i = 0; i < files.length; i++) {
       (function() {
         var fr = new FileReader();
@@ -36,7 +36,6 @@ $(function(){
     }
   });
     dropzone.on('change', function() {
-      console.log(this.file)
     })
 
     $(document).on('change', 'input[type= "file"].upload-image', function(event) {
@@ -51,9 +50,6 @@ $(function(){
         clone.find('.upload-image').val('');
         targetContainer.after(clone);
       }
-      // if(file.type.indexOf('img') < 0) {
-      //   return false;
-      // }
       reader.onload = (function(file) {
         return function(event) {
           // preview.empty();
@@ -62,28 +58,8 @@ $(function(){
           img.find('img').attr({
             src: event.target.result
           })
-    //       // var img = ($('<img>').attr({
-    //       //   src: event.target.result,
-    //       //   width: "200px",
-    //       //   class: "preview",
-    //       //   title: file.name
-    //       // }));
-    //       // var buttonwrapper = $('div');
-    //       // var deletebutton = $('<a>削除</a>').attr({
-    //       //   width: '50px',
-    //       //   height: '50px',
-    //       // })
-    //       // deletebutton.css({
-    //       //   'color': '#5B98E8',
-    //       //   'text-decoration': 'none',
-    //       //   'cursor': 'pointer'
-    //       // })
-    //       // buttonwrapper.append(deletebutton);
-    //       // imgWrapper.append(img)
-    //       // imgWrapper.append(buttonwrapper)
           preview.append(img);
         };
-    //     console.log(preview)
       })(file);
       reader.readAsDataURL(file);
     });
