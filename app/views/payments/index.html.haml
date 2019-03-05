@@ -8,14 +8,14 @@
         .credit-card-right-content__main__top.group
           %p クレジットカード一覧
           %p
-            =image_tag("master-card.svg")
+            = image_tag("master-card.svg")
             %br>/
             ************4300
             %br>/
             03/20
-          =link_to "削除する", "#",method: :delete, class: "payment-delete"
+          = link_to "削除する", "#",method: :delete, class: "payment-delete"
       .credit-card-right-content__main__bottom
-        =link_to root_path, class: "#" do
-          =fa_icon("chevron-right", text:"支払い方法について", right:true)
+        = link_to root_path, class: "#" do
+          = fa_icon("chevron-right", text:"支払い方法について", right:true)
 
 = render 'layouts/footer'
