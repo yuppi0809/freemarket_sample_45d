@@ -4,8 +4,6 @@
     text-align: center;
     margin: 0;
     padding: 8px 24px;
-    background-color: white;
-    font-weight: bold;
     h2{
       font-size: 24px;
       line-height: 1.4;
@@ -20,11 +18,19 @@
 }
 
 .l-single-inner{
-  height: 1100px;
   background-color: white;
   .form-group{
+    label{
+      font-weight: bold;
+    }
     .input-default{
+      padding: 10px 16px 8px;
+      height: 48px;
+      width: 100%;
       box-sizing: border-box;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      margin-bottom: 25px;
     }
   }
     .btn{
@@ -48,6 +54,13 @@
 
 .form{
   &-require{
+    background: red;
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
   }
   &-arbitrary{
     background: #ccc;
@@ -69,11 +82,11 @@
       p{
         margin: 8px 0 0;
         line-height: 1.5;
-        a{
-          color: #0099e8;
-          text-decoration: none;
-          font-size: 14px;
-        }
+          a{
+            color: #0099e8;
+            text-decoration: none;
+            font-size: 14px;
+          }
       }
     }
   }
@@ -87,14 +100,14 @@
   }
 }
 
-
 .birthday-select-wrap{
   position: relative;
-  i{
-    color: #888;
+  .fa-angle-down{
     position: absolute;
-    top: 45%;
-    right:20px;
+    top: 20%;
+    right: 16px;
+    color: #888;
+    font-size: 20px;
   }
 }
 
@@ -104,6 +117,7 @@
   &-wrap__day{
   }
   &-default{
+    width: 100%;
     z-index: 2;
     height: 48px;
     padding: 0 16px;
@@ -113,11 +127,20 @@
     font-size: 16px;
     line-height: 1.5;
     cursor: pointer;
+    position: relative;
+
   }
   &-wrap{
-    width: 140px;
-    background: #fff;
+    background: white;
     margin: 0;
+    position: relative;
+    .fa-angle-down{
+      position: absolute;
+      top: 30%;
+      right: 16px;
+      color: #888;
+      font-size: 20px;
+    }
     select{
       -webkit-appearance: none;
       appearance: none;
@@ -157,14 +180,33 @@
 }
 // ---------------------
 .l-container {
-  .l-content-main{
-    width: 700px;
+  .l-content {
+    background-color: white;
     .l-chapter-head{
       width: 650px;
       font-size: 24px;
       padding: 8px 24px;
       text-align: center;
-      font-weight: bold;
+    }
+    .l-chapter-bottom {
+      padding: 70px;
+      font-size: 14px;
+      // font-weight: bold;
+      .text-right{
+        text-align: right;
+        position: relative;
+        .fa-angle-right{
+          position: absolute;
+          color: #0099e8;
+          font-size: 20px;
+          font-weight: bold;
+        }
+        a {
+          color: #0099e8;
+          text-decoration: none;
+          font-size: 14px;
+        }
+      }
     }
     .setting-profile-icon{
       padding: 72px 16px 24px;
