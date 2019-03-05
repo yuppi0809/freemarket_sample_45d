@@ -11,10 +11,8 @@
     = link_to 'Googleでログイン', '#', class: 'user-session__google'
     = form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: 'session-form', class: 'session-form'}) do |f|
       = f.label 'メールアドレス'
-      %br
       = f.email_field :email, autofocus: true, placeholder: 'メールアドレス', class: 'session-form__email'
       = f.label 'パスワード'
-      %br
       = f.password_field :password, placeholder: 'パスワード', class: 'session-form__password'
       = recaptcha_tags
       .actions
