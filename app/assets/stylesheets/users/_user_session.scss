@@ -1,7 +1,6 @@
 .user-session-wrapper {
   width: 500px;
-  margin: 0 auto;
-  background-color: $white;
+  @include base-container();
   .move-to-registration {
     padding: 40px 60px;
     border-bottom: solid 1px $border-color;
@@ -24,6 +23,7 @@
     &__google {
       @include btn($color: $darkerGrey);
       border: solid 1px $darkerGrey;
+      margin-bottom: 70px;
     }
     .session-form {
       label {
@@ -38,8 +38,7 @@
       &__btn {
         @include btn($color: $white);
         margin-top: 30px;
-        background-color: $red;
-        border: none;
+        background-color: $btn-red;
       }
     }
     .forgot-password {
