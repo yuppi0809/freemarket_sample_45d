@@ -1,3 +1,6 @@
+.buy-container__logo
+  =link_to root_path do
+    =image_tag "mercari_logo_horizontal.png"
 %h2 Log in
 = form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: 'session-form'}) do |f|
   .field
@@ -11,3 +14,5 @@
   = recaptcha_tags
   .actions
     = f.submit "ログイン", class: 'session-form__btn'
+
+= render 'products/buy-footer'
