@@ -41,5 +41,27 @@ describe Product do
       product.valid?
       expect(product.errors[:local]).to include("can't be blank")
     end
+
+    it 'is invalid without local' do
+      product = build(:product, lead_time: nil)
+      product.valid?
+      expect(product.errors[:lead_time]).to include("can't be blank")
+    end
+    it 'is invalid with a name that has more than 41 characters' do
+      name = "n" * 41
+      product = build(:product, name: name)
+      product.valid?
+      expect(product.errors[:name][0]).to include("is too long")
+    end
+    it 'is valid with a name that has less than 40 chatacters' do
+      name = "a" * 40
+      product = build(:product, name: name)
+      product.valid?
+      expect(product).to be_valid
+    end
+    it 'is invalid with a description that has more than 1000 characters' do
+      string = "string" * 1001
+      product = build
+    end
   end
 end
