@@ -1,18 +1,24 @@
 .buy-container__logo
   =link_to root_path do
     =image_tag "mercari_logo_horizontal.png"
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: 'session-form'}) do |f|
-  .field
-    = f.label 'メールアドレス'
-    %br
-    = f.email_field :email, autofocus: true, placeholder: 'メールアドレス', class: 'session-form__email'
-  .field
-    = f.label 'パスワード'
-    %br
-    = f.password_field :password, placeholder: 'パスワード', class: 'session-form__password'
-  = recaptcha_tags
-  .actions
-    = f.submit "ログイン", class: 'session-form__btn'
+.user-session-wrapper
+  .move-to-registration
+    .move-to-registration__text
+      アカウントをお持ちでない方はこちら
+    = link_to '新規会員登録', new_user_registration_path, class: 'move-to-registration__btn'
+  .user-session
+    = link_to 'Facebookでログイン', '#', class: 'user-session__facebook'
+    = link_to 'Googleでログイン', '#', class: 'user-session__google'
+    = form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: 'session-form', class: 'session-form'}) do |f|
+      = f.label 'メールアドレス'
+      %br
+      = f.email_field :email, autofocus: true, placeholder: 'メールアドレス', class: 'session-form__email'
+      = f.label 'パスワード'
+      %br
+      = f.password_field :password, placeholder: 'パスワード', class: 'session-form__password'
+      = recaptcha_tags
+      .actions
+        = f.submit "ログイン", class: 'session-form__btn'
+    = link_to 'パスワードをお忘れの方', '#', class: 'forgot-password'
 
 = render 'products/buy-footer'
