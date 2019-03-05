@@ -1,0 +1,232 @@
+.buy-container{
+background-color:$lightGrey-ish;
+width:100%;
+height: 100%;
+
+  p,
+  h2,
+  span{
+    color:$darkerGrey;
+  }
+
+
+  &__logo{
+    text-align: center;
+    padding:30px 0;
+
+    @media screen and (max-width:700px){
+       padding:10px 0;
+    }
+
+    img{
+      width:231px;
+      height:69px;
+      text-align:center;
+
+    @media screen and (max-width:700px){
+      width:154px;
+      height:46px;
+      }
+    }
+  }
+
+
+  &__main{
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      background-color: $white;
+      box-sizing: border-box;
+
+      &__top{
+        padding: 30px 0;
+        border-bottom: 0.5px solid $lightGrey-ish;
+
+        h2{
+          font-size: 130%;
+          font-weight: bold;
+
+          @media screen and (max-width:700px){
+            font-size: 110%;
+          }
+        }
+      }
+
+      &__mid{
+        padding:30px 12.5%;
+        border-bottom: 0.5px solid $lightGrey-ish;
+
+        &__content{
+          max-width:350px;
+          margin: 0 auto;
+        }
+
+        img{
+          width:50%;
+          height:50%;
+        }
+
+      .product-description{
+          font-weight: bold;
+      }
+
+      .product-info{
+        padding:20px 0;
+
+        &__price{
+          font-weight: bold;
+          font-size: 160%;
+          letter-spacing: 1px;
+        }
+
+        &__shipping-fee{
+         font-size: 85%;
+         margin-left:3px;
+        }
+      }
+
+      .point-btn{
+        width:100%;
+        background-color: lightgrey;
+        padding:15px 0;
+        box-sizing:border-box;
+        font-size: 90%;
+      }
+
+      .purchase-info{
+        margin: 10px 0 20px 0;
+        font-weight: bold;
+        line-height: 50px;
+
+        .purchase-price-label{
+          font-size: 160%;
+          float:left;
+
+          @media screen and (max-width:700px){
+            font-size: 130%;
+          }
+        }
+
+        .purchase-price{
+          font-size:180%;
+          float:right;
+
+          @media screen and (max-width:700px){
+            font-size: 150%;
+          }
+        }
+      }
+
+      .purchase-btn{
+        border:none;
+        width:100%;
+        background-color:red;
+        color:$white;
+        padding:15px 0;
+        font-weight: bold;
+        box-sizing:border-box;
+        cursor: pointer;
+      }
+    }
+
+    &__shipping p:nth-child(1){
+      font-weight: bold;
+    }
+
+    &__shipping{
+      text-align: left;
+      @extend .buy-container__main__mid;
+      font-size:90%;
+
+        &__content{
+          max-width: 350px;
+          margin:0 auto;
+        }
+
+      .shipping-edit{
+        text-align:right;
+
+        &__link{
+          @include setStyleToLink;
+        }
+      }
+    }
+
+    &__payment{
+      @extend .buy-container__main__shipping;
+
+      &__content{
+        max-width: 350px;
+        margin:0 auto;
+      }
+
+      img{
+        width:8%;
+        height:8%;
+      }
+
+      .payment-edit{
+        text-align: right;
+
+        &__link{
+          @include setStyleToLink;
+
+        }
+      }
+    }
+  }
+
+  &__footer{
+    text-align: center;
+    margin:30px 0;
+    font-size: 75%;
+
+    &__lists{
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    &__list{
+      display: inline-block;
+      margin-right: 15px;
+
+    @media screen and (max-width:700px){
+       display:block;
+       margin-right: 0;
+    }
+
+      a{
+        text-decoration: none;
+        color:$darkerGrey;
+      }
+      a:hover{
+        opacity: .8;
+        text-decoration: underline;
+      }
+    }
+
+    img{
+      width: 86px;
+      height: 71px;
+      display:inline-block;
+    }
+
+    &__copyright{
+      margin-top: 5px;
+    }
+  }
+}
+
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+
+.group:after {
+  clear: both;
+}
+
+.group {
+  zoom: 1;
+}
