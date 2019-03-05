@@ -2,7 +2,7 @@
   %h1.sell-form-wrapper__header-logo
     = link_to 'https://www.mercari.com/jp/' do
       = image_tag('mercari_logo_horizontal.png', size: "200x100")
-  %form.sell-form
+  = form_for @product, html: {class: "sell-form dropzone", id: "item-dropzone"} do |f|
     %h2.sell-form__header
       商品情報を入力
     .sell-form-container
@@ -10,42 +10,61 @@
         出品画像
       %span.sell-form-container__require
         必須
+      = f.fields_for :product_images do |image|
+        .dropzone-area#preview
+          = image.label :image, class: "dropzone-box", for: "upload-image" do
+            ここに写真をドラッグアンドまたはクリックしてください
+            = image.file_field :image, id: "upload-image", class: "upload-image"
     .sell-form-container
       .form-group
         %label.form-group__label
           商品名
           %span.form-group__require
             必須
-        %input{type: "text", placeholder: "商品名（必須40字まで）", class: "form-group__product-name"}
+        = f.text_field :name, {placeholder: "商品名（必須40字まで）", class: "form-group__product-name"}
       .form-group
         %label.form-group__label
           商品名
           %span.form-group__require
             必須
-        %input{type: "textarea", placeholder: "商品の説明(必須1,000文字以内) （色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでオススメです。", class: "form-group__product-description"}
+        = f.text_area :description, {type: "textarea", placeholder: "商品の説明(必須1,000文字以内) （色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでオススメです。", class: "form-group__product-description"}
     .sell-form-container.clearfix
       %h3.sell-form-container__sell-sub-head
         商品の詳細
       .sell-form-container__sell-form-box
         .form-group
           %label.form-group__label
-            商品名
-            %span.form-group__require
-              必須
-          .select-wrapper
-            %select.select-wrapper__select
-              %option
-                %span ---
-            = fa_icon 'chevron-down', class: "select-wrapper__icon"
-        .form-group
-          %label.form-group__label
             カテゴリー
             %span.form-group__require
               必須
+          .select-wrapper-all
+            .select-wrapper
+              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "---"}, { class: "select-wrapper__select", id: "large_category"}
+              = fa_icon 'chevron-down', class: "select-wrapper__icon"
+        .form-group#size
+          %label.form-group__label
+            サイズ
+            %span.form-group__require
+              必須
           .select-wrapper
-            %select.select-wrapper__select
-              %option
-                %span ---
+            = f.select :size, Product.sizes.keys.to_a, {prompt: "---"}, {class: "select-wrapper__select"}
+            = fa_icon 'chevron-down', class: "select-wrapper__icon"
+        .form-group#brand
+          %label.form-group__label
+            ブランド
+            %span.form-group__optional
+              任意
+          .select-wrapper
+            = f.select :brand, Product.product_statuses.keys.to_a, {prompt: "---"}, {class: "select-wrapper__select"}
+            = fa_icon 'chevron-down', class: "select-wrapper__icon"
+
+        .form-group
+          %label.form-group__label
+            商品の状態
+            %span.form-group__require
+              必須
+          .select-wrapper
+            = f.select :product_status, Product.product_statuses.keys.to_a, {prompt: "---"}, {class: "select-wrapper__select"}
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
     .sell-form-container.clearfix
       %h3.sell-form-container__sell-sub-head
@@ -57,9 +76,7 @@
             %span.form-group__require
               必須
           .select-wrapper
-            %select.select-wrapper__select
-              %option
-                %span ---
+            = f.select :delivery_fee, Product.delivery_fees.keys.to_a, {prompt: "---"}, { class: "select-wrapper__select"}
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
         .form-group
           %label.form-group__label
@@ -67,9 +84,7 @@
             %span.form-group__require
               必須
           .select-wrapper
-            %select.select-wrapper__select
-              %option
-                %span ---
+            = f.select :local, Product.locals.keys.to_a, {prompt: "---"}, { class: "select-wrapper__select"}
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
         .form-group
           %label.form-group__label
@@ -77,9 +92,7 @@
             %span.form-group__require
               必須
           .select-wrapper
-            %select.select-wrapper__select
-              %option
-                %span ---
+            = f.select :lead_time, Product.lead_times.keys.to_a, {prompt: "---"}, { class: "select-wrapper__select"}
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
     .sell-form-container.clearfix
       %h3.sell-form-container__sell-sub-head
@@ -93,17 +106,18 @@
                 必須
           .form-group-price__right
             ¥
-            %input{type: "text", placeholder: "例) 300", class: "form-group-price__left__input"}
+            = f.text_field :price, {type: "text", placeholder: "例) 300", class: "form-group-price__left__input", id: "input-price"}
         .form-group-price.clearfix
           .form-group-price__left
             販売手数料(10%)
           .form-group-price__right
-            %span -
+            %span#commission -
         .form-group-price.clearfix
           .form-group-price__left
             販売利益
           .form-group-price__right
-            %span -
+            %span#profit -
+        = f.hidden_field :transaction_status, value: "出品中"
     .sell-form-btn-content
       %p
         禁止されている出品、行為を必ずご確認ください。
