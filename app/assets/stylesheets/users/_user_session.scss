@@ -39,7 +39,7 @@
       &__btn {
         @include btn($color: $white);
         margin-top: 30px;
-        background-color: #e53935;
+        background-color: $red;
         border: none;
       }
     }
