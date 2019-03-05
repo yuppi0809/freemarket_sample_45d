@@ -6,6 +6,12 @@ class ProductsController < ApplicationController
     render layout: 'sell-form'
   end
 
+  def show
+  end
+
+  def confirm_purchase
+  end
+
   def create
     product = Product.create(product_parameter)
     binding.pry
