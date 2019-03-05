@@ -49,3 +49,14 @@
           border-radius: 3px;
           font-size: 14px;
         }
+      }
+      &__bottom{
+        text-align: right;
+        padding-top:40px;
+        a{
+        @include setStyleToLink;
+        }
+      }
+    }
+}
+
