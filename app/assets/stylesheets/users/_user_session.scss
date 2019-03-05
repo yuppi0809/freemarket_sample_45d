@@ -1,0 +1,52 @@
+.user-session-wrapper {
+  width: 500px;
+  min-height: 500px;
+  margin: 0 auto;
+  background-color: $white;
+  .move-to-registration {
+    padding: 40px 60px;
+    border-bottom: solid 1px $border-color;
+    &__text {
+      font-size: 14px;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+    &__btn {
+      @include btn($color: $white);
+      background-color: $skyBlue;
+    }
+  }
+  .user-session {
+    padding: 40px 60px;
+    &__facebook {
+      @include btn($color: $white);
+      background-color: $indigo;
+    }
+    &__google {
+      @include btn($color: $darkerGrey);
+      border: solid 1px $darkerGrey;
+    }
+    .session-form {
+      label {
+        display: none;
+      }
+      &__email {
+        @include register-form();
+      }
+      &__password {
+        @include register-form();
+      }
+      &__btn {
+        @include btn($color: $white);
+        margin-top: 30px;
+        background-color: #e53935;
+        border: none;
+      }
+    }
+    .forgot-password {
+      text-decoration: none;
+      font-size: 14px;
+      color: $skyBlue;
+    }
+  }
+}
