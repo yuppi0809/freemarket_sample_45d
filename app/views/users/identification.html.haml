@@ -1,3 +1,4 @@
+= render 'layouts/header'
 %main.l-container.clearfix
   .wrapper
     = render 'sidebar'
@@ -55,11 +56,13 @@
             .clearfix
           .form-group
             %label{for: "zip_code"} 郵便番号
-            %span.form-arbitrary 任意
+            %span.form-arbitrary
+              任意
             %input.input-default{name: "zip_code", placeholder: "例）1234567", type: "text", value: ""}
           .form-group
-            %label{for: "prefecture"} 都道府県
-            %span.form-arbitrary 任意
+            =label :prefecture, "都道府県"
+            %span.form-arbitrary
+              任意
             .select-wrap
               %select.select-default{name: "prefecture"}
                 %option{selected: "selected"} --
@@ -129,3 +132,4 @@
               = link_to "#" do
                 本人情報の登録について
                 = fa_icon("angle-right")
+= render 'layouts/footer'
