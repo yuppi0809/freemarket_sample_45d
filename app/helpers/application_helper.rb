@@ -33,6 +33,14 @@ module ApplicationHelper
     new_price = number_with_delimiter(price, :delimiter => ',')
     return "¥ #{new_price}"
   end
+
+  def display_delivery_fee(option)
+    if option === "送料込み（出品者負担）"
+      return "送料込み"
+    else
+      return option
+    end
+  end
 end
 
 
