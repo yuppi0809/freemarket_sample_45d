@@ -10,13 +10,14 @@
     = link_to 'Facebookでログイン', '#', class: 'user-session__facebook'
     = link_to 'Googleでログイン', '#', class: 'user-session__google'
     = form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: 'session-form', class: 'session-form'}) do |f|
-      = f.label 'メールアドレス'
-      = f.email_field :email, autofocus: true, placeholder: 'メールアドレス', class: 'session-form__email'
-      = f.label 'パスワード'
-      = f.password_field :password, placeholder: 'パスワード', class: 'session-form__password'
+      .session-field
+        = f.label 'メールアドレス'
+        = f.email_field :email, autofocus: true, placeholder: 'メールアドレス', class: 'session-field__email'
+      .session-field
+        = f.label 'パスワード'
+        = f.password_field :password, placeholder: 'パスワード', class: 'session-field__password'
       = recaptcha_tags
-      .actions
-        = f.submit "ログイン", class: 'session-form__btn'
+      = f.submit "ログイン", class: 'session-form__btn'
     = link_to 'パスワードをお忘れの方', '#', class: 'forgot-password'
 
 = render 'products/buy-footer'
