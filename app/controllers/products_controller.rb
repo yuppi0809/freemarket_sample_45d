@@ -9,6 +9,8 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @products = @product.user.products
+    @prev_item = @product.showPrevItem if @product.checkPrevItem
+    @next_item = @product.showNextItem if @product.checkNextItem
   end
 
   def confirm_purchase

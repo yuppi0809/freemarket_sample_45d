@@ -58,10 +58,12 @@
         %input.show-page-comments__submit-btn{type: "submit", value: "コメントする", style: "font-size:20px"}
 
     .page-navigator.group
-      = link_to root_path, class: "prev-item" do
-        =fa_icon("chevron-left", text:"前のアイテム")
-      = link_to root_path, class: "next-item" do
-        =fa_icon("chevron-right",text:"次のアイテム", right: true)
+      -if @product.checkPrevItem
+        = link_to product_path(@prev_item), class: "prev-item" do
+          =fa_icon("chevron-left", text: @prev_item.name)
+      -if @product.checkNextItem
+        = link_to product_path(@next_item), class: "next-item" do
+          =fa_icon("chevron-right",text:@next_item.name, right: true)
 
     .sns-icons-container.group
       .sns-icons

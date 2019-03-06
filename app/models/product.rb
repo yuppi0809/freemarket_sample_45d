@@ -22,4 +22,20 @@ class Product < ActiveRecord::Base
   validates :price, presence: true
   validates :transaction_status, presence: true
   validates :category_id, presence: true
+
+  def checkPrevItem
+    Product.where('id < ?', id).present?
+  end
+
+  def showPrevItem
+    Product.where('id < ?', id).last
+  end
+
+  def checkNextItem
+    Product.where('id > ?', id).present?
+  end
+
+  def showNextItem
+    Product.where('id > ?', id).first
+  end
 end
