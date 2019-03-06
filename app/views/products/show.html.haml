@@ -7,23 +7,13 @@
       .item-container__float.group
         .item-container__images
           .slides-container.group
-            .my-slides
-              = image_tag "product_page_item1.jpg"
-            .my-slides
-              = image_tag "product_page_item2.jpg"
-            .my-slides
-              = image_tag "product_page_item3.jpg"
-            .my-slides
-              = image_tag "product_page_item4.jpg"
+            - @images.each do |image|
+              .my-slides
+                = image_tag image.image
           .item-container__images__dots
-            .dot{data: "0"}
-              = image_tag "product_page_item1.jpg"
-            .dot{data: "1"}
-              = image_tag "product_page_item2.jpg"
-            .dot{data: "2"}
-              = image_tag "product_page_item3.jpg"
-            .dot{data: "3"}
-              = image_tag "product_page_item4.jpg"
+            - @images.each do |image|
+              .dot
+                = image_tag image.image
 
         =render "show-table"
 

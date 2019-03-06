@@ -18,7 +18,7 @@ $(function(){
   showSlide(0);
 
   dots.on("mouseover", function(){
-    var index = $(this).attr("data");
+    var index = dots.index(this);
     showSlide(index);
   });
 });
