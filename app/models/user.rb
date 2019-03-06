@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one :profile
   has_many :payments
+  has_many :products
   accepts_nested_attributes_for :profile
   accepts_nested_attributes_for :payments
 
