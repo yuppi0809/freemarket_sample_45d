@@ -2,7 +2,7 @@
 .container
   .vertical-container
     .item-container
-      %h2.item-container__title FREDY & GLOSTER 38 M カーディガン 赤
+      %h2.item-container__title=@product.name
 
       .item-container__float.group
         .item-container__images
@@ -28,14 +28,14 @@
         =render "show-table"
 
       .item-container__price-info
-        %span.price ¥ 1,100
+        %span.price=display_price(@product.price)
         %span.taxes (税込)
-        %span.shipping-fee 送料込み
+        %span.shipping-fee=display_delivery_fee(@product.delivery_fee)
 
       =link_to "購入画面に進む", root_path, class: "item-container__purchase-btn"
 
       .item-container__description
-        %p NOLLEY'S（ノーリーズ）の店舗で購入したFREDY & GLOSTER （フレディアンドグロスター）の赤いカーディガンです。綺麗な発色で、落ち着いた赤色です。<br>ウール100%で上質なお品です。サイズは38なのでMサイズですが、やや小さめなのでSサイズの方や細身の方の方がよいと思います。<br><br>着用回数は3回ほどで少ないのですが、肩に小さなひっかけ傷（穴）があります（四枚目）
+        %p=@product.description
 
       .item-container__links.group
         .item-container__links__left
