@@ -17,6 +17,7 @@ $(document).on('turbolinks:load', function(){
   function removeAlert(userElements){
     userElements.forEach(function(element){
       element.nextAll('.alert-message').remove()
+      element.css('border', '')
     })
   }
 
@@ -27,6 +28,9 @@ $(document).on('turbolinks:load', function(){
                  </p>`
     if(!element.next().length){
       element.parent().append(alert)
+      if(element !== expirationYear && element !== birthDay){
+        element.css('border', 'solid 1.5px #EA352D')
+      }
     }
   }
 
@@ -146,6 +150,7 @@ $(document).on('turbolinks:load', function(){
     return true
   }
 
+  var registrationNav = $('.registration-nav')
   var registrationUser = $('.registration-user')
   var registrationVerify = $('.registration-verify')
   var registrationDelivery = $('.registration-delivery')
@@ -191,6 +196,7 @@ $(document).on('turbolinks:load', function(){
       if(nextPage(userElements)){
         registrationUser.hide()
         registrationVerify.show()
+        registrationNav.text('電話番号の確認')
       }
     }
   })
@@ -198,6 +204,7 @@ $(document).on('turbolinks:load', function(){
     if(validateVerifySms()){
       registrationVerify.hide()
       registrationDelivery.show()
+      registrationNav.text('発送元・お届け先住所入力')
     }else{
       $(window).scrollTop(0)
     }
@@ -207,6 +214,7 @@ $(document).on('turbolinks:load', function(){
     if(nextPage(deliveryElements)){
       registrationDelivery.hide()
       registrationPayment.show()
+      registrationNav.text('支払い方法')
     }
   })
   $('.registration-payment__btn').on('click', function(){
