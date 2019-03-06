@@ -7,8 +7,12 @@
       アカウントをお持ちでない方はこちら
     = link_to '新規会員登録', new_user_registration_path, class: 'move-to-registration__btn'
   .user-session
-    = link_to 'Facebookでログイン', '#', class: 'user-session__facebook'
-    = link_to 'Googleでログイン', '#', class: 'user-session__google'
+    = link_to '#', class: 'user-session__facebook' do
+      %p Facebookでログイン
+      = image_tag('facebook-logo.png', class: 'facebook-logo')
+    = link_to '#', class: 'user-session__google' do
+      %p Googleでログイン
+      = image_tag('google-logo.png', class: 'google-logo')
     = form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: 'session-form', class: 'session-form'}) do |f|
       .session-field
         = f.label 'メールアドレス'

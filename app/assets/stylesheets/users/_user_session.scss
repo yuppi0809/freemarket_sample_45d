@@ -19,11 +19,19 @@
     &__facebook {
       @include btn($color: $white);
       background-color: $indigo;
+      position: relative;
+      .facebook-logo {
+        @include logo();
+      }
     }
     &__google {
       @include btn($color: $darkerGrey);
       border: solid 1px $darkerGrey;
       margin-bottom: 70px;
+      position: relative;
+      .google-logo {
+        @include logo();
+      }
     }
     .session-form {
       .alert-message {
