@@ -76,7 +76,7 @@
 
     .items-container
       %h2.items-container__title
-        =link_to "ゆうこ 値引き交渉OKです(^^)さんのその他の出品", "#"
+        =link_to "#{@product.user.nickname}さんのその他の出品", "#"
       .items-container__images.group
         .item
           =image_tag "product_page_item1.jpg", class: "item__image", class: "item__image"
@@ -135,7 +135,7 @@
 
     .items-container
       %h2.items-container__title
-        =link_to "フレディアンドグロスターのカーディガン/ボレロ その他の商品", "#"
+        =link_to "#{@product.category.name} (#{@product.category.parent.parent.name}) その他の商品", "#"
       .items-container__images.group
         .item
           .item-image-container
