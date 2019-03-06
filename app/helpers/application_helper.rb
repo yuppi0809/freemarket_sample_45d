@@ -29,6 +29,13 @@ module ApplicationHelper
   def mypage_elements_setting
     elements = ["プロフィール", "発送元・お届け先住所変更", "支払い方法", "メール/パスワード", "本人情報", "電話番号の確認", "ログアウト"]
   end
+
+  def create_link_if_present(item)
+    if item.present?
+      content_tag(:a, "#{item}", href: "#")
+    end
+  end
+
   def display_price(price)
     new_price = number_with_delimiter(price, :delimiter => ',')
     return "¥ #{new_price}"
@@ -42,5 +49,6 @@ module ApplicationHelper
     end
   end
 end
+
 
 
