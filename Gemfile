@@ -67,9 +67,10 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'font-awesome-rails'
 gem 'pry-rails'
-
 gem 'ancestry'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'devise'
 gem 'recaptcha', require: 'recaptcha/rails'
+gem 'active_hash'
+
