@@ -1,0 +1,18 @@
+.buy-container__logo
+  = link_to root_path do
+    = image_tag "mercari_logo_horizontal.png"
+.registration-wrapper
+  .registration-nav
+    新規会員登録
+  .registration
+    = link_to new_user_registration_path, class: 'registration__email' do
+      %p メールアドレスで登録
+      = fa_icon 'envelope', class: 'email-logo'
+    = link_to '#', class: 'registration__facebook' do
+      %p Facebookで登録
+      = image_tag('facebook-logo.png', class: 'facebook-logo')
+    = link_to '#', class: 'registration__google' do
+      %p Googleで登録
+      = image_tag('google-logo.png', class: 'google-logo')
+
+= render 'products/buy-footer'

@@ -17,6 +17,7 @@ $(document).on('turbolinks:load', function(){
   function removeAlert(userElements){
     userElements.forEach(function(element){
       element.nextAll('.alert-message').remove()
+      element.css('border', '')
     })
   }
 
@@ -27,6 +28,9 @@ $(document).on('turbolinks:load', function(){
                  </p>`
     if(!element.next().length){
       element.parent().append(alert)
+      if(element !== expirationYear && element !== birthDay){
+        element.css('border', 'solid 1.5px #EA352D')
+      }
     }
   }
 
@@ -146,37 +150,40 @@ $(document).on('turbolinks:load', function(){
     return true
   }
 
+  var stepTextColor = {'color':'#EA352D'}
+  var stepLineColor = {'background-color':'#EA352D'}
+  var registrationNav = $('.registration-nav')
   var registrationUser = $('.registration-user')
   var registrationVerify = $('.registration-verify')
   var registrationDelivery = $('.registration-delivery')
   var registrationPayment = $('.registration-payment')
   var blankAlert = 'を入力してください'
-  var nickname = $('.registration-user__nickname')
-  var email = $('.registration-user__email')
-  var password = $('.registration-user__password')
-  var passwordConfirmation = $('.registration-user__password-confirmation')
-  var firstName = $('.registration-user__first-name')
-  var lastName = $('.registration-user__last-name')
-  var firstNameKana = $('.registration-user__first-name-kana')
-  var lastNameKana = $('.registration-user__last-name-kana')
-  var birthYear = $('.registration-user__birth-year')
-  var birthMonth = $('.registration-user__birth-month')
-  var birthDay = $('.registration-user__birth-day')
-  var verifySms = $('.registration-verify__verify-sms')
+  var nickname = $('.registration-field__nickname')
+  var email = $('.registration-field__email')
+  var password = $('.registration-field__password')
+  var passwordConfirmation = $('.registration-field__password-confirmation')
+  var firstName = $('.registration-field__first-name')
+  var lastName = $('.registration-field__last-name')
+  var firstNameKana = $('.registration-field__first-name-kana')
+  var lastNameKana = $('.registration-field__last-name-kana')
+  var birthYear = $('.registration-field__birth-year')
+  var birthMonth = $('.registration-field__birth-month')
+  var birthDay = $('.registration-field__birth-day')
+  var verifySms = $('.registration-field__verify-sms')
   var userElements = [nickname, email, password, passwordConfirmation, firstName, lastName, firstNameKana, lastNameKana, birthYear, birthMonth, birthDay]
-  var delvFirstName = $('.registration-delivery__first-name')
-  var delvLasttName = $('.registration-delivery__last-name')
-  var delvFirstNameKana = $('.registration-delivery__first-name-kana')
-  var delvLasttNameKana = $('.registration-delivery__last-name-kana')
-  var postalCode = $('.registration-delivery__postal-code')
-  var prefecture = $('.registration-delivery__prefecture')
-  var city = $('.registration-delivery__city')
-  var address = $('.registration-delivery__address')
+  var delvFirstName = $('.registration-field__delv-first-name')
+  var delvLasttName = $('.registration-field__delv-last-name')
+  var delvFirstNameKana = $('.registration-field__delv-first-name-kana')
+  var delvLasttNameKana = $('.registration-field__delv-last-name-kana')
+  var postalCode = $('.registration-field__postal-code')
+  var prefecture = $('.registration-field__prefecture')
+  var city = $('.registration-field__city')
+  var address = $('.registration-field__address')
   var deliveryElements = [delvFirstName, delvLasttName, delvFirstNameKana, delvLasttNameKana, postalCode, prefecture, city, address]
-  var cardNum = $('.registration-payment__card-num')
-  var expirationMonth = $('.registration-payment__expiration-month')
-  var expirationYear = $('.registration-payment__expiration-year')
-  var securityCode = $('.registration-payment__security-code')
+  var cardNum = $('.registration-field__card-num')
+  var expirationMonth = $('.registration-field__expiration-month')
+  var expirationYear = $('.registration-field__expiration-year')
+  var securityCode = $('.registration-field__security-code')
   var paymentElements = [cardNum, expirationMonth, expirationYear, securityCode]
 
   $('.registration-user__btn').on('click', function(){
@@ -191,6 +198,9 @@ $(document).on('turbolinks:load', function(){
       if(nextPage(userElements)){
         registrationUser.hide()
         registrationVerify.show()
+        registrationNav.text('電話番号の確認')
+        $('.registration-step__verify').css(stepTextColor)
+        $('.registration-step__verify .step-line').css(stepLineColor)
       }
     }
   })
@@ -198,6 +208,9 @@ $(document).on('turbolinks:load', function(){
     if(validateVerifySms()){
       registrationVerify.hide()
       registrationDelivery.show()
+      registrationNav.text('発送元・お届け先住所入力')
+      $('.registration-step__delivery').css(stepTextColor)
+      $('.registration-step__delivery .step-line').css(stepLineColor)
     }else{
       $(window).scrollTop(0)
     }
@@ -207,6 +220,9 @@ $(document).on('turbolinks:load', function(){
     if(nextPage(deliveryElements)){
       registrationDelivery.hide()
       registrationPayment.show()
+      registrationNav.text('支払い方法')
+      $('.registration-step__payment').css(stepTextColor)
+      $('.registration-step__payment .step-line').css(stepLineColor)
     }
   })
   $('.registration-payment__btn').on('click', function(){
@@ -223,8 +239,8 @@ $(document).on('turbolinks:load', function(){
 
   $('.session-form__btn').on('click', function(e){
     e.preventDefault()
-    var email = $('.session-form__email')
-    var password = $('.session-form__password')
+    var email = $('.session-field__email')
+    var password = $('.session-field__password')
     var sessionElements = [email, password]
     validateBlank(sessionElements)
     validateEmail(email)

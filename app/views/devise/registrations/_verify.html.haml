@@ -1,6 +1,13 @@
 .registration-verify
-  .field
+  .registration-field
     = f.label '携帯電話の番号'
-    %br/
-    = f.text_field :verify_sms, class: 'registration-verify__verify-sms'
+    = f.text_field :verify_sms, class: 'registration-field__verify-sms', placeholder: '携帯電話の番号を入力'
+  %p.registration-verify__notice
+    本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
   = f.button '次へ進む', type: 'button', class: 'registration-verify__btn'
+  %p.registration-verify__notes
+    ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+
+  = link_to '#', class: 'registration__about' do
+    %p 電話番号の確認が必要な理由
+    = fa_icon 'angle-right'
