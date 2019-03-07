@@ -1,0 +1,40 @@
+.registration-header {
+  display: flex;
+  width: 800px;
+  margin: 0 auto;
+  .registration-step {
+    display: flex;
+    text-align: center;
+    font-size: 12px;
+    padding-top: 40px;
+    color: $text-color-grey;
+    &__user-info {
+      @include registration-step();
+      color: $require-red;
+    }
+    &__verify {
+      @include registration-step();
+      .step-line {
+        @include step-line();
+      }
+    }
+    &__delivery {
+      @include registration-step();
+      .step-line {
+        @include step-line();
+      }
+    }
+    &__payment {
+      @include registration-step();
+      .step-line {
+        @include step-line();
+      }
+    }
+    &__done {
+      @include registration-step();
+      .step-line {
+        @include step-line();
+      }
+    }
+  }
+}
