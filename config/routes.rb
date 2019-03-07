@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'products#index'
-  get '/users/mypage/identification' => 'users#identification'  
-  resources :users, only: :index
+  get '/users/mypage/identification' => 'users#identification'
   resources :users, only: :index do
     resources :payments, path: 'credit_cards', only:[:index, :destroy], shallow:true do
     end
