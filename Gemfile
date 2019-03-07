@@ -73,4 +73,4 @@ gem 'carrierwave'
 gem 'devise'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'active_hash'
-
+gem 'fog-aws'
