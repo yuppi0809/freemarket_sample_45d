@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20190227103436) do
+ActiveRecord::Schema.define(version: 20190306071337) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -19,6 +18,23 @@ ActiveRecord::Schema.define(version: 20190227103436) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
+  end
+
+  create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "card_num",         null: false
+    t.integer  "expiration_month", null: false
+    t.integer  "expiration_year",  null: false
+    t.integer  "security_code",    null: false
+    t.integer  "user_id",          null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["card_num"], name: "index_payments_on_card_num", unique: true, using: :btree
+    t.index ["user_id"], name: "index_payments_on_user_id", using: :btree
+  end
+
+  create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "product_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -46,22 +62,6 @@ ActiveRecord::Schema.define(version: 20190227103436) do
     t.datetime "updated_at",                       null: false
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["name"], name: "index_products_on_name", using: :btree
-  end
-
-  add_foreign_key "product_images", "products"
-  add_foreign_key "products", "categories"
-ActiveRecord::Schema.define(version: 20190302103555) do
-
-  create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "card_num",         null: false
-    t.integer  "expiration_month", null: false
-    t.integer  "expiration_year",  null: false
-    t.integer  "security_code",    null: false
-    t.integer  "user_id",          null: false
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.index ["card_num"], name: "index_payments_on_card_num", unique: true, using: :btree
-    t.index ["user_id"], name: "index_payments_on_user_id", using: :btree
   end
 
   create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -105,5 +105,7 @@ ActiveRecord::Schema.define(version: 20190302103555) do
   end
 
   add_foreign_key "payments", "users"
+  add_foreign_key "product_images", "products"
+  add_foreign_key "products", "categories"
   add_foreign_key "profiles", "users"
 end

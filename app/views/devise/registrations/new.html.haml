@@ -1,54 +1,77 @@
-%h2 Sign up
-.registration
-  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id: 'registration-form'}) do |f|
-    = render "devise/shared/error_messages", resource: resource
-    .registration-user
-      .field
-        = f.label 'ニックネーム'
-        %br/
-        = f.text_field :nickname, class: 'registration-user__nickname'
-      .field
-        = f.label 'メールアドレス'
-        %br/
-        = f.email_field :email, autofocus: true, autocomplete: "email", class: 'registration-user__email'
-      .field
-        = f.label 'パスワード'
-        %br/
-        = f.password_field :password, autocomplete: "new-password", class: 'registration-user__password'
-      .field
-        = f.label 'パスワード（確認）'
-        %br/
-        = f.password_field :password_confirmation, autocomplete: "new-password", class: 'registration-user__password-confirmation'
-      .field
-        = f.label '姓（全角）'
-        %br/
-        = f.text_field :first_name, class: 'registration-user__first-name'
-      .field
-        = f.label '名（全角）'
-        %br/
-        = f.text_field :last_name, class: 'registration-user__last-name'
-      .field
-        = f.label '姓カナ（全角）'
-        %br/
-        = f.text_field :first_name_kana, class: 'registration-user__first-name-kana'
-      .field
-        = f.label '名カナ（全角）'
-        %br/
-        = f.text_field :last_name_kana, class: 'registration-user__last-name-kana'
-      .field
-        = f.label '生年月日'
-        %br/
-        = f.select :birth_year, (1900..Date.today.year), {include_blank: '---'}, {class: 'registration-user__birth-year'}
-        年
-        %br/
-        = f.select :birth_month, (1..12), {include_blank: '---'}, {class: 'registration-user__birth-month'}
-        月
-        %br/
-        = f.select :birth_day, (1..31), {include_blank: '---'}, {class: 'registration-user__birth-day'}
-        日
-      = recaptcha_tags
-      = f.button '次へ進む', type: 'button', class: 'registration-user__btn'
+= render 'registration_header'
+.registration-wrapper
+  .registration-nav
+    会員情報入力
+  .registration
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id: 'registration-form'}) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .registration-user
+        .registration-field
+          = f.label 'ニックネーム'
+          .registration-field__require
+            必須
+          = f.text_field :nickname, class: 'registration-field__nickname', placeholder: '例）メルカリ太郎'
+        .registration-field
+          = f.label 'メールアドレス'
+          .registration-field__require
+            必須
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'registration-field__email', placeholder: 'PC・携帯どちらでも可'
+        .registration-field
+          = f.label 'パスワード'
+          .registration-field__require
+            必須
+          = f.password_field :password, autocomplete: "new-password", class: 'registration-field__password', placeholder: '6文字以上'
+        .registration-field
+          = f.label 'パスワード（確認）'
+          .registration-field__require
+            必須
+          = f.password_field :password_confirmation, autocomplete: "new-password", class: 'registration-field__password-confirmation', placeholder: '6文字以上'
+        .registration-field
+          = f.label '本人確認'
+          %p.registration-field__notice
+            安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        .registration-field
+          = f.label '姓（全角）'
+          .registration-field__require
+            必須
+          = f.text_field :first_name, class: 'registration-field__first-name', placeholder: '例）山田'
+        .registration-field
+          = f.label '名（全角）'
+          .registration-field__require
+            必須
+          = f.text_field :last_name, class: 'registration-field__last-name', placeholder: '例）彩'
+        .registration-field
+          = f.label '姓カナ（全角）'
+          .registration-field__require
+            必須
+          = f.text_field :first_name_kana, class: 'registration-field__first-name-kana', placeholder: '例）ヤマダ'
+        .registration-field
+          = f.label '名カナ（全角）'
+          .registration-field__require
+            必須
+          = f.text_field :last_name_kana, class: 'registration-field__last-name-kana', placeholder: '例）アヤ'
+        .registration-field
+          = f.label '生年月日'
+          .registration-field__require
+            必須
+          %br
+          = f.select :birth_year, (1900..Date.today.year), {include_blank: '---'}, {class: 'registration-field__birth-year'}
+          年
+          = f.select :birth_month, (1..12), {include_blank: '---'}, {class: 'registration-field__birth-month'}
+          月
+          = f.select :birth_day, (1..31), {include_blank: '---'}, {class: 'registration-field__birth-day'}
+          日
+        %p.registration__notes
+          ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        = recaptcha_tags
+        %p.registration__agreement
+          「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+        = f.button '次へ進む', type: 'button', class: 'registration-user__btn'
+        = link_to '#', class: 'registration__about' do
+          %p 本人情報の登録について
+          = fa_icon 'angle-right'
+      = render 'verify', f: f
+      = render 'delivery', f: f
+      = render 'payment', f: f
 
-    = render 'verify', f: f
-    = render 'delivery', f: f
-    = render 'payment', f: f
+= render 'products/buy-footer'
