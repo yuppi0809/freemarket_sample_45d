@@ -2,8 +2,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-     @product.product_images.build
-    render layout: 'sell-form'
+    @product.product_images.build
   end
 
   def show
@@ -14,7 +13,6 @@ class ProductsController < ApplicationController
 
   def create
     product = Product.create(product_parameter)
-    binding.pry
     redirect_to root_path
   end
 
