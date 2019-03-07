@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def identification
   end
-
-
+  
+  def new
+  end
 end
