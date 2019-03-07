@@ -43,15 +43,6 @@
             =fa_icon("chevron-right", text:"変更する", right:true)
   =render 'buy-footer'
 !!!
-%html
-  %head
-    %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
-    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}/
-    %title FreemarketSample45d
-    = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
     .buy-container
       .buy-container__logo
         =link_to root_path do
