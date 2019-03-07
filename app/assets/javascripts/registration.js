@@ -150,6 +150,8 @@ $(document).on('turbolinks:load', function(){
     return true
   }
 
+  var stepTextColor = {'color':'#EA352D'}
+  var stepLineColor = {'background-color':'#EA352D'}
   var registrationNav = $('.registration-nav')
   var registrationUser = $('.registration-user')
   var registrationVerify = $('.registration-verify')
@@ -197,6 +199,8 @@ $(document).on('turbolinks:load', function(){
         registrationUser.hide()
         registrationVerify.show()
         registrationNav.text('電話番号の確認')
+        $('.registration-step__verify').css(stepTextColor)
+        $('.registration-step__verify .step-line').css(stepLineColor)
       }
     }
   })
@@ -205,6 +209,8 @@ $(document).on('turbolinks:load', function(){
       registrationVerify.hide()
       registrationDelivery.show()
       registrationNav.text('発送元・お届け先住所入力')
+      $('.registration-step__delivery').css(stepTextColor)
+      $('.registration-step__delivery .step-line').css(stepLineColor)
     }else{
       $(window).scrollTop(0)
     }
@@ -215,6 +221,8 @@ $(document).on('turbolinks:load', function(){
       registrationDelivery.hide()
       registrationPayment.show()
       registrationNav.text('支払い方法')
+      $('.registration-step__payment').css(stepTextColor)
+      $('.registration-step__payment .step-line').css(stepLineColor)
     }
   })
   $('.registration-payment__btn').on('click', function(){
