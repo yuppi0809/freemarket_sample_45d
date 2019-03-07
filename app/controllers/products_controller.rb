@@ -1,5 +1,10 @@
 class ProductsController < ApplicationController
 
+  def index
+    @categories = Category.limit(3)
+    @brands = Brand.limit(4)
+  end
+
   def new
     @product = Product.new
     @product.product_images.build
