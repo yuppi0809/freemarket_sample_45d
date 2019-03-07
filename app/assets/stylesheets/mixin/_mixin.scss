@@ -41,3 +41,27 @@
   font-size: 10px;
   margin-left: 5px;
 }
+
+@mixin logo() {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  height: 20px;
+  width: 20px;
+}
+
+@mixin registration-step() {
+  width: 112px;
+  position: relative;
+}
+
+@mixin step-line() {
+  display: block;
+  height: 2px;
+  width: 110px;
+  background-color: $text-color-grey;
+  position: absolute;
+  top: 24px;
+  right: 60px;
+  z-index: -1;
+}
