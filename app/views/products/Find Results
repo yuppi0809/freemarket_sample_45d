@@ -1,0 +1,1492 @@
+
+Searching 1167 files for "北海道"
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/models/prefecture.rb:
+    2
+    3    self.data = [
+    4:       {id: 1, name: '北海道'}, {id: 2, name: '青森県'}, {id: 3, name: '岩手県'},
+    5        {id: 4, name: '宮城県'}, {id: 5, name: '秋田県'}, {id: 6, name: '山形県'},
+    6        {id: 7, name: '福島県'}, {id: 8, name: '茨城県'}, {id: 9, name: '栃木県'},
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/models/product.rb:
+    6    # enum
+    7    enum delivery_fee:{"送料込み（出品者負担）": 0, "着払い": 1}
+    8:   enum local:{"北海道": 0, "青森": 1, "岩手": 2, "山形": 3 }
+    9    enum product_status:{"新品、未使用": 0, "未使用に近い": 1, "目立った傷、汚れなし": 2, "やや傷汚れあり": 3, "傷や汚れあり": 4, "全体に状態が悪い": 5}
+   10    enum size:{"S": 0, "M": 1, "L": 2}
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/models/profile.rb:
+    3
+    4    enum prefecture: [
+    5:     :北海道, :青森県, :岩手県, :宮城県, :秋田県, :山形県,
+    6      :福島県, :茨城県, :栃木県, :群馬県, :埼玉県, :千葉県,
+    7      :東京都, :神奈川県, :新潟県, :富山県, :石川県, :福井県,
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/views/users/identification.html.haml:
+   67                %select.select-default{name: "prefecture"}
+   68                  %option{selected: "selected"} --
+   69:                 %option 北海道
+   70                  %option 青森県
+   71                  %option 岩手県
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/log/development.log:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/spec/factories/product.rb:
+    7      product_status       {'新品、未使用'}
+    8      delivery_fee         {'着払い'}
+    9:     local                {'北海道'}
+   10      lead_time            {'1~2日で発送'}
+   11      price                {'300'}
+
+39 matches across 6 files
+
+
+
+Searching 1167 files for "京都"
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/models/prefecture.rb:
+    6        {id: 7, name: '福島県'}, {id: 8, name: '茨城県'}, {id: 9, name: '栃木県'},
+    7        {id: 10, name: '群馬県'}, {id: 11, name: '埼玉県'}, {id: 12, name: '千葉県'},
+    8:       {id: 13, name: '東京都'}, {id: 14, name: '神奈川県'}, {id: 15, name: '新潟県'},
+    9        {id: 16, name: '富山県'}, {id: 17, name: '石川県'}, {id: 18, name: '福井県'},
+   10        {id: 19, name: '山梨県'}, {id: 20, name: '長野県'}, {id: 21, name: '岐阜県'},
+   11        {id: 22, name: '静岡県'}, {id: 23, name: '愛知県'}, {id: 24, name: '三重県'},
+   12:       {id: 25, name: '滋賀県'}, {id: 26, name: '京都府'}, {id: 27, name: '大阪府'},
+   13        {id: 28, name: '兵庫県'}, {id: 29, name: '奈良県'}, {id: 30, name: '和歌山県'},
+   14        {id: 31, name: '鳥取県'}, {id: 32, name: '島根県'}, {id: 33, name: '岡山県'},
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/models/profile.rb:
+    5      :北海道, :青森県, :岩手県, :宮城県, :秋田県, :山形県,
+    6      :福島県, :茨城県, :栃木県, :群馬県, :埼玉県, :千葉県,
+    7:     :東京都, :神奈川県, :新潟県, :富山県, :石川県, :福井県,
+    8      :山梨県, :長野県, :岐阜県, :静岡県, :愛知県, :三重県,
+    9:     :滋賀県, :京都府, :大阪府, :兵庫県, :奈良県, :和歌山県,
+   10      :鳥取県, :島根県, :岡山県, :広島県, :山口県, :徳島県,
+   11      :香川県, :愛媛県, :高知県, :福岡県, :佐賀県, :長崎県,
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/views/products/_show-table.haml:
+   34    %tr
+   35      %td 配送元地域
+   36:     %td=link_to "東京都", root_path
+   37    %tr
+   38      %td 発送日の目安
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/views/users/identification.html.haml:
+   74                  %option 山形県
+   75                  %option 福島県
+   76:                 %option 東京都
+   77                  %option 神奈川県
+   78                  %option 埼玉県
+   ..
+   93                  %option 大阪府
+   94                  %option 兵庫県
+   95:                 %option 京都府
+   96                  %option 滋賀県
+   97                  %option 奈良県
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/spec/factories/profiles.rb:
+    7      delv_last_name_kana        {'ジュンペイ'}
+    8      postal_code                {'123-4567'}
+    9:     prefecture                 {'東京都'}
+   10      city                       {'渋谷区神宮前'}
+   11      address                    {'4-3-2'}
+
+8 matches across 5 files
+
+
+
+Searching 1167 files for "京都"
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/models/prefecture.rb:
+    6        {id: 7, name: '福島県'}, {id: 8, name: '茨城県'}, {id: 9, name: '栃木県'},
+    7        {id: 10, name: '群馬県'}, {id: 11, name: '埼玉県'}, {id: 12, name: '千葉県'},
+    8:       {id: 13, name: '東京都'}, {id: 14, name: '神奈川県'}, {id: 15, name: '新潟県'},
+    9        {id: 16, name: '富山県'}, {id: 17, name: '石川県'}, {id: 18, name: '福井県'},
+   10        {id: 19, name: '山梨県'}, {id: 20, name: '長野県'}, {id: 21, name: '岐阜県'},
+   11        {id: 22, name: '静岡県'}, {id: 23, name: '愛知県'}, {id: 24, name: '三重県'},
+   12:       {id: 25, name: '滋賀県'}, {id: 26, name: '京都府'}, {id: 27, name: '大阪府'},
+   13        {id: 28, name: '兵庫県'}, {id: 29, name: '奈良県'}, {id: 30, name: '和歌山県'},
+   14        {id: 31, name: '鳥取県'}, {id: 32, name: '島根県'}, {id: 33, name: '岡山県'},
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/models/profile.rb:
+    5      :北海道, :青森県, :岩手県, :宮城県, :秋田県, :山形県,
+    6      :福島県, :茨城県, :栃木県, :群馬県, :埼玉県, :千葉県,
+    7:     :東京都, :神奈川県, :新潟県, :富山県, :石川県, :福井県,
+    8      :山梨県, :長野県, :岐阜県, :静岡県, :愛知県, :三重県,
+    9:     :滋賀県, :京都府, :大阪府, :兵庫県, :奈良県, :和歌山県,
+   10      :鳥取県, :島根県, :岡山県, :広島県, :山口県, :徳島県,
+   11      :香川県, :愛媛県, :高知県, :福岡県, :佐賀県, :長崎県,
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/views/products/_show-table.haml:
+   34    %tr
+   35      %td 配送元地域
+   36:     %td=link_to "東京都", root_path
+   37    %tr
+   38      %td 発送日の目安
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/views/users/identification.html.haml:
+   74                  %option 山形県
+   75                  %option 福島県
+   76:                 %option 東京都
+   77                  %option 神奈川県
+   78                  %option 埼玉県
+   ..
+   93                  %option 大阪府
+   94                  %option 兵庫県
+   95:                 %option 京都府
+   96                  %option 滋賀県
+   97                  %option 奈良県
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/spec/factories/profiles.rb:
+    7      delv_last_name_kana        {'ジュンペイ'}
+    8      postal_code                {'123-4567'}
+    9:     prefecture                 {'東京都'}
+   10      city                       {'渋谷区神宮前'}
+   11      address                    {'4-3-2'}
+
+8 matches across 5 files
+
+
+Searching 1189 files for "font_weight"
+
+0 matches
+
+Searching 1189 files for "font"
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/Gemfile:
+   66  gem 'haml-rails'
+   67  gem 'erb2haml'
+   68: gem 'font-awesome-rails'
+   69  gem 'pry-rails'
+   70  gem 'ancestry'
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/Gemfile.lock:
+   96        railties (>= 4.2.0)
+   97      ffi (1.10.0)
+   98:     font-awesome-rails (4.7.0.4)
+   99        railties (>= 3.2, < 6.0)
+  100      globalid (0.4.2)
+  ...
+  280    erb2haml
+  281    factory_bot_rails
+  282:   font-awesome-rails
+  283    haml-rails
+  284    jbuilder (~> 2.5)
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/assets/stylesheets/_footer.scss:
+   15        margin-top: 20px;
+   16        h2 {
+   17:         font-weight: bold;
+   18:         font-size: 20px;
+   19        }
+   20        p {
+   21:         font-size: 30px;
+   22          margin-bottom: 10px;
+   23        }
+   ..
+   80          }
+   81          h3 {
+   82:           font-weight: bold;
+   83            margin-bottom: 20px;
+   84          }
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/assets/stylesheets/_header.scss:
+   73          text-decoration: none;
+   74          color: #333;
+   75:         font-size: 14px;
+   76        }
+   77      }
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/assets/stylesheets/_identification.scss:
+    6      padding: 8px 24px;
+    7      h2{
+    8:       font-size: 24px;
+    9        line-height: 1.4;
+   10      }
+   ..
+   14  .text-center{
+   15    text-align: center;
+   16:   font-size: 14px;
+   17    margin: 0;
+   18  }
+   ..
+   22    .form-group{
+   23      label{
+   24:       font-weight: bold;
+   25      }
+   26      .input-default{
+   ..
+   39        width: 100%;
+   40        line-height: 48px;
+   41:       font-size: 14px;
+   42        transition: all ease-out .3s;
+   43        cursor: pointer;
+   ..
+   60      border-radius: 2px;
+   61      color: #fff;
+   62:     font-size: 12px;
+   63      vertical-align: top;
+   64    }
+   ..
+   69      border-radius: 2px;
+   70      color: #fff;
+   71:     font-size: 12px;
+   72      vertical-align: top;
+   73    }
+   74    &-info-text{
+   75      color: #888;
+   76:     font-size: 14px;
+   77    }
+   78    &-group{
+   ..
+   86              color: #0099e8;
+   87              text-decoration: none;
+   88:             font-size: 14px;
+   89            }
+   90        }
+   ..
+  108      right: 16px;
+  109      color: #888;
+  110:     font-size: 20px;
+  111    }
+  112  }
+  ...
+  122      border: 1px solid #ccc;
+  123      background: 0;
+  124:     font-size: 16px;
+  125      line-height: 1.5;
+  126      cursor: pointer;
+  ...
+  137        right: 16px;
+  138        color: #888;
+  139:       font-size: 20px;
+  140      }
+  141      select{
+  ...
+  164      width: 100%;
+  165      line-height: 48px;
+  166:     font-size: 14px;
+  167      transition: all ease-out .3s;
+  168      cursor: pointer;
+  ...
+  181      .l-chapter-head{
+  182        width: 650px;
+  183:       font-size: 24px;
+  184        padding: 8px 24px;
+  185        text-align: center;
+  ...
+  187      .l-chapter-bottom {
+  188        padding: 70px;
+  189:       font-size: 14px;
+  190:       // font-weight: bold;
+  191        .text-right{
+  192          text-align: right;
+  ...
+  195            position: absolute;
+  196            color: #0099e8;
+  197:           font-size: 20px;
+  198:           font-weight: bold;
+  199          }
+  200          a {
+  201            color: #0099e8;
+  202            text-decoration: none;
+  203:           font-size: 14px;
+  204          }
+  205        }
+  ...
+  235          background: white;
+  236          line-height: 1.5;
+  237:         font-size: 16px;
+  238        }
+  239      }
+  ...
+  249          border: 1px solid #ccc;
+  250          background: white;
+  251:         font-size: 16px;
+  252          line-height: 1.5;
+  253        }
+  ...
+  263          width: 100%;
+  264          line-height: 48px;
+  265:         font-size: 14px;
+  266          cursor: pointer;
+  267          text-align: center;
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/assets/stylesheets/_reset.scss:
+   68  th,
+   69  var {
+   70:     font-style:normal;
+   71:     font-weight:normal;
+   72  }
+   73
+   ..
+   87  h5,
+   88  h6 {
+   89:     font-size:100%;
+   90:     font-weight:normal;
+   91  }
+   92  q:before,
+   ..
+   97  acronym {
+   98      border:0;
+   99:     font-variant:normal;
+  100  }
+  101  /* to preserve line-height and selector appearance */
+  ...
+  109  textarea,
+  110  select {
+  111:     font-family:inherit;
+  112:     font-size:inherit;
+  113:     font-weight:inherit;
+  114  }
+  115  /*to enable resizing for IE*/
+  ...
+  117  textarea,
+  118  select {
+  119:     *font-size:100%;
+  120  }
+  121  /*because legend doesn't inherit in IE */
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/assets/stylesheets/_sign_out.scss:
+   11        background-color: #fff;
+   12        .content{
+   13:         font-size: 14px;
+   14:         font: 66.66667% sans-serif;
+   15          &__mypage{
+   16            border-bottom: solid 0.5px #eee;
+   ..
+   28              right: 10px;
+   29              color: #ccc;
+   30:             font-size: 20px;
+   31            }
+   32          }
+   ..
+   35    }
+   36    h3{
+   37:     font-size: 16px;
+   38      margin-top: 20px;
+   39:     font-weight: bold;
+   40    }
+   41    .sign-out {
+   ..
+   50        color: #fff;
+   51        text-align: center;
+   52:       font-size: 14px;
+   53        line-height: 48px;
+   54      }
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/assets/stylesheets/application.scss:
+   10  @import "footer";
+   11  @import "sell-form";
+   12: @import "font-awesome";
+   13  @import "sign_out";
+   14  @import "identification";
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/assets/stylesheets/sell-form.scss:
+   13      &__header {
+   14        text-align: center;
+   15:       font-weight: bold;
+   16:       font-size: 22px;
+   17        padding: 20px 0 20px;
+   18        border-bottom: 1px solid $bottom-color;
+   ..
+   23        box-sizing: border-box;
+   24        &__label {
+   25:         font-weight: bold;
+   26        }
+   27        &__require {
+   28:         font-weight: bold;
+   29          color: #fff;
+   30          background: #EA352D;
+   31          padding: 5px;
+   32          border-radius: 5px;
+   33:         font-size: 10px;
+   34          margin-left: 5px;
+   35        }
+   ..
+   80          margin-bottom: 20px;
+   81          &__label {
+   82:           font-weight: bold;
+   83          }
+   84          &__require {
+   85:           font-weight: bold;
+   86            color: #fff;
+   87            background: #EA352D;
+   88            padding: 5px;
+   89            border-radius: 5px;
+   90:           font-size: 10px;
+   91            margin-left: 5px;
+   92          }
+   93          &__optional {
+   94:           font-weight: bold;
+   95            color: #fff;
+   96            background: #cccccc;
+   97            padding: 5px;
+   98            border-radius: 5px;
+   99:           font-size: 10px;
+  100            margin-left: 5px;
+  101          }
+  ...
+  174              float: left;
+  175              &__label {
+  176:               font-weight: bold;
+  177              }
+  178              &__require {
+  179:               font-weight: bold;
+  180                color: #fff;
+  181                background: #EA352D;
+  182                padding: 5px;
+  183                border-radius: 5px;
+  184:               font-size: 10px;
+  185                margin-left: 5px;
+  186              }
+  ...
+  243            }
+  244          a {
+  245:           font-size: 10px;
+  246            color: black;
+  247            text-decoration: none;
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/assets/stylesheets/mixin/_mixin.scss:
+    1  @mixin register-form() {
+    2    display: block;
+    3:   font-size: 16px;
+    4    height: 50px;
+    5    width: 100%;
+    .
+   19    color: $color;
+   20    text-align: center;
+   21:   font-size: 14px;
+   22    border: none;
+   23  }
+   ..
+   29
+   30  @mixin label() {
+   31:   font-size: 14px;
+   32:   font-weight: bold;
+   33  }
+   34
+   ..
+   39    padding: 0 3px;
+   40    border-radius: 3px;
+   41:   font-size: 10px;
+   42    margin-left: 5px;
+   43  }
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/assets/stylesheets/payments/_index.scss:
+    6
+    7      h2{
+    8:       font-size:150%;
+    9:       font-weight: bold;
+   10        text-align: center;
+   11        padding:10px 0;
+   ..
+   27
+   28          p:nth-child(1){
+   29:           font-weight: bold;
+   30            margin-bottom: 15px;
+   31:           font-size: 17px;
+   32          }
+   33
+   ..
+   48            padding:1px 7px;
+   49            border-radius: 3px;
+   50:           font-size: 14px;
+   51          }
+   52        }
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/assets/stylesheets/products/_confirm_purchase.scss:
+   44
+   45          h2{
+   46:           font-size: 130%;
+   47:           font-weight: bold;
+   48
+   49            @media screen and (max-width:700px){
+   50:             font-size: 110%;
+   51            }
+   52          }
+   ..
+   68
+   69        .product-description{
+   70:           font-weight: bold;
+   71        }
+   72
+   ..
+   75
+   76          &__price{
+   77:           font-weight: bold;
+   78:           font-size: 160%;
+   79            letter-spacing: 1px;
+   80          }
+   81
+   82          &__shipping-fee{
+   83:          font-size: 85%;
+   84           margin-left:3px;
+   85          }
+   ..
+   91          padding:15px 0;
+   92          box-sizing:border-box;
+   93:         font-size: 90%;
+   94        }
+   95
+   96        .purchase-info{
+   97          margin: 10px 0 20px 0;
+   98:         font-weight: bold;
+   99          line-height: 50px;
+  100
+  101          .purchase-price-label{
+  102:           font-size: 160%;
+  103            float:left;
+  104
+  105            @media screen and (max-width:700px){
+  106:             font-size: 130%;
+  107            }
+  108          }
+  109
+  110          .purchase-price{
+  111:           font-size:180%;
+  112            float:right;
+  113
+  114            @media screen and (max-width:700px){
+  115:             font-size: 150%;
+  116            }
+  117          }
+  ...
+  124          color:$white;
+  125          padding:15px 0;
+  126:         font-weight: bold;
+  127          box-sizing:border-box;
+  128          cursor: pointer;
+  ...
+  131
+  132      &__shipping p:nth-child(1){
+  133:       font-weight: bold;
+  134      }
+  135
+  ...
+  137        text-align: left;
+  138        @extend .buy-container__main__mid;
+  139:       font-size:90%;
+  140
+  141          &__content{
+  ...
+  180      text-align: center;
+  181      margin:30px 0;
+  182:     font-size: 75%;
+  183
+  184      &__lists{
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/assets/stylesheets/products/_index.scss:
+    9  .pickup-head {
+   10    text-align: center;
+   11:   font-weight: bold;
+   12:   font-size: 24px;
+   13    margin-bottom: 20px;
+   14    }
+   ..
+   27      text-align: center;
+   28      display: block;
+   29:     font-weight: bold;
+   30:     font-size: 20px;
+   31      text-decoration: none;
+   32      color: #0399E8;
+   ..
+   68          }
+   69          &__price{
+   70:           font-weight: bold;
+   71:           font-size: 16px;
+   72          }
+   73          &__tax {
+   74:            font-size: 10px;
+   75          }
+   76         }
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/assets/stylesheets/products/_show.scss:
+   17
+   18    &__title{
+   19:     font-weight:bold;
+   20:     font-size: 130%;
+   21      text-align: center;
+   22      padding-bottom: 20px;
+   ..
+   74
+   75      .price{
+   76:       font-size: 270%;
+   77:       font-weight: bold;
+   78        letter-spacing: 2px;
+   79      }
+   80
+   81      .taxes{
+   82:       font-size: 70%;
+   83      }
+   84    }
+   ..
+   97      text-decoration: none;
+   98      text-align: center;
+   99:     font-size: 170%;
+  100:     font-weight: bold;
+  101      padding: 10px 0;
+  102    }
+  ...
+  104    &__description{
+  105      margin-top:50px;
+  106:     font-size:115%;
+  107    }
+  108
+  109    &__links{
+  110      margin-top:20px;
+  111:     font-size: 85%;
+  112
+  113      a{
+  ...
+  131
+  132      button{
+  133:       font-size: 90%;
+  134        border:none;
+  135        background-color: #eff1f2;
+  ...
+  154    float:left;
+  155    margin-left: 5%;
+  156:   font-size: 85%;
+  157    position:absolute;
+  158    top: 0;
+  ...
+  178
+  179      i{
+  180:       font-weight: bold !Important;
+  181      }
+  182    }
+  ...
+  191    &__warning{
+  192      background-color:#ffeedb;
+  193:     font-size: 85%;
+  194      padding:5px;
+  195    }
+  ...
+  208      border:none;
+  209      padding: 15px;
+  210:     font-size: 90%!Important;
+  211      background-color: grey;
+  212      margin-top:10px;
+  ...
+  278
+  279    &__title{
+  280:     font-size: 150%;
+  281:     font-weight: bold;
+  282      margin-top: 30px;
+  283
+  ...
+  318            }
+  319            .price{
+  320:             font-weight: bold;
+  321            }
+  322          }
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/assets/stylesheets/users/_registration_header.scss:
+    6      display: flex;
+    7      text-align: center;
+    8:     font-size: 12px;
+    9      padding-top: 40px;
+   10      color: $text-color-grey;
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/assets/stylesheets/users/_user_registration.scss:
+    5    .registration-nav {
+    6      border-bottom: solid 0.5px $border-color;
+    7:     font-weight: bold;
+    8:     font-size: 20px;
+    9      letter-spacing: 0.05em;
+   10      padding: 35px 0;
+   ..
+   12    }
+   13    .registration {
+   14:     font-size: 14px;
+   15      padding: 50px 180px;
+   16      &__email {
+   ..
+   20        .email-logo {
+   21          @include logo();
+   22:         font-size: 18px;
+   23        }
+   24      }
+   ..
+  103        margin-top: 5px;
+  104        &::placeholder {
+  105:         font-size: 14px;
+  106        }
+  107      }
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/assets/stylesheets/users/_user_session.scss:
+    6      border-bottom: solid 1px $border-color;
+    7      &__text {
+    8:       font-size: 14px;
+    9        margin-bottom: 5px;
+   10        text-align: center;
+   ..
+   37        .alert-message {
+   38          color: $require-red;
+   39:         font-size: 14px;
+   40        }
+   41        .session-field {
+   ..
+   59      .forgot-password {
+   60        text-decoration: none;
+   61:       font-size: 14px;
+   62        color: $skyBlue;
+   63      }
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/views/products/show.html.haml:
+   56          %p.show-page-comments__warning 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+   57          %input.show-page-comments__text{type:"textarea"}
+   58:         %input.show-page-comments__submit-btn{type: "submit", value: "コメントする", style: "font-size:20px"}
+   59
+   60      .page-navigator.group
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/public/404.html:
+    9      color: #2E2F30;
+   10      text-align: center;
+   11:     font-family: arial, sans-serif;
+   12      margin: 0;
+   13    }
+   ..
+   33
+   34    h1 {
+   35:     font-size: 100%;
+   36      color: #730E15;
+   37      line-height: 1.5em;
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/public/422.html:
+    9      color: #2E2F30;
+   10      text-align: center;
+   11:     font-family: arial, sans-serif;
+   12      margin: 0;
+   13    }
+   ..
+   33
+   34    h1 {
+   35:     font-size: 100%;
+   36      color: #730E15;
+   37      line-height: 1.5em;
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/public/500.html:
+    9      color: #2E2F30;
+   10      text-align: center;
+   11:     font-family: arial, sans-serif;
+   12      margin: 0;
+   13    }
+   ..
+   33
+   34    h1 {
+   35:     font-size: 100%;
+   36      color: #730E15;
+   37      line-height: 1.5em;
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/2x/2xT0Lr3zmTKHVggZMA5vStArZpwVg8MjFPHthJfnBfY.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/31/31Ne2YGUP0hztLyuHFRXWJUQEIWpHn2yJlDYtZqM-U4.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/3O/3OhHMwhf7cb7wS5pfQDcxLNsjBPGLK04yh4Reh_nWZw.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/5n/5nZywd2jRSTNCbKmg4zDOuGQ5KGpack5NJ0y6BQAdYI.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/61/619HITY3O1coUgsZWszzHpNMJcrsRNqQ3d_kbZnsXfs.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/7l/7lan5Q9lgfVLBLU6vBEMUWUXhkrAFjSncJaAY3n98rk.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/8l/8laOC3cHX_N2w5eljMUe2IE3WujhRM-u6Cr5ei3lc2U.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/__/__5VvmLs063uDXD2dV0ocH_6Z7bOM-HPtOa1o9lYfAM.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/_b/_bVxuhKLxZRrxafPbl2MHNZiBrPHNmsIjBmeJBKk-u8.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/AL/ALtPEEePRyqbKkwwK1VYlmWkYxoWr5KaHTUkbNwbKpg.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Fy/Fy13oBZSGwyfZUkjDmkVj0ZY4HjIdMVx9z6fpc3njK0.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/gg/GGjemAw2f4kf35sm7I7ByV48SwM70b4LRc9aG1-qkIE.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/gT/gT3UQF8nJheW-U6HM9hOTQPB9mArKRWETss1XsSUM5Y.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Hk/hKvAhHQlpcCE6w8fA8G-GaLadrZkzQfQZWRbuBStG7E.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/je/jeKwJHCMzkHL0Dh9OgPKLByfAnNDItlBVivE47N1-UQ.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/jI/jI0bB9LN5tC1VMocdHLDetQ8KlNGqiCVZVhG7QImbuc.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Ke/KeyN3kFK-sDLCs_KyTTAix3kdhOxX1fJnPyNUIpNIOQ.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/kF/kFjSCaCL8AAZj-r2GPnrKqGq_Y8HlUJuBGaICIFu7tY.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/lO/lOjmlsFjWJ4cZlyqF8NpWeqrbXJp_JmeNp6Wy6CZwb0.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/RY/RYpwBSMpZLg24NcgGLuTAwxbE2DpU6SkMaH2PxASG0g.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/sD/sDzBx25XpmeNiuw3hYkX77sEv9v4Ne55oiRw7x-ZsfA.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/sS/sSlRMvDun--Z2QUovf7HLLW18Ay2tRmeNeHQD0l3k4I.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/UQ/UQPwhjpo_9cbZl5dZQM2w2lGowslkztMbhBP6DmagpE.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/VO/VOXclCEFUdMAL3KEC60bfCqdanhGtHRaqD0ls7WxQUE.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/w6/w6Mb1z5BuN-w4SPO86-sMU2FXHKupF0U1lC3GZA5wLE.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/wN/wN64tAmxLgUaeUqxtI46ZMOJoRa3FFV0KpgfXMGN6sA.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Zy/Zyr57c-2Hcd_mUs0JJKfG_dJDvAdp1oq2PMTva12dqE.cache:
+    <binary>
+
+655 matches across 48 files
+
+
+Searching 1189 files for "//"
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/.gitignore:
+    1: # See https://help.github.com/articles/ignoring-files for more about ignoring files.
+    2  #
+    3  # If you find yourself ignoring temporary files generated by your text editor
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/Capfile:
+   20  # For documentation on these, see for example:
+   21  #
+   22: #   https://github.com/capistrano/rvm
+   23: #   https://github.com/capistrano/rbenv
+   24: #   https://github.com/capistrano/chruby
+   25: #   https://github.com/capistrano/bundler
+   26: #   https://github.com/capistrano/rails
+   27: #   https://github.com/capistrano/passenger
+   28
+   29  require "capistrano/setup"
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/Gemfile:
+    1: source 'https://rubygems.org'
+    2
+    3  git_source(:github) do |repo_name|
+    4    repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+    5:   "https://github.com/#{repo_name}.git"
+    6  end
+    7
+    .
+   19  # Use CoffeeScript for .coffee assets and views
+   20  gem 'coffee-rails', '~> 4.2'
+   21: # See https://github.com/rails/execjs#readme for more supported runtimes
+   22  # gem 'therubyracer', platforms: :ruby
+   23
+   24  # Use jquery as the JavaScript library
+   25  gem 'jquery-rails'
+   26: # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+   27  gem 'turbolinks', '~> 5'
+   28: # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+   29  gem 'jbuilder', '~> 2.5'
+   30  # Use Redis adapter to run Action Cable in production
+   ..
+   52    gem 'web-console', '>= 3.3.0'
+   53    gem 'listen', '~> 3.0.5'
+   54:   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+   55    gem 'spring'
+   56    gem 'spring-watcher-listen', '~> 2.0.0'
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/Gemfile.lock:
+    1  GEM
+    2:   remote: https://rubygems.org/
+    3    specs:
+    4      actioncable (5.0.7.1)
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/assets/config/manifest.js:
+    1: //= link_tree ../images
+    2: //= link_directory ../javascripts .js
+    3: //= link_directory ../stylesheets .css
+    4
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/assets/javascripts/application.js:
+    1: // This is a manifest file that'll be compiled into application.js, which will include all the files
+    2: // listed below.
+    3: //
+    4: // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
+    5: // or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
+    6: //
+    7: // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+    8: // compiled file. JavaScript code in this file should be added after the last require_* statement.
+    9: //
+   10: // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
+   11: // about supported directives.
+   12: //
+   13: //= require jquery
+   14: //= require jquery_ujs
+   15: //= require turbolinks
+   16: //= require_tree .
+   17
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/assets/javascripts/cable.js:
+    1: // Action Cable provides the framework to deal with WebSockets in Rails.
+    2: // You can generate new channels where WebSocket features live using the rails generate channel command.
+    3: //
+    4: //= require action_cable
+    5: //= require_self
+    6: //= require_tree ./channels
+    7
+    8  (function() {
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/assets/javascripts/sell_form.js:
+   22      $.ajax({
+   23        type: 'GET',
+   24:       url: 'http://localhost:3000/categories/new',
+   25        data: {category_id: category_id},
+   26        dateType: 'json'
+   ..
+   43      $.ajax({
+   44        type: 'GET',
+   45:       url: 'http://localhost:3000/categories/new',
+   46        data: {category_id: category_id},
+   47        dateType: 'json'
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/assets/stylesheets/_footer.scss:
+    1  .banner {
+    2    width: 100%;
+    3:   background-image: url(http://cly7796.net/wp/wp-content/uploads/2017/07/implement-background-loop-animation-with-css-250x188.jpg);
+    4    .banner-container {
+    5      &:after {
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/assets/stylesheets/_identification.scss:
+  206      .setting-profile-icon{
+  207        padding: 72px 16px 24px;
+  208:       background-image: url("https://uploader.xzy.pw/upload/20181217124455_f5ddef44_6666747176.png");
+  209        background-size: cover;
+  210        text-align: center;
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/assets/stylesheets/_reset.scss:
+    1  /*!
+    2:  * YUI 3.5.0 - reset.css (http://developer.yahoo.com/yui/3/cssreset/)
+    3:  * http://cssreset.com
+    4   * Copyright 2012 Yahoo! Inc. All rights reserved.
+    5:  * http://yuilibrary.com/license/
+    6   */
+    7  /*
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/assets/stylesheets/products/_show.scss:
+  216  }
+  217
+  218: //前後のアイテムに移動するリンク
+  219  .page-navigator{
+  220
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/views/layouts/_footer.html.haml:
+   11              = image_tag('mercari_icon.png')
+   12            %li
+   13:             = link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8" do
+   14                = image_tag('applestore.png')
+   15            %li
+   16:             = link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja" do
+   17                = image_tag('googleplay')
+   18      .banner-container-right
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/views/products/new.html.haml:
+    1  .sell-form-wrapper
+    2    %h1.sell-form-wrapper__header-logo
+    3:     = link_to 'https://www.mercari.com/jp/' do
+    4        = image_tag('mercari_logo_horizontal.png', size: "200x100")
+    5    = form_for @product, html: {class: "sell-form dropzone", id: "item-dropzone"} do |f|
+    .
+  139            = link_to '特定商品取引に関する表記', "#"
+  140
+  141:     = link_to 'メルカリ', "https://www.mercari.com/jp/"
+  142      .p
+  143        2019 merukari
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/app/views/users/identification.html.haml:
+    7          本人情報の登録
+    8        .l-chapter-bottom
+    9:         %form.l-single-inner{action: "https://www.mercari.com/jp/mypage/identification/save/", method: "POST", novalidate:  ""}
+   10            %div
+   11              %p
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/config/cable.yml:
+    7  production:
+    8    adapter: redis
+    9:   url: redis://localhost:6379/1
+   10
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/config/database.yml:
+    8  #
+    9  # And be sure to use new-style password hashing:
+   10: #   http://dev.mysql.com/doc/refman/5.7/en/old-client.html
+   11  #
+   12  default: &default
+   ..
+   34  #
+   35  # Instead, provide the password as a unix environment variable when you boot
+   36: # the app. Read http://guides.rubyonrails.org/configuring.html#configuring-a-database
+   37  # for a full rundown on how to provide these environment variables in a
+   38  # production deployment.
+   ..
+   41  # available as an environment variable. For example:
+   42  #
+   43: #   DATABASE_URL="mysql2://myuser:mypass@localhost/somedatabase"
+   44  #
+   45  # You can use this database configuration with:
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/config/deploy/production.rb:
+   29  # These variables are then only loaded and set in this stage.
+   30  # For available Capistrano configuration variables see the documentation page.
+   31: # http://capistranorb.com/documentation/getting-started/configuration/
+   32  # Feel free to add new variables to customise your setup.
+   33
+   ..
+   38  # You may pass any option but keep in mind that net/ssh understands a
+   39  # limited set of options, consult the Net::SSH documentation.
+   40: # http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-c-start
+   41  #
+   42  # Global options
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/config/deploy/staging.rb:
+   29  # These variables are then only loaded and set in this stage.
+   30  # For available Capistrano configuration variables see the documentation page.
+   31: # http://capistranorb.com/documentation/getting-started/configuration/
+   32  # Feel free to add new variables to customise your setup.
+   33
+   ..
+   38  # You may pass any option but keep in mind that net/ssh understands a
+   39  # limited set of options, consult the Net::SSH documentation.
+   40: # http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-c-start
+   41  #
+   42  # Global options
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/config/environments/production.rb:
+   29
+   30    # Enable serving of images, stylesheets, and JavaScripts from an asset server.
+   31:   # config.action_controller.asset_host = 'http://assets.example.com'
+   32
+   33    # Specifies the header that your server uses for sending files.
+   ..
+   37    # Mount Action Cable outside main process or domain
+   38    # config.action_cable.mount_path = nil
+   39:   # config.action_cable.url = 'wss://example.com/cable'
+   40:   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
+   41
+   42    # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/config/locales/devise.en.yml:
+    1: # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+    2
+    3  en:
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/config/locales/en.yml:
+   18  #
+   19  # To learn more, please read the Rails Internationalization guide
+   20: # available at http://guides.rubyonrails.org/i18n.html.
+   21
+   22  en:
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/log/development.log:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/public/robots.txt:
+    1: # See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+    2  #
+    3  # To ban all spiders from the entire site uncomment the next two lines:
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/spec/rails_helper.rb:
+   49    #
+   50    # The different available types are documented in the features, such as in
+   51:   # https://relishapp.com/rspec/rspec-rails/docs
+   52    config.infer_spec_type_from_file_location!
+   53    # Filter lines from Rails gems in backtraces.
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/spec/spec_helper.rb:
+   13  # it.
+   14  #
+   15: # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+   16  RSpec.configure do |config|
+   17    # rspec-expectations config goes here. You can use an alternate
+   ..
+   61    # Limits the available syntax to the non-monkey patched syntax that is
+   62    # recommended. For more details, see:
+   63:   #   - http://rspec.info/blog/2012/06/rspecs-new-expectation-syntax/
+   64:   #   - http://www.teaisaweso.me/blog/2013/05/27/rspecs-new-message-expectation-syntax/
+   65:   #   - http://rspec.info/blog/2014/05/notable-changes-in-rspec-3/#zero-monkey-patching-mode
+   66    config.disable_monkey_patching!
+   67
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/-n/-nlrczIq8AgnFxgrFbLdD_8oofwH2KxQxriVzLg81xA.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/0Y/0YExC4-eMywJtUsq3yg6kgv6uTASUNDE7eE3pvrpAig.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/2x/2xT0Lr3zmTKHVggZMA5vStArZpwVg8MjFPHthJfnBfY.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/31/31Ne2YGUP0hztLyuHFRXWJUQEIWpHn2yJlDYtZqM-U4.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/43/43OgmZX7WdXAWWtjPM0iZBKdCLjQm5DvCwiom7uNqWc.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/46/46T8aF4aHX6ESfyoF0V_YcUhCnpkB0JX9t1fqaKupHg.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/57/57x5pJ3-T0YiVWMFN40r9eF0XuGLnNQtZb3X8rSeDcU.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/5f/5fFSE3USd5hm3bB5qY5m86xMGQ6kOKENWTmFNTZz7vU.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/5k/5kFD9X_NP22F3CUpIdwii8-YSfSU5xcaFe5m_agTKwM.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/5n/5nZywd2jRSTNCbKmg4zDOuGQ5KGpack5NJ0y6BQAdYI.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/5P/5PsR06uMOvv2IrUjATGr2lTfulByLmjfzrdAFdpd_N8.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/5T/5TIieyseVdhtT_ChNBoGjFGJ_oyqxiQv3SfUSE0GFvo.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/6F/6FjEg3Ifh_4RwG42B0_SOLs46j8aAZRJZ_-Wj84R6js.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/6j/6jyZXQoL2yZHCRPpmKKM6KxtUixWMiRZXFdj5wCrlK0.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/7l/7lan5Q9lgfVLBLU6vBEMUWUXhkrAFjSncJaAY3n98rk.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/84/84v2yiCjdOM4hO7_oUP5v86wdEId4e2Pscjvr10URPM.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/88/88rLBm1OlkksCLLgXi-qZ-Cz944Eoz18W_kMlWi9P2E.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/8D/8DcVfk93Zj30AA6QCBeyZ9zsvQSsYrmsQ0VMPkHcmhQ.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/8f/8fmMNFwHCppxySCM4W-ot_imzGbBivgF8-5vP44ROPc.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/8l/8laOC3cHX_N2w5eljMUe2IE3WujhRM-u6Cr5ei3lc2U.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/8o/8oMxOyh0kTV_X-g1AoCQA_hwDWWoL1wCFuLwFx__GRw.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/9l/9lUj1_fAru_R01E0biE4HhXxiAlJZv1wn2Uhzuh3nnE.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/_b/_bVxuhKLxZRrxafPbl2MHNZiBrPHNmsIjBmeJBKk-u8.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/_j/_jCVL1PDTGwMHyW6Qa7_aZccPAmbPShXYgiTqQniPgk.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/_v/_vKyB2PB9H9TCGv4WhtS6XeOe0XtPhEp-QSijTunVpY.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/A9/A9-VBoaimn4lELV2kfdFTGZv6PgqGbTJo8uU8qQBUHo.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/AA/AAXFIsCIMnuuU4XUH5HP8LoeP-Fb2KlmmtdZN9ivGxg.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/aI/aIiA7omkatH-4rAeB6ycyfp02rZPrBfpbYWz21Q04Cg.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/AL/ALtPEEePRyqbKkwwK1VYlmWkYxoWr5KaHTUkbNwbKpg.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/As/AspSedTLCFi2QQe1MvtcNbLXqzeKys4wNGFYFn0ZWS0.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Az/AzxTdRoSeSeHIvsdEvlz368wBD4Q6v2IV50rmgvgYUc.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/ba/baEh-T8hS30bT1qjB9eXoQJP60oHA8j1qz86K3o8-Vg.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/bH/bh8JiLeafM6QlBd5LteY4LRboV1Vc_T8HgzfUWmd6fE.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/bq/bqqQkiteuVmU6ro2iQEK1w0u76npsJUo3E1m0rLcVDA.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/c1/c10NS0NopZwMtxIXaLKdpR6rJ_3dg_OBUrskZ24V2C0.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/C2/C26wh4cQK4EwhxyFGRSpJj_ZJ4NEsCjWX9_Zn3oSPao.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/c9/c9_BEK65b1bl8degH5URAdKkMowWwajcZ3L5DEVdicU.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/CZ/CZmr5YJRx3wkrbB-FcLa4RXn0Pf6QyI4C18YrYh__Ww.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/D4/D4nizBBfz6X85ORxmol1yo7DGmk5dNC2FIzJ99-NN-4.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Db/dbJ9kAYxmJiKIV-djuMa2lzasZmsIZNYFWOAFUaZBX4.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Db/DbWo5Szj1uz8G0ybA8L3rlpwAczKyqEg-QnRIwk65I4.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/dc/dCwBt68Vbvj6ELSsOVsqYlUm0mByzjJPKVdr1ooZgQU.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Dm/DmJSnLLB9Leb3-q8p9YIsvT6kXy2jzw5uR-C9X12LX8.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/eD/eDnijeuaHQgZxkT8rFNp5fmuIdnRu8OsF69kDW7dsCo.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/EE/EE-Bn3jB2gJhnyQbHNICR2R5BzWJjefEhNKbUjNhIHs.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/eY/eYSmPek-NlOODmPD_2v78sWUIZeQD5M6bx0XzWynuVg.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Fy/Fy13oBZSGwyfZUkjDmkVj0ZY4HjIdMVx9z6fpc3njK0.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/gg/ggIlyP8KeyODZmCWm16XPxZTOjjlVWeVkBx_TnVzxAc.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Gr/GRLAQgvv3v4a0yP3cs5O6UNmbzd6StYjkWaAT4tGe2U.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/gs/gsQN91hPyBcpBYgM8FOxYldwDPHrDIWX4qtf6cxP2u8.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/gT/gT3UQF8nJheW-U6HM9hOTQPB9mArKRWETss1XsSUM5Y.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/H1/h1BROxPCVHPwcYxK1_ukeqWxxVcwQn028hZZmGs0A8g.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Hf/HfjBEYlZFLVvMYqyA2rcBW8NASy96ymSV2bFPjoaw_o.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/HH/hH0-15oizcr8tF-VcK7TRo3jTVjp1R4Sib3FQVfSHgA.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Hk/hKvAhHQlpcCE6w8fA8G-GaLadrZkzQfQZWRbuBStG7E.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Ho/Hog1kk_zJE2Lxv3-dAjsSwbaY8Tw4Iq_zz032d4sVmU.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/hz/hz-gDc55D38zsJeJ7BNNkAT5QO8ATayAdVC7SrKLMEE.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/i_/I_AZ4wq3gaKamNLXY5ZQdXrZCOlpQcmFEEUaF2_KOcg.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/ie/iePJX9SClzDkvPuGjkNgs1IxTKDCX57cRX_mv4wacIY.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/JA/JAGB4Lm66WKvuCpfuExmOgdYXt63Jb6um7b8SmRgVAU.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/JC/JCJ5aFUgKaiPIH_ilapE_JoTtA_62rrxu5EJVB7jxos.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/je/jeKwJHCMzkHL0Dh9OgPKLByfAnNDItlBVivE47N1-UQ.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/jI/jI0bB9LN5tC1VMocdHLDetQ8KlNGqiCVZVhG7QImbuc.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/jJ/jJoWW12Tw1lUIVfWN55C0KNp778MisvH_WtuoufgOqU.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/jP/Jp1JEKscDEKA3GM-Ky34VICbVFvce528vcqD0Jfp-BM.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/jR/jRZPO0tXQM3QBVeTD6Aa_289IbV_UgA26mBCETA40Go.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Ke/KeyN3kFK-sDLCs_KyTTAix3kdhOxX1fJnPyNUIpNIOQ.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/kF/kFjSCaCL8AAZj-r2GPnrKqGq_Y8HlUJuBGaICIFu7tY.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Ki/Ki4TixO57Q97fdGFIR7aB7s3xX6F1TH4sYEerih_OWg.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/ln/lntND94nxgPTi4GlX59ezWTNd5RNjazIMbdq7Cv6x9I.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/lO/lOjmlsFjWJ4cZlyqF8NpWeqrbXJp_JmeNp6Wy6CZwb0.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Mm/Mm73PGFFtjh6-J6BR71dvuCHxpLg5X1gBddPf4MS9L4.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Mq/MqGrAUIhgHXlErFpDJfyofgrDbKgnCylDLYRSCKKCSo.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/mw/mwqhlTzU3kaJuRiJFBi8znVvy3hasH1Pqs_iYbGOWng.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/N5/N5m6EuAJ6n2BjzkGpJRCx6XF5EvstI_v2MdVl2XfMgk.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/nb/nbqyrCTsZtd81DjWOaKwtpjaiCF1TB6g-6Tp5mcuKz4.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/nY/Ny0RBavK3y-Hnp7hLAAC5Eu9EMIM3hMFuwzps4MxUw8.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/ou/OU9Kf1nnTCFrWddwe5dkVDKMdcImhdNUtRkhD41MQhA.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/pL/pLgrYr2A9-vPF5pl2F0x_XGYzBZ0Xul98Uo7Jt9lfmo.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/pV/pVwCxQ7TH7FxpTQn2xVnQZxCDetY2WJ8f2dg3Sycnmw.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/QC/QCSV3OjDnNAb4KOneiaBxOPBTobETC8INOskaEbCFr0.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Ql/QlE4dsXbi8KkGhPfX5ItCFbcpXJcbNfeeeFEWK4a_LE.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/qs/qssd-44YNW4x-dEk5HD7X-5KhTkh35CvJ9si9J4MJfU.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/QX/Qx38TM6IFVMgHq_tQQwYR5Eceq3CSV6Wm3TOLscFcOI.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/rK/rKNg_7gsetF6jiqMFNRHPoq2RBEU48-vbFiRH2bVWvw.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/RY/RYpwBSMpZLg24NcgGLuTAwxbE2DpU6SkMaH2PxASG0g.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/s9/s9NgdOKciWdR2R_KVbrU8l6BrghuFGdoe5-1CJMFKhI.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/SK/SkAOxnyWUFj2G2K_WEuSlF4eOeyBi2IViq6W1zcdu18.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/sL/SL_iPqQkwkS3q-DziNnvwDCgE2sSBxcqxLHVHu5MW84.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/td/tdW34yc4NIKziOAIRTbB-6UB7d0NVijESxjFQhKHoVk.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Uk/Uk6vfvD95Jto9t8iuo-SS1Kdoi4pR4o4c4K4Bfp2uwM.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Uk/uK9CGqQsm8HO325AqqZIUwPADLjsCko0hy-NilQiw4w.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/UQ/UQPwhjpo_9cbZl5dZQM2w2lGowslkztMbhBP6DmagpE.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/VM/VMHE0QgmSeKmftCezkhRNXCDEc1yAsH0KHNzhnGIZz8.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/VO/VOXclCEFUdMAL3KEC60bfCqdanhGtHRaqD0ls7WxQUE.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Vr/VrcLlIwUfe-9yoeTSx6RDNMv9ytuI5hBN8CGjr0bf8Y.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/w6/w6Mb1z5BuN-w4SPO86-sMU2FXHKupF0U1lC3GZA5wLE.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/wE/wE2tuKXvJgl0ACiXbLORL0q7PABprC82J6ws2DSmE5o.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/wm/wmnV9iU9AssCPi3kxluA4X6o8vLFiCyCDreOHa4M8ss.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/wN/wN64tAmxLgUaeUqxtI46ZMOJoRa3FFV0KpgfXMGN6sA.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/X1/X1Xs5ZUHFHRMR7mlYB6IlANkWH2ieuQ2PJzgSypRAaw.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/x7/x7IXs7E0PBjNJ4wFBnmnBr1vwnIb8K_07eMTNFUodJ8.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Xb/xb2PUR0PkY-hIV5p4uXJ9w8l9KAW3kIfBk2fR7HonY8.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/XD/XDEchTkcYRHH7uBGCkFZhou-2y6RRVKF64BALL__aVA.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/xH/XHVU47i9sUM7uUF0s2cpPYwzAEEwfTq21WPD3Woqf4k.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/XO/XOQaui5pV82mLFg3WPXJp5bWde0KQTtuMUrXL63bhWY.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/xt/xtZktB_TJDhi5MNuytkA9ErR0AhNqjMrcz5SyNg9Hrk.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Xz/XzWMIAkz1LSpv55YUrWuZ-qb-SCNsEUg7D3bLbDfvXM.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Ya/yAHcJQQqvZ7_3o1fCJvnyF21y_zg-uZ4bhLRoBQAYy4.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Yl/YlGYJQccsKBLOPSqgeCKxGZi0O3J21mkZ5va21AgxCs.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/YQ/YQ2MLBGy1rfO6bjup_7akwQUG642HLSbX-2oa6OdiIY.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/ZE/ZEb4oLnybjBiHzhPefsHxJJpOd5v6agCSlVXWjhLWmo.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/ZH/ZHLF5SmVjWPRbP101yh3QUKKgMPUdP6sME3fo3Lu6Gc.cache:
+    <binary>
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/tmp/cache/assets/sprockets/v3.0/Zy/Zyr57c-2Hcd_mUs0JJKfG_dJDvAdp1oq2PMTva12dqE.cache:
+    <binary>
+
+603 matches across 140 files
+
+
+Searching 1189 files for "  get '/users/mypage/identification' => 'users#identification'
+"
+
+/Users/masashimiyagaki/projects/freemarket_sample_45d/config/routes.rb:
+    3
+    4    root 'products#index'
+    5:   get '/users/mypage/identification' => 'users#identification'
+    6:   resources :users, only: :index
+    7    resources :users, only: :index do
+    8      resources :payments, path: 'credit_cards', only:[:index, :destroy], shallow:true do
+
+1 match in 1 file
