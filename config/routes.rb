@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     end
   end
   resources :profiles, only: [:new, :create]
-  resources :products, only: [:new, :show, :index, :create] do
   resources :products, only: [:new, :create, :show, :index] do
     get 'confirm_purchase', on: :member
   end

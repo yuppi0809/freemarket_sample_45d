@@ -5,7 +5,7 @@ class CreateProfiles < ActiveRecord::Migration[5.0]
       t.integer    :prefecture,           null: false
       t.string     :city,                 null: false
       t.string     :address,              null: false
-      t.integer    :postal_code,          null: false
+      t.string     :postal_code,          null: false
       t.string     :building_name
       t.string     :telephone_num
       t.string     :delv_first_name,      null: false
