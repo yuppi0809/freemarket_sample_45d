@@ -33,11 +33,11 @@
             %i.fa.fa-heart-o
             %span いいね！
             %span 1
-          =link_to root_path, class: "link report" do
+          %button.link.report
             %i.fa.fa-flag-o
             %span 不適切な商品の報告
         .item-container__links__right
-          =link_to root_path, class: "link safety" do
+          =link_to "#", class: "link safety" do
             %i.fa.fa-lock
             %span あんしん・安全への取り組み
 
@@ -99,3 +99,14 @@
                       %i.fa.fa-heart-o
                       %span 1
 = render 'layouts/footer'
+
+.modal.hidden
+  .modal__window.hidden
+    .modal__window__top
+      %p 確認
+      %p 不適切な商品を報告しますか
+    .modal__window__bottom.group
+      .left
+        キャンセル
+      .right
+        報告
