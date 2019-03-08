@@ -46,6 +46,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'faker'
 end
 
 group :development do
@@ -74,4 +75,3 @@ gem 'carrierwave'
 gem 'devise'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'fog-aws'
-gem 'faker'
