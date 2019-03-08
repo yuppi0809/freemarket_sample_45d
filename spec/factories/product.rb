@@ -10,5 +10,8 @@ FactoryBot.define do
     lead_time            {'1~2日で発送'}
     price                {'300'}
     transaction_status   {'出品中'}
+
+    user
+    category
   end
 end
