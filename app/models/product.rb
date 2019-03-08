@@ -23,5 +23,4 @@ class Product < ActiveRecord::Base
   validates :lead_time, presence: true
   validates :price, presence: true
   validates :transaction_status, presence: true
-  validates :category_id, presence: true
 end
