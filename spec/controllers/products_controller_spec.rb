@@ -7,14 +7,14 @@ describe ProductsController do
       expect(response).to render_template :index
     end
     it "assigns the requested categories to @categories" do
-      categories = create_list(:category, 3)
+      create_list(:category, 7)
       get :index
-      expect(assigns(:categories)).to match(categories)
+      expect(assigns(:categories).size).to eq 3
     end
     it "assigns the requested categories to @brands" do
-       brands = create_list(:brand, 4)
+       create_list(:brand, 7)
        get :index
-       expect(assigns(:brands)).to match(brands)
+       expect(assigns(:brands).size).to eq 4
     end
   end
 end
