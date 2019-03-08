@@ -17,7 +17,15 @@
           %li
             = link_to "ブランドから探す", "#", id: "header-brand-button"
         %ul.header-bottom__nav--right
-          %li
-            = link_to "ログイン", new_user_session_path, class: "header-login-button"
-          %li
-            = link_to "新規会員登録", new_user_path, class: "header-signup-button"
+          - unless user_signed_in?
+            %li
+              = link_to "ログイン", new_user_session_path, class: "header-login-button"
+            %li
+              = link_to "新規会員登録", new_user_path, class: "header-signup-button"
+          - else
+            %li
+              = link_to "マイページ", "#"
+            %li
+              = link_to "お知らせ", "#"
+            %li
+              = link_to "やることリスト", "#"
