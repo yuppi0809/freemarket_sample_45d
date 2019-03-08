@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
 
   var slideContainer = $(".slides-container")
   var slides = $(".my-slides");
