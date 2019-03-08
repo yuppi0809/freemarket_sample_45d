@@ -5,3 +5,7 @@ $(document).on('turbolinks:load', function(){
 
   var cancelButton = $(".modal__window__bottom").find(".left")
 
+  modalButton.on("click", function(){
+    modal.css("display", "block");
+  });
+
