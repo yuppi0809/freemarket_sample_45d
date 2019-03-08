@@ -1,5 +1,8 @@
 class Product < ActiveRecord::Base
-  belongs_to :category, optional: true
+  belongs_to :first_category, class_name: 'Category', foreign_key: "first_category_id"
+  belongs_to :second_category, class_name: 'Category', foreign_key: 'second_category_id'
+  belongs_to :third_category, class_name: 'Category', foreign_key: 'third_category_id'
+  belongs_to :brand, optional: true
   has_many :product_images
   accepts_nested_attributes_for :product_images
 
