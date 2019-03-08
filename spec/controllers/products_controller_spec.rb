@@ -50,3 +50,17 @@ describe ProductsController, type: :controller do
       end
     end
 
+    context "test @category_products" do
+      it "does not include the record with the same id as params[:id]" do
+        get :show, params: {id: product}
+        expect(assigns(:category_products)).not_to include product
+      end
+
+      it "can only have up to 6 records" do
+        category_products = create_list(:product, 7, category: category)
+        get :show, params: {id: product}
+        expect(assigns(:category_products).size).to eq 6
+      end
+    end
+  end
+end
