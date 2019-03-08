@@ -3,14 +3,13 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
      @product.product_images.build
-    render layout: 'sell-form'
   end
 
   def show
     @product = Product.find(params[:id])
-    @products = @product.user.products
     @images = @product.product_images.limit(4)
-    @products = @product.user.products.includes(:product_images)
+    @products = @product.user.products.where.not(id: params[:id]).limit(6)
+    @category_products = Product.where(category_id: @product.category).where.not(id: params[:id]).limit(6)
     @prev_item = @product.showPrevItem if @product.checkPrevItem
     @next_item = @product.showNextItem if @product.checkNextItem
   end
@@ -20,7 +19,6 @@ class ProductsController < ApplicationController
 
   def create
     product = Product.create(product_parameter)
-    binding.pry
     redirect_to root_path
   end
 
