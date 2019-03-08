@@ -39,7 +39,7 @@
               必須
           .select-wrapper-all
             .select-wrapper
-              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "---"}, { class: "select-wrapper__select", id: "large_category"}
+              = f.collection_select :first_category_id, Category.where(ancestry: nil), :id, :name, {prompt: "---"}, { class: "select-wrapper__select", id: "large_category"}
               = fa_icon 'chevron-down', class: "select-wrapper__icon"
         .form-group#size
           %label.form-group__label
