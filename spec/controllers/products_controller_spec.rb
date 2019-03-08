@@ -15,3 +15,9 @@ describe ProductsController, type: :controller do
         it "renders the :show template" do
           expect(response).to render_template :show
         end
+
+        it "assigns the requested product to @product" do
+          expect(assigns(:product)).to eq product
+        end
+      end
+
