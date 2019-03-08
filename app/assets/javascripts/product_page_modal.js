@@ -9,3 +9,14 @@ $(document).on('turbolinks:load', function(){
     modal.css("display", "block");
   });
 
+  cancelButton.on("click", function(){
+    modal.css("display", "none");
+  })
+
+ $(window).on("click", function(event){
+  console.log($(event.target))
+    if(event.target == modal[0]){
+      modal.css("display", "none");
+      }
+    });
+});
