@@ -12,7 +12,11 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.integer      :local, null: false
       t.integer      :lead_time, null: false
       t.string       :brand
-      t.references   :category, foreign_key: true
+      t.references   :user, foreign_key: true
+      t.integer      :first_category_id
+      t.integer      :second_category_id
+      t.integer      :third_category_id
+      t.integer      :brand_id
       t.timestamps
     end
   end

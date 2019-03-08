@@ -1,0 +1,11 @@
+= link_to "#", class: "item" do
+  - if product.product_images.present?
+    = image_tag(product.product_images.first.image.url)
+  .product-info
+    .product-info__name
+      = product.name
+    .product-info__price
+      ￥
+      = product.price
+    .product-info__tax
+      (税込)
