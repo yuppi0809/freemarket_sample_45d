@@ -3,15 +3,11 @@
   .pickup-products-container
     %h2.pickup-head
       ピックアップカテゴリー
-    = render "category"
-    = render "category"
-    = render "category"
+    = render partial: "category", collection: @categories, as: 'category'
 
   .pickup-products-container
     %h2.pickup-head
       ピックアップブランド
-    = render "category"
-    = render "category"
-    = render "category"
+    = render partial: "category", collection: @brands, as: 'brand'
 = render 'layouts/footer'
 
