@@ -21,3 +21,18 @@ describe ProductsController, type: :controller do
         end
       end
 
+    context "test @images" do
+      it "only assigns the images of the product with params[:id]" do
+        product2 = create(:product)
+        create_list(:product_image, 2, product: product2)
+        images = create_list(:product_image, 2, product: product)
+        get :show, params: {id: product}
+        expect(assigns(:images)).to eq images
+      end
+
+      it "can only have up to 4 images" do
+        images = create_list(:product_image, 7, product: product)
+        get :show, params: {id: product}
+        expect(assigns(:images).size).to eq 4
+      end
+    end
