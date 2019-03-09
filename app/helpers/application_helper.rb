@@ -29,6 +29,20 @@ module ApplicationHelper
   def mypage_elements_setting
     elements = ["プロフィール", "発送元・お届け先住所変更", "支払い方法", "メール/パスワード", "本人情報", "電話番号の確認", "ログアウト"]
   end
+
+  def registration_steps
+    steps = [
+      {name: '会員情報', class: 'registration-step__user-info'},
+      {name: '電話番号認証', class: 'registration-step__verify'},
+      {name: 'お届け先住所入力', class: 'registration-step__delivery'},
+      {name: '支払い方法', class: 'registration-step__payment'},
+      {name: '完了', class: 'registration-step__done'}
+    ]
+  end
+
+  def get_status
+    return '--complete' if controller.action_name == 'complete'
+  end
 end
 
 

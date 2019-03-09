@@ -116,5 +116,13 @@
       background-color: $btn-red;
       margin-top: 20px;
     }
+    &__complete {
+      text-align: center;
+    }
+    &__complete-btn {
+      @include btn($color: $white);
+      background-color: $btn-red;
+      margin: 40px 0;
+    }
   }
 }
