@@ -1,0 +1,11 @@
+= render 'registration_header'
+.registration-wrapper
+  .registration-nav
+    会員登録完了
+  .registration
+    .registration__complete
+      ありがとうございます。
+      %br
+      会員登録が完了しました。
+    = link_to 'メルカリをはじめる', root_path, class: 'registration__complete-btn'
+= render 'products/buy-footer'
