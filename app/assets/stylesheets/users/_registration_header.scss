@@ -36,5 +36,20 @@
         @include step-line();
       }
     }
+    &--complete {
+      @extend .registration-step;
+      i {
+        color: $require-red;
+      }
+      .step-line {
+        background-color: $require-red;
+      }
+      .registration-step__user-info p {
+        color: $text-color-grey;
+      }
+      .registration-step__done p {
+        color: $require-red;
+      }
+    }
   }
 }
