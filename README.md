@@ -14,11 +14,13 @@
 |birth_year|integer|null: false|
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
+|verify_sms|string|null: false, unique: true|
 
 ### Association
 - has_many :products
 - has_many :likes
 - has_one :profile
+- has_many :payments
 
 ## Profiles table
 
@@ -28,13 +30,17 @@
 |prefecture|integer|null: false|
 |city|string|null: false|
 |address|string|null: false|
-|postal_code|integer|null: false|
+|postal_code|string|null: false|
 |building_name|string||
-|telephone_num|integer||
-|user_id|references|foreign_key: true|
+|telephone_num|string||
+|delv_first_name|string|null: false|
+|delv_last_name|string|null: false|
+|delv_first_name_kana|string|null: false|
+|delv_last_name_kana|string|null: false|
+|user_id|references|foreign_key: true, null: false|
 
 ## Association
-- belongs_to :user
+- belongs_to :user, optional: true
 
 ## Products table
 
@@ -50,38 +56,39 @@
 |delivery_fee|integer|null: false|
 |local|integer|null: false|
 |lead_time|integer|null: false|
-|bland|string||
-|user_id|references|foreign_key: true|
-|category_large_id|references|foreign_key: true|
-|category_middle_id|references|foreign_key: true|
-|category_small_id|references|foreign_key: true|
+|bland_id|references|foreign_key: true|
+|user_id|references|foreign_key: true, null: false|
+|first_category_id|integer|foreign_key: true|
+|second_category_id|integer|foreign_key: true|
+|third_category_id|integer|foreign_key: true|
 
 ### Association
 - has_many :product_images, dependent: :destroy
 - has_many :likes, dependent: :destroy
 - has_many :comments, dependent: :destroy
 - belongs_to :user
-- belongs_to :category_large_id
-- belongs_to :category_middle_id
-- belongs_to :category_small_id
+- belongs_to :brand, optional: true
+- belongs_to :first_category, class_name: 'Category', foreign_key: "first_category_id"
+- belongs_to :second_category, class_name: 'Category', foreign_key: 'second_category_id'
+- belongs_to :third_category, class_name: 'Category', foreign_key: 'third_category_id'
 
 ## Product_images table
 
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
-|product_id|references|foreign_key: true|
+|product_id|references|foreign_key: true, null: false|
 
 ### Association
-- belongs_to :product
+- belongs_to :product, optional: true
 
 ## Comments table
 
 |Column|Type|Options|
 |------|----|-------|
 |message|text|null: false|
-|user_id|references|foreign_key: true|
-|product_id|references|foreign_key: true|
+|user_id|references|foreign_key: true, null: false|
+|product_id|references|foreign_key: true, null: false|
 
 ### Association
 - belongs_to :product
@@ -90,46 +97,45 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|foreign_key: true|
+|user_id|references|foreign_key: true, null: false|
 |product_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
 - belongs_to: product, counter_cache: :likes_count
 
-## Category_larges table
+## Categories table
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|ancestry|string||
 
 ### Association
 - has_many :products
-- has_many :category_middles
+- has_many :first_category_products, class_name: 'Product', foreign_key: 'first_category_id'
+- has_many :second_category_products, class_name: 'Product', foreign_key: 'second_category_id'
+- has_many :third_category_products, class_name: 'Product', foreign_key: 'third_category_id'
+- has_ancestry
 
-## Category_middles table
+## Brand table
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
-|category_large_id|references|foreign_key: true|
+|name|string|null: false, unique: true|
 
 ### Association
-
 - has_many :products
-- has_many :category_smalls
-- belongs_to :category_large
 
-## Category_small table
+## Payments table
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string||
-|category_middle_id|references|foreign_key: true|
+|card_num|string|null: false, unique: true|
+|expiration_month|integer|null: false|
+|expiration_year|integer|null: false|
+|security_code|integer|null: false|
+|user_id|references|null: false, foreign_key: true|
 
 ### Association
-
-- has_many :products
-- belongs_to :category_middles
-
-
+- belongs_to :user, optional: true

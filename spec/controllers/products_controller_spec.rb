@@ -5,6 +5,23 @@ describe ProductsController, type: :controller do
   let(:user) {product.user}
   let(:category) {product.third_category}
 
+  describe 'GET #index' do
+    it "renders the :index template" do
+      get :index
+      expect(response).to render_template :index
+    end
+    it "assigns the requested categories to @categories" do
+      create_list(:category, 7)
+      get :index
+      expect(assigns(:categories).size).to eq 3
+    end
+    it "assigns the requested categories to @brands" do
+       create_list(:brand, 7)
+       get :index
+       expect(assigns(:brands).size).to eq 4
+    end
+  end
+
     describe 'GET #show' do
       context "test the template and an intance variable holding one record" do
 
@@ -61,23 +78,6 @@ describe ProductsController, type: :controller do
         get :show, params: {id: product}
         expect(assigns(:category_products).size).to eq 6
       end
-    end
-  end
-
-  describe 'GET #index' do
-    it "renders the :index template" do
-      get :index
-      expect(response).to render_template :index
-    end
-    it "assigns the requested categories to @categories" do
-      create_list(:category, 7)
-      get :index
-      expect(assigns(:categories).size).to eq 3
-    end
-    it "assigns the requested categories to @brands" do
-       create_list(:brand, 7)
-       get :index
-       expect(assigns(:brands).size).to eq 4
     end
   end
 end
