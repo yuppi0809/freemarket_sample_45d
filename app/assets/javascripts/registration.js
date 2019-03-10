@@ -262,4 +262,10 @@ $(document).on('turbolinks:load', function(){
       }
     }
   })
+  $('.registration-update__btn').on('click', function(){
+    validateBlank(deliveryElements)
+    if(nextPage(deliveryElements)){
+      $('#delivery-update-form').submit()
+    }
+  })
 })
