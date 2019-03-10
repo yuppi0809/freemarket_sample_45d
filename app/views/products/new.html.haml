@@ -14,7 +14,7 @@
         .dropzone-area#preview
           = image.label :image, class: "dropzone-box", for: "upload-image" do
             ここに写真をドラッグアンドまたはクリックしてください
-            = image.file_field :image, id: "upload-image", class: "upload-image"
+            = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image"
     .sell-form-container
       .form-group
         %label.form-group__label

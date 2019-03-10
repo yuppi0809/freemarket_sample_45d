@@ -42,16 +42,9 @@ $(function(){
       var reader = new FileReader();
       var preview = $('#preview');
 
-      const target = $(this);
-      if(target.val() != '') {
-        const targetContainer = target.closest('.upload-image');
-        const clone = targetContainer.clone();
-        clone.find('.upload-image').val('');
-        targetContainer.after(clone);
-      }
       reader.onload = (function(file) {
         return function(event) {
-          var img = $('<div class= "img_view"><img alt="" class="img"><span class="img_del">画像を削除する</span></div>');
+          var img = $('<div class= "img_view"><img></span></div>');
           img.find('img').attr({
             src: event.target.result
           })
@@ -60,7 +53,4 @@ $(function(){
       })(file);
       reader.readAsDataURL(file);
     });
-    $('#preview').on('click', '.img_del', function() {
-      $(this).parent().remove();
-    })
 });
