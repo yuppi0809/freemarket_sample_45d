@@ -8,12 +8,10 @@
       =link_to @product.first_category.name
       %br
       =link_to do
-        %i.fa.fa-angle-right
-        %span=@product.second_category.name
+        =fa_icon("angle-right", text: @product.second_category.name)
       %br
       =link_to do
-        %i.fa.fa-angle-right
-        %span=@product.third_category.name
+        =fa_icon("angle-right", text: @product.third_category.name)
 
   %tr
     %td ブランド
