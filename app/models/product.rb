@@ -3,6 +3,7 @@ class Product < ActiveRecord::Base
   belongs_to :second_category, class_name: 'Category', foreign_key: 'second_category_id'
   belongs_to :third_category, class_name: 'Category', foreign_key: 'third_category_id'
   belongs_to :brand, foreign_key: 'brand_id', optional: true
+  belongs_to :user
   has_many :product_images
   accepts_nested_attributes_for :product_images
 
@@ -23,4 +24,20 @@ class Product < ActiveRecord::Base
   validates :lead_time, presence: true
   validates :price, presence: true
   validates :transaction_status, presence: true
+
+  def checkPrevItem
+    Product.where('id < ?', id).present?
+  end
+
+  def showPrevItem
+    Product.where('id < ?', id).last
+  end
+
+  def checkNextItem
+    Product.where('id > ?', id).present?
+  end
+
+  def showNextItem
+    Product.where('id > ?', id).first
+  end
 end

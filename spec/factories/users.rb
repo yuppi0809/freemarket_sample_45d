@@ -1,8 +1,8 @@
 FactoryBot.define do
 
   factory :user do
-    nickname              {'jj'}
-    email                 {'test@gmail.com'}
+    sequence(:nickname) {Faker::Name.name}
+    sequence(:email) {Faker::Internet.email}
     password              {'aaaaaa'}
     password_confirmation {'aaaaaa'}
     first_name            {'小川'}
@@ -12,7 +12,7 @@ FactoryBot.define do
     birth_year            {'1991'}
     birth_month           {'10'}
     birth_day             {'15'}
-    verify_sms            {'08012345678'}
+    sequence(:verify_sms) {Faker::PhoneNumber.phone_number}
   end
 
 end
