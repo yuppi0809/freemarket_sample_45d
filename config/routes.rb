@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+  }
+
+  devise_scope :user do
+    get 'complete' => 'users/registrations#complete'
+  end
 
   root 'products#index'
   get '/users/mypage/identification' => 'users#identification'
@@ -8,7 +15,7 @@ Rails.application.routes.draw do
     end
   end
   resources :profiles, only: [:new, :create]
-  resources :products, only: [:new, :show, :index] do
+  resources :products, only: [:new, :create, :show, :index] do
     get 'confirm_purchase', on: :member
   end
 

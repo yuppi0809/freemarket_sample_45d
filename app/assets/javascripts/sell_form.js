@@ -27,7 +27,7 @@ $(function() {
     })
     .done(function(categories) {
       var select_wrapper = $('<div class="select-wrapper">');
-      var select = $('<select class="select-wrapper__select" id="middle_category" name="product[category_id]">');
+      var select = $('<select class="select-wrapper__select" id="middle_category" name="product[second_category_id]">');
       select.append('<option>---</option>');
       categories.forEach(function(category) {
       select.append(buildMiddlecategory(category));
@@ -48,7 +48,7 @@ $(function() {
     })
     .done(function(categories) {
       var select_wrapper = $('<div class="select-wrapper">');
-      var select = $('<select class="select-wrapper__select" id="small_category" name="product[category_id]">');
+      var select = $('<select class="select-wrapper__select" id="small_category" name="product[third_category_id]">');
       select.append('<option>---</option>');
       categories.forEach(function(category) {
       select.append(buildMiddlecategory(category));

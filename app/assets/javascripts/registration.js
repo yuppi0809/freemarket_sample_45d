@@ -1,4 +1,8 @@
 $(document).on('turbolinks:load', function(){
+  function scroll(){
+    $(window).scrollTop(0)
+  }
+
   function validateRecaptcha(){
     var response = grecaptcha.getResponse()
     $('.g-recaptcha').children('.alert-message').remove()
@@ -7,7 +11,7 @@ $(document).on('turbolinks:load', function(){
                      選択してください
                    </p>`
       $('.g-recaptcha').append(alert)
-      $(window).scrollTop(0)
+      scroll()
       return false
     }else{
       return true
@@ -143,13 +147,14 @@ $(document).on('turbolinks:load', function(){
     var count = elements.length
     for(var i = 0; i < count; i++){
       if(elements[i].nextAll('.alert-message').length !== 0){
-        $(window).scrollTop(0)
+        scroll()
         return false
       }
     }
     return true
   }
 
+  var defaultTextColor = {'color':'#9e9e9e'}
   var stepTextColor = {'color':'#EA352D'}
   var stepLineColor = {'background-color':'#EA352D'}
   var registrationNav = $('.registration-nav')
@@ -199,8 +204,10 @@ $(document).on('turbolinks:load', function(){
         registrationUser.hide()
         registrationVerify.show()
         registrationNav.text('電話番号の確認')
+        $('.registration-step__user-info p').css(defaultTextColor)
         $('.registration-step__verify').css(stepTextColor)
         $('.registration-step__verify .step-line').css(stepLineColor)
+        scroll()
       }
     }
   })
@@ -209,10 +216,12 @@ $(document).on('turbolinks:load', function(){
       registrationVerify.hide()
       registrationDelivery.show()
       registrationNav.text('発送元・お届け先住所入力')
+      $('.registration-step__verify p').css(defaultTextColor)
       $('.registration-step__delivery').css(stepTextColor)
       $('.registration-step__delivery .step-line').css(stepLineColor)
+      scroll()
     }else{
-      $(window).scrollTop(0)
+      scroll()
     }
   })
   $('.registration-delivery__btn').on('click', function(){
@@ -221,8 +230,10 @@ $(document).on('turbolinks:load', function(){
       registrationDelivery.hide()
       registrationPayment.show()
       registrationNav.text('支払い方法')
+      $('.registration-step__delivery p').css(defaultTextColor)
       $('.registration-step__payment').css(stepTextColor)
       $('.registration-step__payment .step-line').css(stepLineColor)
+      scroll()
     }
   })
   $('.registration-payment__btn').on('click', function(){
