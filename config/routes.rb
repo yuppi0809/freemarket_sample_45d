@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   root 'products#index'
   get '/users/mypage/identification' => 'users#identification'
   resources :users, only: [:index, :new] do
+    resources :listings, only:[:index, :update, :show, :destroy], shallow:true do
+    end
     resources :payments, path: 'credit_cards', only:[:index, :destroy], shallow:true do
     end
   end
