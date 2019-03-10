@@ -2,7 +2,8 @@
   .header-container
     .header-top
       .header-top__logo
-        メルカリ
+        = link_to root_path do
+          = image_tag('mercari_logo_horizontal.png')
       .header-top__search
       %form.header-top__form
         %input{type: "text", class: "header-top__search", placeholder: "キーワードから探す"}
@@ -17,7 +18,21 @@
           %li
             = link_to "ブランドから探す", "#", id: "header-brand-button"
         %ul.header-bottom__nav--right
-          %li
-            = link_to "ログイン", new_user_session_path, class: "header-login-button"
-          %li
-            = link_to "新規会員登録", new_user_path, class: "header-signup-button"
+          - unless user_signed_in?
+            %li
+              = link_to "ログイン", new_user_session_path, class: "header-login-button"
+            %li
+              = link_to "新規会員登録", new_user_path, class: "header-signup-button"
+          - else
+            %li
+              = link_to users_path, class: 'header_mypage' do
+                = image_tag('elric')
+                マイページ
+            %li
+              = link_to "#", class: 'header_notification' do
+                = fa_icon 'bell'
+                お知らせ
+            %li
+              = link_to "#", class: 'header_todo' do
+                = fa_icon 'check'
+                やることリスト
