@@ -32,7 +32,7 @@ module ApplicationHelper
 
   def create_link_if_present(item)
     if item.present?
-      content_tag(:a, "#{item}", href: "#")
+      content_tag(:a, "#{item.name}", href: "#")
     end
   end
 

@@ -73,7 +73,8 @@
         -@products.each do |product|
           .item
             =link_to product_path(product), class:"item__link" do
-              =image_tag product.product_images.first.image, class: "item__image", class: "item__image"
+              -if product.product_images.present?
+                =image_tag product.product_images.first.image, class: "item__image"
               .item__info
                 %p.item__info__name=product.name
                 .item__info__nums
@@ -84,20 +85,20 @@
 
     .items-container
       %h2.items-container__title
-        =link_to "#{@product.category.name} (#{@product.category.parent.parent.name}) その他の商品", "#"
+        =link_to "#{@product.first_category.name} (#{@product.first_category.name}) その他の商品", "#"
       .items-container__images.group
-        .item
-          .item-image-container
-            -@category_products.each do |product|
-              =link_to product_path(product), class:"item__link" do
+        -@category_products.each do |product|
+          .item
+            =link_to product_path(product), class:"item__link" do
+              -if product.product_images.present?
                 =image_tag product.product_images.first.image, class: "item__image"
-                .item__info
-                  %p.item__info__name=product.name
-                  .item__info__nums
-                    %span.price=display_price(product.price)
-                    %span.likes
-                      %i.fa.fa-heart-o
-                      %span 1
+              .item__info
+                %p.item__info__name=product.name
+                .item__info__nums
+                  %span.price=display_price(product.price)
+                  %span.likes
+                    %i.fa.fa-heart-o
+                    %span 1
 = render 'layouts/footer'
 
 .modal.hidden

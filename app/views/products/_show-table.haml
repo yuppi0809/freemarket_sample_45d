@@ -5,15 +5,15 @@
   %tr
     %td カテゴリー
     %td
-      =link_to @product.category.parent.parent.name
+      =link_to @product.first_category.name
       %br
       =link_to do
         %i.fa.fa-angle-right
-        %span=@product.category.parent.name
+        %span=@product.second_category.name
       %br
       =link_to do
         %i.fa.fa-angle-right
-        %span=@product.category.name
+        %span=@product.third_category.name
 
   %tr
     %td ブランド
