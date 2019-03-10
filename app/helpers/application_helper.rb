@@ -30,6 +30,25 @@ module ApplicationHelper
     elements = {"プロフィール": '#', "発送元・お届け先住所変更": '#', "支払い方法": "http://localhost:3000/users/#{current_user.id}/credit_cards", "メール/パスワード": '#', "本人情報": 'http://localhost:3000/users/mypage/identification', "電話番号の確認": '#', "ログアウト": '#'}
   end
 
+  def create_link_if_present(item)
+    if item.present?
+      content_tag(:a, "#{item.name}", href: "#")
+    end
+  end
+
+  def display_price(price)
+    new_price = number_with_delimiter(price, :delimiter => ',')
+    return "¥ #{new_price}"
+  end
+
+  def display_delivery_fee(option)
+    if option === "送料込み（出品者負担）"
+      return "送料込み"
+    else
+      return option
+    end
+  end
+
   def registration_steps
     steps = [
       {name: '会員情報', class: 'registration-step__user-info'},
