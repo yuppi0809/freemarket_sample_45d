@@ -14,8 +14,7 @@
             - @images.each do |image|
               .dot
                 = image_tag image.image
-
-        =render "show-table"
+        =render partial: 'show-table', locals: { product: @product }
 
       .item-container__price-info
         %span.price=display_price(@product.price)
