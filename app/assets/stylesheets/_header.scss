@@ -31,6 +31,10 @@ header {
     &__logo {
      float: left;
      width: 134px;
+     img {
+       width: 134px;
+       height: 32px;
+     }
     }
     &__form {
       float: left;
@@ -56,11 +60,11 @@ header {
     }
   }
   .header-bottom {
+    display: block;
     &:after {
     content: "";
     clear: both;
   }
-    display: block;
     &__nav--left {
       float: left;
       margin-top: 10px;
@@ -78,6 +82,7 @@ header {
     &__nav--right {
       float: right;
       margin-top: 10px;
+      line-height: 32px;
       li {
         float: left;
         margin-left: 10px;
@@ -85,6 +90,11 @@ header {
       a {
         text-decoration: none;
         color: #333;
+        font-weight: lighter;
+        img {
+        width: 26px;
+        height: 26px;
+        }
       }
       .header-login-button {
         background:#ea352a;
