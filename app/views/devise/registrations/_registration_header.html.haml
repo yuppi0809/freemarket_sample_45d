@@ -1,0 +1,7 @@
+.registration-header
+  .buy-container__logo
+    = link_to root_path do
+      = image_tag "mercari_logo_horizontal.png"
+  %div{class: "registration-step#{get_status}" }
+    = render partial: 'step', collection: registration_steps, as: :step
+

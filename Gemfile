@@ -40,11 +40,13 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails','3.8.2'
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
   gem 'capistrano'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'faker'
 end
 
 group :development do
@@ -72,3 +74,4 @@ gem 'mini_magick'
 gem 'carrierwave'
 gem 'devise'
 gem 'recaptcha', require: 'recaptcha/rails'
+gem 'fog-aws'

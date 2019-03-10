@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190302103555) do
+ActiveRecord::Schema.define(version: 20190308020659) do
+
+  create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -52,11 +58,15 @@ ActiveRecord::Schema.define(version: 20190302103555) do
     t.integer  "local",                            null: false
     t.integer  "lead_time",                        null: false
     t.string   "brand"
-    t.integer  "category_id"
+    t.integer  "user_id"
+    t.integer  "first_category_id"
+    t.integer  "second_category_id"
+    t.integer  "third_category_id"
+    t.integer  "brand_id"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["name"], name: "index_products_on_name", using: :btree
+    t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
 
   create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -101,6 +111,6 @@ ActiveRecord::Schema.define(version: 20190302103555) do
 
   add_foreign_key "payments", "users"
   add_foreign_key "product_images", "products"
-  add_foreign_key "products", "categories"
+  add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
 end

@@ -1,0 +1,55 @@
+.registration-header {
+  display: flex;
+  width: 800px;
+  margin: 0 auto;
+  .registration-step {
+    display: flex;
+    text-align: center;
+    font-size: 12px;
+    padding-top: 40px;
+    color: $text-color-grey;
+    &__user-info {
+      @include registration-step();
+      color: $require-red;
+    }
+    &__verify {
+      @include registration-step();
+      .step-line {
+        @include step-line();
+      }
+    }
+    &__delivery {
+      @include registration-step();
+      .step-line {
+        @include step-line();
+      }
+    }
+    &__payment {
+      @include registration-step();
+      .step-line {
+        @include step-line();
+      }
+    }
+    &__done {
+      @include registration-step();
+      .step-line {
+        @include step-line();
+      }
+    }
+    &--complete {
+      @extend .registration-step;
+      i {
+        color: $require-red;
+      }
+      .step-line {
+        background-color: $require-red;
+      }
+      .registration-step__user-info p {
+        color: $text-color-grey;
+      }
+      .registration-step__done p {
+        color: $require-red;
+      }
+    }
+  }
+}

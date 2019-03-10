@@ -1,0 +1,128 @@
+.registration-wrapper {
+  @include base-container();
+  color: $darkerGrey;
+  width: 700px;
+  .registration-nav {
+    border-bottom: solid 0.5px $border-color;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    padding: 35px 0;
+    text-align: center;
+  }
+  .registration {
+    font-size: 14px;
+    padding: 50px 180px;
+    &__email {
+      @include btn($color: $darkerGrey);
+      background-color: $bottom-color;
+      position: relative;
+      .email-logo {
+        @include logo();
+        font-size: 18px;
+      }
+    }
+    &__facebook {
+      @include btn($color: $white);
+      background-color: $indigo;
+      position: relative;
+      .facebook-logo {
+        @include logo();
+      }
+    }
+    &__google {
+      @include btn($color: $darkerGrey);
+      border: solid 1px $darkerGrey;
+      position: relative;
+      .google-logo {
+        @include logo();
+      }
+    }
+    &-verify {
+      display: none;
+    }
+    &-delivery {
+      display: none;
+    }
+    &-payment {
+      display: none;
+    }
+    &__notes {
+      color: $text-color-grey;
+      margin: -20px 0 50px;
+    }
+    &__agreement {
+      text-align: center;
+      margin: 50px 0;
+    }
+    &__about {
+      width: 100%;
+      display: inline-block;
+      text-align: right;
+      text-decoration: none;
+      color: $skyBlue;
+      margin: 20px 0;
+      p {
+        display: inline;
+      }
+      i {
+        display: inline;
+      }
+    }
+    &-field {
+      margin-bottom: 30px;
+      &__require {
+        @include require();
+      }
+      &__require--any {
+        @include require();
+        background-color: $text-color-grey;
+      }
+      &--hidden-label {
+        margin: -25px 0 30px;
+        label {
+          display: none;
+        }
+      }
+      &__notice {
+        margin-top: 10px;
+      }
+      .card-logos {
+        width: 80%;
+        margin-top: -25px;
+      }
+    }
+    .alert-message {
+      color: $require-red;
+    }
+    label {
+      @include label();
+    }
+    input {
+      @include register-form();
+      margin-top: 5px;
+      &::placeholder {
+        font-size: 14px;
+      }
+    }
+    select {
+      @include register-form();
+      display: inline-block;
+      width: 200px;
+      margin: 5px 0;
+    }
+    button {
+      @include btn($color: $white);
+      background-color: $btn-red;
+      margin-top: 20px;
+    }
+    &__complete {
+      text-align: center;
+    }
+    &__complete-btn {
+      @include btn($color: $white);
+      background-color: $btn-red;
+      margin: 40px 0;
+    }
+  }
+}
