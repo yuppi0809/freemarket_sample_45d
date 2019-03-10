@@ -2,7 +2,8 @@
   .header-container
     .header-top
       .header-top__logo
-        メルカリ
+        = link_to root_path do
+          = image_tag('mercari_logo_horizontal.png')
       .header-top__search
       %form.header-top__form
         %input{type: "text", class: "header-top__search", placeholder: "キーワードから探す"}

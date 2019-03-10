@@ -31,6 +31,10 @@ header {
     &__logo {
      float: left;
      width: 134px;
+     img {
+       width: 134px;
+       height: 32px;
+     }
     }
     &__form {
       float: left;
