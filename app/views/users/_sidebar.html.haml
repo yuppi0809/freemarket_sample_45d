@@ -1,9 +1,9 @@
 .side-bar
   .mypage
     %ul.content
-      - mypage_elements.each do |element|
+      - mypage_elements.each do |key, value|
         %li.content__mypage
-          = link_to element, "#", class: 'mypage__link'
+          = link_to key,  value, class: 'mypage__link'
           = fa_icon("angle-right")
 
   %h3 メルペイ
@@ -17,7 +17,7 @@
   %h3 設定
   .mypage
     %ul.content
-      - mypage_elements_setting.each do |element|
+      - mypage_elements_setting.each do |key, value|
         %li.content__mypage
-          = link_to element, "#", class: 'mypage__link'
+          = link_to key, value, class: 'mypage__link'
           = fa_icon("angle-right")
