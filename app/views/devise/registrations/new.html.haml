@@ -63,7 +63,7 @@
           日
         %p.registration__notes
           ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-        .g-recaptcha{'data-sitekey': ENV["RECAPTCHA_SITE_KEY"]}
+        / = recaptcha_tags
         %p.registration__agreement
           「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
         = f.button '次へ進む', type: 'button', class: 'registration-user__btn'
