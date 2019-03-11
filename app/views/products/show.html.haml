@@ -7,9 +7,13 @@
       .item-container__float.group
         .item-container__images
           .slides-container.group
-            - @images.each do |image|
+            - if @images.present?
+              -@images.each do |image|
+                .my-slides
+                  = image_tag image.image
+            - else
               .my-slides
-                = image_tag image.image
+                = image_tag "noimage.png"
           .item-container__images__dots
             - @images.each do |image|
               .dot
@@ -72,8 +76,8 @@
         -@products.each do |product|
           .item
             =link_to product_path(product), class:"item__link" do
-              -if product.product_images.present?
-                =image_tag product.product_images.first.image, class: "item__image"
+              =image_tag product.show_image_or_no_image, class: "item__image"
+
               .item__info
                 %p.item__info__name=product.name
                 .item__info__nums
@@ -89,8 +93,7 @@
         -@category_products.each do |product|
           .item
             =link_to product_path(product), class:"item__link" do
-              -if product.product_images.present?
-                =image_tag product.product_images.first.image, class: "item__image"
+              =image_tag product.show_image_or_no_image, class: "item__image"
               .item__info
                 %p.item__info__name=product.name
                 .item__info__nums
