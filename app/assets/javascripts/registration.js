@@ -270,7 +270,7 @@ $(document).on('turbolinks:load', function(){
   })
   $('.payment-form__btn').on('click', function(){
     validateBlank(paymentElements)
-    if(nextPage(deliveryElements)){
+    if(nextPage(paymentElements)){
       $('#payment-form').submit()
     }
   })
