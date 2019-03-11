@@ -1,0 +1,24 @@
+.registration-field
+  = payment.label 'カード番号'
+  .registration-field__require
+    必須
+  = payment.text_field :card_num, class: 'registration-field__card-num', placeholder: '半角数字のみ'
+.registration-field
+  = image_tag("card-logos.png", class: 'card-logos')
+.registration-field
+  = payment.label '有効期限'
+  .registration-field__require
+    必須
+  %br
+  = payment.select :expiration_month, (get_expiration_month), {include_blank: '---'}, {class: 'registration-field__expiration-month'}
+  月
+  = payment.select :expiration_year, (get_expiration_year), {include_blank: '---'}, {class: 'registration-field__expiration-year'}
+  年
+.registration-field
+  = payment.label 'セキュリティコード'
+  .registration-field__require
+    必須
+  = payment.text_field :security_code, class: 'registration-field__security-code', placeholder: 'カード背面4桁もしくは3桁の番号'
+= link_to '#', class: 'registration__about' do
+  = fa_icon 'question-circle'
+  %p カード裏面の番号とは？
