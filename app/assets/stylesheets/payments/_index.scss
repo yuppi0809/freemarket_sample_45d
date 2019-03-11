@@ -39,6 +39,10 @@
           width:33.99px;
           height:20px;
         }
+        .payment-add {
+          @include btn($white);
+          background-color: $btn-red;
+        }
 
         .payment-delete{
           float:right;

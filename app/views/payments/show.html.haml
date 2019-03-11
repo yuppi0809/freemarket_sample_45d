@@ -1,0 +1,21 @@
+= render 'layouts/header'
+.wrapper
+  = render 'users/sidebar'
+  .credit-card-right-content
+    %h2 支払い方法
+    .credit-card-right-content__main
+      .credit-card-right-content__main__wrapper
+        .credit-card-right-content__main__top.group
+          %p クレジットカード一覧
+          %p
+            = image_tag("master-card.svg")
+            %br>/
+            = @payment.hide_last_four_digits
+            %br>/
+            = @payment.replace_expiration
+          = link_to "削除する", payment_path, method: :delete, class: "payment-delete"
+      .credit-card-right-content__main__bottom
+        = link_to root_path, class: "#" do
+          = fa_icon("chevron-right", text:"支払い方法について", right:true)
+
+= render 'layouts/footer'

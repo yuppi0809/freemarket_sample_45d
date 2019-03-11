@@ -6,7 +6,7 @@
       %h2.l-chapter-head
         本人情報の登録
       .l-chapter-bottom
-        %form.l-single-inner{action: "https://www.mercari.com/jp/mypage/identification/save/", method: "POST", novalidate:  ""}
+        %form.l-single-inner{action: "#", method: "POST", novalidate:  ""}
           %div
             %p
               お客さまの本人情報をご登録ください。
@@ -18,40 +18,16 @@
                 = fa_icon("angle-right")
           .form-group
             %label お名前
-            %span.form-require
-              必須
-            %input.input-default{name: "family_name_kanji", placeholder: "例）山田", type: "text", value: "" }
-            %input.input-default{name: "first_name_kanji", placeholder: "例）彩", type: "text", value: ""}
+            %p.form-group__user-name
+              #{@user.first_name} #{@user.last_name}
           .form-group
             %label お名前カナ
-            %span.form-require
-              必須
-            %input.input-default{name: "family_name_kana", placeholder: "例）ヤマダ", type: "text", value:  ""}
-            %input.input-default{name: "first_name_kana", placeholder: "例）アヤ", type: "text", value:  ""}
+            %p.form-group__user-name-kana
+              #{@user.first_name_kana} #{@user.last_name_kana}
           .form-group
             %label{for: "birthday"} 生年月日
-            %span.form-require
-              必須
-            .birthday-select-wrap
-              .select-wrap
-                %select.select-default{name: "year"}
-                = fa_icon("angle-down")
-              %span
-                年
-            .birthday-select-wrap
-              .select-wrap.select-wrap__month
-                %select.select-default{name: "month"}
-                = fa_icon("angle-down")
-              %span
-                月
-            .birthday-select-wrap
-              .select-wrap.select-wrap__day
-                %select.select-default{name: "day"}
-                = fa_icon("angle-down")
-              %span
-                日
-            %p.form-info-text
-              ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
+            %p.form-group__birth-day
+              #{@user.birth_year}/#{@user.birth_month}/#{@user.birth_day}
             %input{name: "birthday",type: "hidden",value: ""}/
             .clearfix
           .form-group
@@ -126,7 +102,7 @@
             %label{for: "address2_label"} 建物名
             %span.form-arbitrary 任意
             %input.input-default{name: "address2", placeholder: "例) 柳ビル103", type: "text", value: ""}/
-          %button.btn-default.btn-red{type: "submit"} 登録する
+          %button.btn-default.btn-red{type: "button"} 登録する
           .form-group.text-right
             %p
               = link_to "#" do

@@ -11,15 +11,10 @@
   }
 }
 
-.text-center{
-  text-align: center;
-  font-size: 14px;
-  margin: 0;
-}
-
 .l-single-inner{
   background-color: white;
   .form-group{
+    margin-top: 20px;
     label{
       font-weight: bold;
     }
@@ -33,7 +28,7 @@
       margin-bottom: 25px;
     }
   }
-    .btn{
+  .btn{
     &-default{
       display: block;
       width: 100%;
@@ -76,43 +71,28 @@
     font-size: 14px;
   }
   &-group{
+    label {
+      @include label();
+      display: inline-block;
+      margin-bottom: 5px;
+    }
     .text-right{
       margin: 40px 0 0;
       text-align: right;
-      p{
+      p {
         margin: 8px 0 0;
         line-height: 1.5;
-          a{
-            color: #0099e8;
-            text-decoration: none;
-            font-size: 14px;
-          }
+        a{
+          color: #0099e8;
+          text-decoration: none;
+          font-size: 14px;
+        }
       }
     }
   }
 }
 
-.birth-form{
-  display: flex;
-  align-items: center;
-  span{
-    margin: 8px;
-  }
-}
-
-.birthday-select-wrap{
-  position: relative;
-  .fa-angle-down{
-    position: absolute;
-    top: 20%;
-    right: 16px;
-    color: #888;
-    font-size: 20px;
-  }
-}
-
 .select{
-
   &-default{
     width: 100%;
     z-index: 2;
@@ -125,7 +105,6 @@
     line-height: 1.5;
     cursor: pointer;
     position: relative;
-
   }
   &-wrap{
     background: white;
