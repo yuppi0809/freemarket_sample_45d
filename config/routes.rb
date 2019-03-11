@@ -10,10 +10,8 @@ Rails.application.routes.draw do
 
   root 'products#index'
   get '/users/mypage/identification' => 'users#identification'
-  resources :users, only: [:index, :new] do
-    resources :payments, path: 'credit_cards', only:[:index, :destroy], shallow:true do
-    end
-  end
+  resources :users, only: [:index, :new]
+  resources :payments, only:[:index, :new, :create, :show, :destroy]
   resources :profiles, only: [:new, :create, :edit, :update]
   resources :products, only: [:new, :create, :show, :index] do
     get 'confirm_purchase', on: :member
