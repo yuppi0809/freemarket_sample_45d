@@ -17,7 +17,7 @@ class Product < ActiveRecord::Base
 
   validates :name, presence: true, length: {maximum: 40}
   validates :description, presence: true, length: {maximum: 1000}
-  validates  :size, presence: true
+  # validates :size, presence: true
   validates :product_status, presence: true
   validates :delivery_fee, presence: true
   validates :local, presence: true
