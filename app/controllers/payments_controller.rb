@@ -26,7 +26,7 @@ class PaymentsController < ApplicationController
   private
 
   def set_payment
-    @payment = Payment.find_by(user_id: current_user.id)
+    @payment = PaymentDecorator.decorate(Payment.find_by(user_id: current_user.id))
   end
 
   def payment_params
