@@ -88,7 +88,7 @@
 
     .items-container
       %h2.items-container__title
-        =link_to "#{@product.first_category.name} (#{@product.first_category.name}) その他の商品", "#"
+        =link_to "#{@product.third_category.name} (#{@product.first_category.name}) その他の商品", "#"
       .items-container__images.group
         -@category_products.each do |product|
           .item
