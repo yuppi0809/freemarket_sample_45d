@@ -9,8 +9,7 @@ Rails.application.routes.draw do
   end
 
   root 'products#index'
-  get '/users/mypage/identification' => 'users#identification'
-  resources :users, only: [:index, :new]
+  resources :users, only: [:index, :new, :show]
   resources :payments, only:[:index, :new, :create, :show, :destroy]
   resources :profiles, only: [:new, :create, :edit, :update]
   resources :products, only: [:new, :create, :show, :index] do
