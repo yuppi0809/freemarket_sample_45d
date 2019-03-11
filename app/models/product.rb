@@ -40,4 +40,8 @@ class Product < ActiveRecord::Base
   def showNextItem
     Product.where('id > ?', id).first
   end
+
+  def show_image_or_no_image
+    self.product_images.present? ? self.product_images.first.image : "noimage.png"
+  end
 end
