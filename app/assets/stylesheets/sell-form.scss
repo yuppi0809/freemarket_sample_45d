@@ -1,11 +1,6 @@
 @import "variable";
 .sell-form-wrapper {
   width: 100%;
-  &__header-logo {
-    margin-top: 30px;
-    margin-bottom: 10px;
-    text-align: center;
-  }
   .sell-form {
     width: 700px;
     margin: 0 auto;
@@ -218,34 +213,6 @@
         color: #fff;
         line-height: 50px;
         cursor: pointer;
-      }
-    }
-  }
-  .sell-form-footer {
-    padding-top: 30px;
-    padding-bottom: 40px;
-    width: 456px;
-    margin: auto;
-    text-align: center;
-    a {
-      text-decoration: none;
-      color: black;
-      margin-top: 20px;
-    }
-    ul {
-      margin-bottom: 30px;
-      li {
-        float: left;
-        margin-left: 30px;
-          &:hover {
-            opacity: 0.6;
-            text-decoration: none;
-          }
-        a {
-          font-size: 10px;
-          color: black;
-          text-decoration: none;
-        }
       }
     }
   }

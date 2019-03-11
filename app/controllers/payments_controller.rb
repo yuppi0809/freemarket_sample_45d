@@ -15,7 +15,7 @@ class PaymentsController < ApplicationController
   end
 
   def show
-    render :index unless @payment
+    redirect_to payments_path if @payment.blank?
   end
 
   def destroy
