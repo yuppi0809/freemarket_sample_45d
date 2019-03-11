@@ -4,6 +4,7 @@ class Product < ActiveRecord::Base
   belongs_to :third_category, class_name: 'Category', foreign_key: 'third_category_id'
   belongs_to :brand, foreign_key: 'brand_id', optional: true
   has_many :product_images, dependent: :destroy
+  belongs_to :user
   accepts_nested_attributes_for :product_images
 
   # enum
@@ -23,4 +24,24 @@ class Product < ActiveRecord::Base
   validates :lead_time, presence: true
   validates :price, presence: true
   validates :transaction_status, presence: true
+
+  def checkPrevItem
+    Product.where('id < ?', id).present?
+  end
+
+  def showPrevItem
+    Product.where('id < ?', id).last
+  end
+
+  def checkNextItem
+    Product.where('id > ?', id).present?
+  end
+
+  def showNextItem
+    Product.where('id > ?', id).first
+  end
+
+  def show_image_or_no_image
+    self.product_images.present? ? self.product_images.first.image : "noimage.png"
+  end
 end
