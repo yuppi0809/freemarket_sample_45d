@@ -42,7 +42,7 @@
       or
       =link_to "出品を再開する", root_path, class: "item-container__purchase-btn"
       or
-      =link_to '削除', "/listings/#{@product.id}", method: :delete, class: "item-container__purchase-btn"
+      =link_to '削除', listing_path, method: :delete, class: "item-container__purchase-btn"
 
 
     .show-page-comments
