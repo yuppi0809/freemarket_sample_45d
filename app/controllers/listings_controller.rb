@@ -13,6 +13,7 @@ class ListingsController < ApplicationController
   def destroy
     product = Product.find(params[:id])
     product.destroy
+    redirect_to action: :index, user_id: current_user.id
   end
 
 
