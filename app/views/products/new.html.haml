@@ -1,6 +1,6 @@
 .sell-form-wrapper
   %h1.sell-form-wrapper__header-logo
-    = link_to 'https://www.mercari.com/jp/' do
+    = link_to root_path do
       = image_tag('mercari_logo_horizontal.png', size: "200x100")
   = form_for @product, html: {class: "sell-form dropzone", id: "item-dropzone"} do |f|
     %h2.sell-form__header
@@ -11,10 +11,11 @@
       %span.sell-form-container__require
         必須
       = f.fields_for :product_images do |image|
-        .dropzone-area#preview
+        .dropzone-area
           = image.label :image, class: "dropzone-box", for: "upload-image" do
             ここに写真をドラッグアンドまたはクリックしてください
             = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image"
+        #preview
     .sell-form-container
       .form-group
         %label.form-group__label
