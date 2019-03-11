@@ -10,8 +10,8 @@ class ListingsController < ApplicationController
   end
 
   def destroy
-    @product.destroy
-    redirect_to action: :index, user_id: current_user.id
+    @product.destroy if @product.user_id == current_user.id
+    redirect_to user_listings_path user_id: current_user.id
   end
 
 
