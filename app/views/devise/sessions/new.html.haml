@@ -5,7 +5,7 @@
   .move-to-registration
     .move-to-registration__text
       アカウントをお持ちでない方はこちら
-    = link_to '新規会員登録', new_user_registration_path, class: 'move-to-registration__btn'
+    = link_to '新規会員登録', new_user_registration_path, class: 'move-to-registration__btn', 'data-turbolinks':false
   .user-session
     = link_to '#', class: 'user-session__facebook' do
       %p Facebookでログイン
@@ -20,7 +20,7 @@
       .session-field
         = f.label 'パスワード'
         = f.password_field :password, placeholder: 'パスワード', class: 'session-field__password'
-      = recaptcha_tags
+      .g-recaptcha{'data-sitekey': ENV["RECAPTCHA_SITE_KEY"]}
       = f.submit "ログイン", class: 'session-form__btn'
     = link_to 'パスワードをお忘れの方', '#', class: 'forgot-password'
 

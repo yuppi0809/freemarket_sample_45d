@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :confirm_purchase]
 
   def index
     @categories = Category.limit(3)
