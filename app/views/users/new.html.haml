@@ -5,7 +5,7 @@
   .registration-nav
     新規会員登録
   .registration
-    = link_to new_user_registration_path, class: 'registration__email', 'data-turbolinks':false do
+    = link_to new_user_registration_path, class: 'registration__email' do
       %p メールアドレスで登録
       = fa_icon 'envelope', class: 'email-logo'
     = link_to '#', class: 'registration__facebook' do
