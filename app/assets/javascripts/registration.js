@@ -268,4 +268,10 @@ $(document).on('turbolinks:load', function(){
       $('#delivery-update-form').submit()
     }
   })
+  $('.payment-form__btn').on('click', function(){
+    validateBlank(paymentElements)
+    if(nextPage(deliveryElements)){
+      $('#payment-form').submit()
+    }
+  })
 })
