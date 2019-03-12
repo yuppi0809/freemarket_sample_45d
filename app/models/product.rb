@@ -6,7 +6,7 @@ class Product < ActiveRecord::Base
   belongs_to :user
   has_many :product_images
   accepts_nested_attributes_for :product_images
-  has_many :likes
+  has_many :likes, dependent: :destroy
 
   # enum
   enum delivery_fee:{"送料込み（出品者負担）": 0, "着払い": 1}
