@@ -82,7 +82,7 @@
                   %span.price=display_price(product.price)
                   %span.likes
                     %i.fa.fa-heart-o
-                    %span 1
+                    %span=product.likes_count
 
     .items-container
       %h2.items-container__title
@@ -98,7 +98,7 @@
                   %span.price=display_price(product.price)
                   %span.likes
                     %i.fa.fa-heart-o
-                    %span 1
+                    %span=product.likes_count
 = render 'layouts/footer'
 
 .modal.hidden
