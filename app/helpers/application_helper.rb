@@ -27,7 +27,7 @@ module ApplicationHelper
       '出品する': new_product_path,
       '出品した商品 - 出品中': user_listings_path,
       '出品した商品 - 取引中': in_progress_user_listings_path,
-      '出品した商品 - 売却済み': sold_user_listings_path,
+      '出品した商品 - 売却済み': solds_user_listings_path,
       '購入した商品 - 過去の取引': '#',
       'ニュース一覧': '#',
       '評価一覧': '#',
