@@ -1,0 +1,28 @@
+.mypage-tab-container {
+  background-color: white;
+}
+
+.listing-tabs {
+  border: 0;
+  background: #eee;
+  font-size: 0px;
+  li {
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+
+    width: 33.3%;
+    &.active{
+      background-color: white;
+      border-top: 2px solid #ea352d;
+    }
+  }
+  a {
+    position: relative;
+    display: block;
+    color: #333;
+    font-size: 16px;
+    line-height: 72px;
+    font-weight: bold;
+  }
+}
