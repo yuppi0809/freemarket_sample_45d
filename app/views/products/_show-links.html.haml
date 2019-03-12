@@ -1,0 +1,8 @@
+-if user_signed_in?
+  -if product.check_if_user_liked(current_user)
+  -else
+-else
+  =link_to new_user_session_path, class: "like" do
+    %i.fa.fa-heart-o
+    %span いいね！
+    %span=product.likes_count if product.likes_count.present?
