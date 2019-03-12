@@ -401,6 +401,13 @@ table{
   }
 }
 
+.like-clicked{
+  border: 1px solid red;
+  background-color: none;
+  color:red;
+}
+
+
 .group:before,
 .group:after {
   content: "";
