@@ -45,4 +45,8 @@ class Product < ActiveRecord::Base
   def show_image_or_no_image
     self.product_images.present? ? self.product_images.first.image : "noimage.png"
   end
+
+  def check_if_user_liked(user_id)
+   likes.find_by(user_id: user_id)
+  end
 end
