@@ -1,4 +1,4 @@
-class Product < ActiveRecord::Base
+class Product < ApplicationRecord
   belongs_to :first_category, class_name: 'Category', foreign_key: "first_category_id"
   belongs_to :second_category, class_name: 'Category', foreign_key: 'second_category_id'
   belongs_to :third_category, class_name: 'Category', foreign_key: 'third_category_id'
