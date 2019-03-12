@@ -18,8 +18,16 @@ class ListingsController < ApplicationController
     end
   end
 
-
   def update
+  end
+
+  def in_progress
+    @product = Product.all
+    # @product = current_user.items.where(status: "in_progress").where(status: "listing").reverse_order.page(params[:page]).per(4)
+  end
+  def sold
+    @product = Product.all
+    # @product = current_user.items.where(status: "sold").where(status: "listing").reverse_order.page(params[:page]).per(4)
   end
 
   private
