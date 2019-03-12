@@ -1,6 +1,14 @@
 -if user_signed_in?
   -if product.check_if_user_liked(current_user)
+    =link_to product_like_path(product, like), class: "like left-link", method: :delete, remote: true do
+      %i.fa.fa-heart
+      %span いいね！
+      %span=product.likes_count if product.likes_count.present?
   -else
+    =link_to product_likes_path(product), class: "like left-link", method: :post, remote: true do
+      %i.fa.fa-heart-o
+      %span いいね！
+      %span=product.likes_count if product.likes_count.present?
 -else
   =link_to new_user_session_path, class: "like" do
     %i.fa.fa-heart-o
