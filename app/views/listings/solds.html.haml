@@ -12,10 +12,13 @@
         %li
           %h3= link_to '取引中', in_progress_user_listings_path
         %li.active
-          %h3= link_to '売却済み', sold_user_listings_path
+          %h3= link_to '売却済み', solds_user_listings_path
         %li
-          - @product.each do |product|
-            = link_to product.name, listing_path(product)
-            %p= product.description
-
+      .tab-content
+        %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
+          - if @products.present?
+            = render partial: 'listings/mypage_items', collection: @products, as: :product
+          - else
+            .non-content
+              %p 出品中の商品がありません
 = render 'layouts/footer'
