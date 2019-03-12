@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
   resources :profiles, only: [:new, :create]
   resources :products, only: [:new, :create, :show, :index] do
+    resources :likes, only: [:create, :destroy]
     get 'confirm_purchase', on: :member
   end
 
