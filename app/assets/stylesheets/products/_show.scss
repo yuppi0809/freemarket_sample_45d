@@ -116,42 +116,48 @@
 
   &__links{
     margin-top:20px;
-    font-size: 85%;
 
     a{
       text-decoration: none;
-    }
-
-    a:nth-child(2){
-      color: black;
-      background-color: #eff1f2;
-      padding:8px 15px 8px 15px;
-      border-radius: 15px;
-    }
-
-    a:nth-child(1){
-      color: $skyBlue;
     }
 
     a:hover{
       opacity:.8;
     }
 
-    button{
-      font-size: 90%;
-      border:none;
-      background-color: #eff1f2;
-      padding:8px 15px 8px 15px;
-      border-radius: 15px;
-      cursor:pointer;
-      margin-right: 15px;
-    }
     &__left{
       float:left;
     }
 
     &__right{
       float:right;
+    }
+
+    .left-link{
+      color: black;
+      background-color: #eff1f2;
+      border:none;
+    }
+
+    .like-container{
+      width: 34px;
+    }
+
+    .like{
+      @extend .report;
+      font-size:90%;
+    }
+
+    .report{
+      padding:8px 15px 8px 15px;
+      border-radius: 15px;
+      margin-right: 15px;
+      cursor:pointer;
+
+    }
+
+    .safety{
+      color: $skyBlue;
     }
   }
 }
