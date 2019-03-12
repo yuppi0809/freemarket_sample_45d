@@ -1,0 +1,21 @@
+= render 'layouts/header'
+%main.l-container.clearfix
+  .wrapper
+    = render 'users/sidebar'
+
+    .l-content
+    %section.mypage-tab-container
+      %h2.mypage-tab-head 出品した商品
+      %ul.listing-tabs
+        %li
+          %h3= link_to '出品中', user_listings_path
+        %li
+          %h3= link_to '取引中', in_progress_user_listings_path
+        %li.active
+          %h3= link_to '売却済み', sold_user_listings_path
+        %li
+          - @product.each do |product|
+            = link_to product.name, listing_path(product)
+            %p= product.description
+
+= render 'layouts/footer'
