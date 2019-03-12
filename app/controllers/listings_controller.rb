@@ -3,7 +3,7 @@ class ListingsController < ApplicationController
   before_action :set_profile, only: [:show, :destroy]
 
   def index
-    @product = Product.all
+    @products = Product.where(transaction_status: 0, user_id: current_user.id)
   end
 
   def show
@@ -22,12 +22,10 @@ class ListingsController < ApplicationController
   end
 
   def in_progress
-    @product = Product.all
-    # @product = current_user.items.where(status: "in_progress").where(status: "listing").reverse_order.page(params[:page]).per(4)
+    @products = Product.where(transaction_status: 1, user_id: current_user.id)
   end
-  def sold
-    @product = Product.all
-    # @product = current_user.items.where(status: "sold").where(status: "listing").reverse_order.page(params[:page]).per(4)
+  def solds
+    @products = Product.where(transaction_status: 2, user_id: current_user.id)
   end
 
   private
