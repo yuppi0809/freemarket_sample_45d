@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :listings, only:[:index, :update, :show, :destroy], shallow:true do
       collection do
         get 'in_progress'
-        get 'sold'
+        get 'solds'
       end
     end
   end
