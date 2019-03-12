@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   function getDay(year){
     monthDays = ['---', 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     if(birthMonth.val() == 2){

@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
 
   function buildMiddlecategory(category) {
     var html = `

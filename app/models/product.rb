@@ -1,4 +1,4 @@
-class Product < ActiveRecord::Base
+class Product < ApplicationRecord
   belongs_to :first_category, class_name: 'Category', foreign_key: "first_category_id"
   belongs_to :second_category, class_name: 'Category', foreign_key: 'second_category_id'
   belongs_to :third_category, class_name: 'Category', foreign_key: 'third_category_id'
@@ -17,7 +17,7 @@ class Product < ActiveRecord::Base
 
   validates :name, presence: true, length: {maximum: 40}
   validates :description, presence: true, length: {maximum: 1000}
-  validates  :size, presence: true
+  # validates :size, presence: true
   validates :product_status, presence: true
   validates :delivery_fee, presence: true
   validates :local, presence: true

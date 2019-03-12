@@ -3,20 +3,20 @@ $(document).on('turbolinks:load', function(){
     $(window).scrollTop(0)
   }
 
-  // function validateRecaptcha(){
-  //   var response = grecaptcha.getResponse()
-  //   $('.g-recaptcha').children('.alert-message').remove()
-  //   if(response == ''){
-  //     var alert = `<p class='alert-message'>
-  //                    選択してください
-  //                  </p>`
-  //     $('.g-recaptcha').append(alert)
-  //     scroll()
-  //     return false
-  //   }else{
-  //     return true
-  //   }
-  // }
+  function validateRecaptcha(){
+    var response = grecaptcha.getResponse()
+    $('.g-recaptcha').children('.alert-message').remove()
+    if(response == ''){
+      var alert = `<p class='alert-message'>
+                     選択してください
+                   </p>`
+      $('.g-recaptcha').append(alert)
+      scroll()
+      return false
+    }else{
+      return true
+    }
+  }
 
   function removeAlert(userElements){
     userElements.forEach(function(element){
@@ -199,7 +199,7 @@ $(document).on('turbolinks:load', function(){
     validateNameCharacter()
     validateNameKana()
     validateBirthDay()
-    // if(validateRecaptcha()){
+    if(validateRecaptcha()){
     if(nextPage(userElements)){
       registrationUser.hide()
       registrationVerify.show()
@@ -209,7 +209,7 @@ $(document).on('turbolinks:load', function(){
       $('.registration-step__verify .step-line').css(stepLineColor)
       scroll()
     }
-    // }
+    }
   })
   $('.registration-verify__btn').on('click', function(){
     if(validateVerifySms()){
@@ -256,11 +256,11 @@ $(document).on('turbolinks:load', function(){
     validateBlank(sessionElements)
     validateEmail(email)
     validatePassword(password)
-    // if(validateRecaptcha()){
+    if(validateRecaptcha()){
     if(nextPage(sessionElements)){
       $('#session-form').submit()
     }
-    // }
+    }
   })
   $('.registration-update__btn').on('click', function(){
     validateBlank(deliveryElements)
