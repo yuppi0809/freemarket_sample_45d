@@ -8,6 +8,14 @@
 .vertical-container{
   width: 700px;
   margin: 0 auto;
+
+  .fa-heart-o{
+    color:lightgrey;
+    font-weight: bold;
+  }
+  .fa-heart{
+    color:red;
+  }
 }
 
 .item-container{
