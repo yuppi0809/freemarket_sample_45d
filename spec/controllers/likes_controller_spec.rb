@@ -28,5 +28,12 @@ describe LikesController, type: :controller do
   end
 
   describe '#destroy' do
+    it 'count down message' do
+      like = create(:like, user: user, product: product)
+
+      expect do
+        delete :destroy, params: { id: like.id, product_id: product.id }, xhr: true
+      end.to change(Like, :count).by(-1)
+    end
   end
 end
