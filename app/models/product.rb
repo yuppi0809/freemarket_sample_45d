@@ -13,7 +13,7 @@ class Product < ApplicationRecord
   enum product_status:{"新品、未使用": 0, "未使用に近い": 1, "目立った傷、汚れなし": 2, "やや傷汚れあり": 3, "傷や汚れあり": 4, "全体に状態が悪い": 5}
   enum size:{"S": 0, "M": 1, "L": 2}
   enum lead_time:{"1~2日で発送": 0, "2~3日で発送": 1, "4~7日で発送": 2}
-  enum transaction_status: { listings: 0, in_progress: 1, solds: 2}
+  enum transaction_status: [ :listings, :in_progress, :solds]
 
   validates :name, presence: true, length: {maximum: 40}
   validates :description, presence: true, length: {maximum: 1000}
