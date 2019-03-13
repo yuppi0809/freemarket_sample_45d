@@ -9,6 +9,17 @@ describe LikesController, type: :controller do
     end
 
   describe '#create' do
+    let(:params){{user_id: user.id, product_id: product.id }}
+
+    subject {
+      post :create,
+      params: params,
+      xhr: true
+    }
+
+    it 'count up message' do
+      expect{ subject }.to change(Like, :count).by(1)
+    end
   describe '#destroy' do
   end
 end
