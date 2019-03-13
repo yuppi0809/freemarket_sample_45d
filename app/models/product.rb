@@ -1,4 +1,4 @@
-class Product < ApplicationRecord
+class Product < ActiveRecord::Base
   belongs_to :first_category, class_name: 'Category', foreign_key: "first_category_id"
   belongs_to :second_category, class_name: 'Category', foreign_key: 'second_category_id'
   belongs_to :third_category, class_name: 'Category', foreign_key: 'third_category_id'
@@ -13,11 +13,11 @@ class Product < ApplicationRecord
   enum product_status:{"新品、未使用": 0, "未使用に近い": 1, "目立った傷、汚れなし": 2, "やや傷汚れあり": 3, "傷や汚れあり": 4, "全体に状態が悪い": 5}
   enum size:{"S": 0, "M": 1, "L": 2}
   enum lead_time:{"1~2日で発送": 0, "2~3日で発送": 1, "4~7日で発送": 2}
-  enum transaction_status:{"出品中": 0, "交渉中": 1, "出品停止": 2}
+  enum transaction_status: { listings: 0, in_progress: 1, solds: 2}
 
   validates :name, presence: true, length: {maximum: 40}
   validates :description, presence: true, length: {maximum: 1000}
-  # validates :size, presence: true
+  validates  :size, presence: true
   validates :product_status, presence: true
   validates :delivery_fee, presence: true
   validates :local, presence: true
