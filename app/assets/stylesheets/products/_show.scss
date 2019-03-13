@@ -139,13 +139,9 @@
       border:none;
     }
 
-    .like-container{
-      width: 34px;
-    }
-
     .like{
       @extend .report;
-      font-size:90%;
+      font-size:85%;
     }
 
     .report{
