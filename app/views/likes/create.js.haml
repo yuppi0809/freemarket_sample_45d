@@ -4,11 +4,11 @@ likeContainer.html("#{ escape_javascript(render partial: 'products/show-links', 
 
 var likeButton = likeContainer.find(".like")
 
-function toggleLikeButton(){likeButton.toggleClass("like-clicked");
+function changeColorToRed(){likeButton.toggleClass("like-clicked");
 likeButton.toggleClass("left-link");
 }
 
-toggleLikeButton();
+changeColorToRed();
 
 
 
