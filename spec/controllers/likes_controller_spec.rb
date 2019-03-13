@@ -20,6 +20,13 @@ describe LikesController, type: :controller do
     it 'count up message' do
       expect{ subject }.to change(Like, :count).by(1)
     end
+
+    it 'assigns @product' do
+      subject
+      expect(assigns(:product)).to match(product)
+    end
+  end
+
   describe '#destroy' do
   end
 end
