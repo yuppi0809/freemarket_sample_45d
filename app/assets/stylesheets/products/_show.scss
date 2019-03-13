@@ -119,10 +119,10 @@
 
     a{
       text-decoration: none;
-    }
 
-    a:hover{
-      opacity:.8;
+      &:hover{
+        opacity:.8;
+      }
     }
 
     &__left{
