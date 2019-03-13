@@ -1,0 +1,52 @@
+= render 'layouts/header'
+.container
+  .vertical-container
+    .item-container
+      %h2.item-container__title
+        = @product.name
+
+
+      .item-container__float.group
+        .item-container__images
+          .slides-container.group
+            .my-slides
+
+            .my-slides
+
+            .my-slides
+
+            .my-slides
+
+          .item-container__images__dots
+            .dot{data: "0"}
+
+            .dot{data: "1"}
+
+            .dot{data: "2"}
+
+            .dot{data: "3"}
+
+
+
+
+        .item-container__price-info
+          %span.mark ¥
+          %span.price= @product.price
+          %span.taxes (税込)
+          %span.shipping-fee 送料込み
+
+          %h3.item-container__title
+          = @product.description
+
+      =link_to "商品の編集", root_path, class: "item-container__purchase-btn"
+      or
+      =link_to "出品を再開する", root_path, class: "item-container__purchase-btn"
+      or
+      =link_to '削除', listing_path, method: :delete, class: "item-container__purchase-btn"
+
+
+    .show-page-comments
+      %form
+        %p.show-page-comments__warning 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %input.show-page-comments__text{type:"textarea"}
+        %input.show-page-comments__submit-btn{type: "submit", value: "コメントする", style: "font-size:20px"}

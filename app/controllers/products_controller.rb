@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :confirm_purchase]
 
   def index
     @categories = Category.limit(3)
@@ -15,6 +16,9 @@ class ProductsController < ApplicationController
     @images = @product.product_images.limit(4)
     @products = @product.user.products.where.not(id: params[:id]).limit(6)
     @category_products = @product.third_category.third_category_products.where.not(id: params[:id]).limit(6)
+    if user_signed_in?
+      @like = Like.find_by(user_id: current_user.id, product_id: params[:id])
+    end
     @prev_item = @product.showPrevItem if @product.checkPrevItem
     @next_item = @product.showNextItem if @product.checkNextItem
   end

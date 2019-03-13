@@ -200,15 +200,15 @@ $(document).on('turbolinks:load', function(){
     validateNameKana()
     validateBirthDay()
     if(validateRecaptcha()){
-      if(nextPage(userElements)){
-        registrationUser.hide()
-        registrationVerify.show()
-        registrationNav.text('電話番号の確認')
-        $('.registration-step__user-info p').css(defaultTextColor)
-        $('.registration-step__verify').css(stepTextColor)
-        $('.registration-step__verify .step-line').css(stepLineColor)
-        scroll()
-      }
+    if(nextPage(userElements)){
+      registrationUser.hide()
+      registrationVerify.show()
+      registrationNav.text('電話番号の確認')
+      $('.registration-step__user-info p').css(defaultTextColor)
+      $('.registration-step__verify').css(stepTextColor)
+      $('.registration-step__verify .step-line').css(stepLineColor)
+      scroll()
+    }
     }
   })
   $('.registration-verify__btn').on('click', function(){
@@ -257,9 +257,21 @@ $(document).on('turbolinks:load', function(){
     validateEmail(email)
     validatePassword(password)
     if(validateRecaptcha()){
-      if(nextPage(sessionElements)){
-        $('#session-form').submit()
-      }
+    if(nextPage(sessionElements)){
+      $('#session-form').submit()
+    }
+    }
+  })
+  $('.registration-update__btn').on('click', function(){
+    validateBlank(deliveryElements)
+    if(nextPage(deliveryElements)){
+      $('#delivery-update-form').submit()
+    }
+  })
+  $('.payment-form__btn').on('click', function(){
+    validateBlank(paymentElements)
+    if(nextPage(paymentElements)){
+      $('#payment-form').submit()
     }
   })
 })

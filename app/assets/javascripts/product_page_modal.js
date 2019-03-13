@@ -14,7 +14,6 @@ $(document).on('turbolinks:load', function(){
   })
 
  $(window).on("click", function(event){
-  console.log($(event.target))
     if(event.target == modal[0]){
       modal.css("display", "none");
       }
