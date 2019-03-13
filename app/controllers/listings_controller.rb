@@ -3,7 +3,7 @@ class ListingsController < ApplicationController
   before_action :set_profile, only: [:show, :destroy]
 
   def index
-    @products = Product.where(transaction_status: 0, user_id: current_user.id)
+    @products = Product.where(transaction_status: "出品中", user_id: current_user.id)
   end
 
   def show
@@ -22,10 +22,10 @@ class ListingsController < ApplicationController
   end
 
   def in_progress
-    @products = Product.where(transaction_status: 1, user_id: current_user.id)
+    @products = Product.where(transaction_status: "交渉中", user_id: current_user.id)
   end
   def solds
-    @products = Product.where(transaction_status: 2, user_id: current_user.id)
+    @products = Product.where(transaction_status: "出品停止", user_id: current_user.id)
   end
 
   private
