@@ -35,5 +35,11 @@ describe LikesController, type: :controller do
         delete :destroy, params: { id: like.id, product_id: product.id }, xhr: true
       end.to change(Like, :count).by(-1)
     end
+
+    it 'assigns @product' do
+      like = create(:like, user: user, product: product)
+      delete :destroy, params: { id: like.id, product_id: product.id }, xhr: true
+      expect(assigns(:product)).to match(product)
+    end
   end
 end
