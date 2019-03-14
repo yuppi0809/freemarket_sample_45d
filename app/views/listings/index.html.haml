@@ -15,7 +15,7 @@
           %h3= link_to '売却済み', solds_user_listings_path
         %li
       .tab-content
-        %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
+        %ul#mypage-tab-transaction-now.mypage-item__list.tab-pane.active
           - if @products.present?
             = render partial: 'listings/mypage_items', collection: @products, as: :product
           - else
