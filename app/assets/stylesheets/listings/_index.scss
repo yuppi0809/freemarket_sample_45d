@@ -25,6 +25,18 @@
   }
 }
 .mypage-item {
+  &__list {
+    li {
+    position: relative;
+    border-bottom: 1px solid #eee;
+      &:last-child {
+        border: 0;
+      }
+    }
+    a:hover {
+      background-color: #fafafa;
+    }
+  }
   &__body {
   margin: 0 40px 0 20px;
   }
