@@ -17,7 +17,10 @@ Rails.application.routes.draw do
   resources :payments, only:[:index, :new, :create, :show, :destroy]
   resources :profiles, only: [:new, :create, :edit, :update]
   resources :products, only: [:new, :create, :show, :index] do
-    get 'confirm_purchase', on: :member
+    member do
+      get 'confirm_purchase'
+      post 'purchase'
+    end
   end
   resources :categories, only: :new
 end
