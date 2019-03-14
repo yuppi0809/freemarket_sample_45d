@@ -19,6 +19,7 @@
           - if @products.present?
             = render partial: 'listings/mypage_items', collection: @products, as: :product
           - else
-            .non-content
+            .none-content
+              = image_tag "mercari_logo_grey-ish", class: 'logo'
               %p 取引中の商品がありません
 = render 'layouts/footer'
