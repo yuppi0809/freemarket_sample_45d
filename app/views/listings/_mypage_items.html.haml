@@ -1,8 +1,8 @@
 %li
-  =link_to listing_path(product), class: "mypage-item-link" do
+  =link_to listing_path(product), class: "mypage-item__link" do
     %figure
-    .mypage-item-body
-      .mypage-item-text
+    .mypage-item__body
+      .mypage-item__text
         =product.name
       .mypage-item-icon
         %span.listing-item-count
@@ -12,6 +12,3 @@
         %span.listing-item-count
           = fa_icon "comment"
     = fa_icon 'angle-right'
-
-
-
