@@ -17,25 +17,49 @@ check_client_connection false
 
 run_once = true
 
+# before_fork do |server, worker|
+#   defined?(ActiveRecord::Base) &&
+#     ActiveRecord::Base.connection.disconnect!
+
+#   if run_once
+#     run_once = false # prevent from firing again
+#   end
+
+#   old_pid = "#{server.config[:pid]}.oldbin"
+#   if File.exist?(old_pid) && server.pid != old_pid
+#     begin
+#       sig = (worker.nr + 1) >= server.worker_processes ? :QUIT : :TTOU
+#       Process.kill(sig, File.read(old_pid).to_i)
+#     rescue Errno::ENOENT, Errno::ESRCH => e
+#       logger.error e
+#     end
+#   end
+# end
+
+# after_fork do |_server, _worker|
+#   defined?(ActiveRecord::Base) && ActiveRecord::Base.establish_connection
+# end
+
+
+# before starting processes
 before_fork do |server, worker|
-  defined?(ActiveRecord::Base) &&
-    ActiveRecord::Base.connection.disconnect!
+  defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
+
 
   if run_once
     run_once = false # prevent from firing again
   end
-
   old_pid = "#{server.config[:pid]}.oldbin"
-  if File.exist?(old_pid) && server.pid != old_pid
+
+  if old_pid != server.pid
     begin
-      sig = (worker.nr + 1) >= server.worker_processes ? :QUIT : :TTOU
-      Process.kill(sig, File.read(old_pid).to_i)
-    rescue Errno::ENOENT, Errno::ESRCH => e
-      logger.error e
+      Process.kill "QUIT", File.read(old_pid).to_i
+    rescue Errno::ENOENT, Errno::ESRCH
     end
   end
 end
 
-after_fork do |_server, _worker|
-  defined?(ActiveRecord::Base) && ActiveRecord::Base.establish_connection
+# after finishing processes
+after_fork do |server, worker|
+  defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
 end
