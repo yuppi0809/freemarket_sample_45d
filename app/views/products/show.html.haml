@@ -25,22 +25,21 @@
         %span.taxes (税込)
         %span.shipping-fee=display_delivery_fee(@product.delivery_fee)
 
-      =link_to "購入画面に進む", confirm_purchase_product_path(@product), class: "item-container__purchase-btn"
+      -unless current_user == @product.user
+        =link_to "購入画面に進む", confirm_purchase_product_path(@product), class: "item-container__purchase-btn"
 
       .item-container__description
         %p=@product.description
 
       .item-container__links.group
         .item-container__links__left
-          %button.link
-            %i.fa.fa-heart-o
-            %span いいね！
-            %span 1
-          %button.link.report
+          %span.like-container
+            =render partial: "show-links", locals: {like:@like, product:@product}
+          %button.left-link.report
             %i.fa.fa-flag-o
             %span 不適切な商品の報告
         .item-container__links__right
-          =link_to "#", class: "link safety" do
+          =link_to "#", class: "safety" do
             %i.fa.fa-lock
             %span あんしん・安全への取り組み
 
@@ -84,7 +83,7 @@
                   %span.price=display_price(product.price)
                   %span.likes
                     %i.fa.fa-heart-o
-                    %span 1
+                    %span=product.likes_count
 
     .items-container
       %h2.items-container__title
@@ -100,7 +99,7 @@
                   %span.price=display_price(product.price)
                   %span.likes
                     %i.fa.fa-heart-o
-                    %span 1
+                    %span=product.likes_count
 = render 'layouts/footer'
 
 .modal.hidden

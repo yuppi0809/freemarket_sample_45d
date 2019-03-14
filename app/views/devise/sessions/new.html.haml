@@ -20,7 +20,7 @@
       .session-field
         = f.label 'パスワード'
         = f.password_field :password, placeholder: 'パスワード', class: 'session-field__password'
-      = recaptcha_tags
+      / = recaptcha_tags
       = f.submit "ログイン", class: 'session-form__btn'
     = link_to 'パスワードをお忘れの方', '#', class: 'forgot-password'
 
