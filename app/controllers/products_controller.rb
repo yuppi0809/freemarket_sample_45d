@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
   def show
     @images = @product.product_images.limit(4)
     @products = ProductDecorator.decorate_collection(@product.user.products.where.not(id: params[:id]).limit(6))
-    @category_products = @product.third_category.third_category_products.where.not(id: params[:id]).limit(6)
+    @category_products = ProductDecorator.decorate_collection(@product.third_category.third_category_products.where.not(id: params[:id]).limit(6))
     @prev_item = @product.showPrevItem if @product.checkPrevItem
     @next_item = @product.showNextItem if @product.checkNextItem
   end
