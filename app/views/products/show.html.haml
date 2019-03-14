@@ -25,7 +25,8 @@
         %span.taxes (税込)
         %span.shipping-fee=display_delivery_fee(@product.delivery_fee)
 
-      =link_to "購入画面に進む", confirm_purchase_product_path(@product), class: "item-container__purchase-btn"
+      -unless current_user == @product.user
+        =link_to "購入画面に進む", confirm_purchase_product_path(@product), class: "item-container__purchase-btn"
 
       .item-container__description
         %p=@product.description
