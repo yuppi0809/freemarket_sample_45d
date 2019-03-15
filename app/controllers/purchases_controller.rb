@@ -8,7 +8,7 @@ class PurchasesController < ApplicationController
     @profile = ProfileDecorator.decorate(Profile.find_by(user_id: current_user.id))
   end
 
-  def purchase
+  def create
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @product.price,
