@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :confirm_purchase]
-  before_action :set_product, only: [:show, :confirm_purchase, :purchase]
-  before_action :transaction_sold?, only: [:confirm_purchase, :purchase]
+  before_action :authenticate_user!, only: [:new, :create]
+  before_action :set_product, only: :show
 
   def index
     @categories = Category.limit(3)
@@ -19,22 +18,6 @@ class ProductsController < ApplicationController
     @category_products = ProductDecorator.decorate_collection(@product.third_category.third_category_products.where.not(id: params[:id]).limit(6))
     @prev_item = @product.showPrevItem if @product.checkPrevItem
     @next_item = @product.showNextItem if @product.checkNextItem
-  end
-
-  def confirm_purchase
-    @payment = PaymentDecorator.decorate(Payment.find_by(user_id: current_user.id))
-    @profile = ProfileDecorator.decorate(Profile.find_by(user_id: current_user.id))
-  end
-
-  def purchase
-    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
-    Payjp::Charge.create(
-      amount: @product.price,
-      card: params['payjp-token'],
-      currency: 'jpy'
-    )
-    @product.sold!
-    redirect_to product_path(@product)
   end
 
   def create

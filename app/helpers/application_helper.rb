@@ -80,7 +80,7 @@ module ApplicationHelper
 
   def link_to_purchase(product)
     if product.transaction_status == 'listing'
-      link_to "購入画面に進む", confirm_purchase_product_path(product.id), class: "item-container__purchase-btn"
+      link_to "購入画面に進む", new_product_purchase_path(product.id), class: "item-container__purchase-btn"
     else
       button_tag "売り切れました", class: "item-container__purchase-btn--sold"
     end
