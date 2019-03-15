@@ -4,11 +4,11 @@
     .mypage-item__body
       .mypage-item__text
         =product.name
-      .mypage-item-icon
-        %span.listing-item-count
+      .mypage-item
+        %span.listing-item__count
           = fa_icon "heart"
           %span
             =product.likes_count
-        %span.listing-item-count
+        %span.listing-item__count
           = fa_icon "comment"
     = fa_icon 'angle-right'
