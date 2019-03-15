@@ -7,6 +7,12 @@ crumb :product do |product|
   link product.name, product
   parent :root
 end
+
+crumb :users do
+  link "マイページ"
+  parent :root
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
