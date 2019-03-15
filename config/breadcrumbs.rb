@@ -1,4 +1,7 @@
 
+crumb :root do
+  link "メルカリ", root_path
+end
 
 # crumb :projects do
 #   link "Projects", projects_path
