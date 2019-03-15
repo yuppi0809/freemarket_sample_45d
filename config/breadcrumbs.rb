@@ -3,6 +3,10 @@ crumb :root do
   link "メルカリ", root_path
 end
 
+crumb :product do |product|
+  link product.name, product
+  parent :root
+end
 # crumb :projects do
 #   link "Projects", projects_path
 # end
