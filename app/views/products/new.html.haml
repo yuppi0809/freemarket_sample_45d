@@ -1,7 +1,7 @@
 .sell-form-wrapper
-  %h1.sell-form-wrapper__header-logo
+  .buy-container__logo
     = link_to root_path do
-      = image_tag('mercari_logo_horizontal.png', size: "200x100")
+      = image_tag "mercari_logo_horizontal.png"
   = form_for @product, html: {class: "sell-form dropzone", id: "item-dropzone"} do |f|
     %h2.sell-form__header
       商品情報を入力
@@ -131,16 +131,4 @@
       %input{type: "submit", value: "出品する", class: "sell-form-btn-content__submit"}
       %a.sell-form-btn-content__back
         戻る
-  .sell-form-footer
-    .nav
-      %ul.clearfix
-        %li
-          = link_to 'プライバシーポリシー', "#"
-        %li
-          = link_to 'メルカリ利用条約', "#"
-        %li
-          = link_to '特定商品取引に関する表記', "#"
-
-    = link_to 'メルカリ', "https://www.mercari.com/jp/"
-    .p
-      2019 merukari
+= render 'buy-footer'

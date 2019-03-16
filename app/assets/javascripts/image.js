@@ -1,11 +1,11 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   var dropzone = $('.dropzone-area');
   var dropzone_box = $('.dropzone-box');
   var images = [];
   var inputs  =[];
   var input_area = $('.input_area');
   var preview = $('#preview');
-
+  
   $(document).on('change', 'input[type= "file"].upload-image',function(event) {
     var file = $(this).prop('files')[0];
     var files = $(this).prop('files');
