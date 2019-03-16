@@ -11,10 +11,13 @@
       %span.sell-form-container__require
         必須
       = f.fields_for :product_images do |image|
-        .dropzone-area#preview
-          = image.label :image, class: "dropzone-box", for: "upload-image" do
-            ここに写真をドラッグアンドまたはクリックしてください
-            = image.file_field :image, id: "upload-image", class: "upload-image"
+        .dropzone-container.clearfix
+          #preview
+          .dropzone-area
+            = image.label :image, class: "dropzone-box", for: "upload-image" do
+              .input_area
+                = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+              %p ここに写真をドラッグアンドまたはクリックしてください
     .sell-form-container
       .form-group
         %label.form-group__label

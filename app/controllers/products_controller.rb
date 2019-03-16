@@ -24,8 +24,17 @@ class ProductsController < ApplicationController
   end
 
   def create
-    product = Product.create(product_parameter)
-    redirect_to root_path
+    @product = Product.new(product_parameter)
+    respond_to do |format|
+      if @product.save
+        params[:product_images][:image].each do |image|
+          @product_image = @product.product_images.create(image: image, product_id: @product.id)
+        end
+        format.html{redirect_to root_path}
+      else
+        format.html{render action: 'new'}
+      end
+    end
   end
 
   private

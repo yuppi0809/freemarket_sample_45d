@@ -19,6 +19,7 @@ module ApplicationHelper
   end
 
   def mypage_elements
+
     elements = {
       'マイページ': '#',
       'お知らせ': '#',
