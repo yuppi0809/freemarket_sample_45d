@@ -1,0 +1,13 @@
+= render 'layouts/header'
+.wrapper
+  = render 'users/sidebar'
+  .registration-wrapper
+    .registration-nav
+      発送元・お届け先住所変更
+    .registration
+      .registration-delivery--edit
+        = form_for @profile, html: {id: 'delivery-update-form'} do |profile|
+          = render 'devise/registrations/delivery_elements', profile: profile
+          = profile.button ' 変更する', type: 'button', class: 'registration-update__btn'
+
+= render 'layouts/footer'

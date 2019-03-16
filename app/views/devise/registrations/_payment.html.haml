@@ -1,0 +1,4 @@
+.registration-payment
+  = f.fields_for :payments, Payment.new do |payment|
+    = render 'devise/registrations/payment_elements', payment: payment
+    = payment.button '次へ進む', type: 'button', class: 'registration-payment__btn'

@@ -1,0 +1,16 @@
+= render 'layouts/header'
+.wrapper
+  = render 'users/sidebar'
+  .credit-card-right-content
+    %h2 支払い方法
+    .credit-card-right-content__main
+      .credit-card-right-content__main__wrapper
+        .credit-card-right-content__main__top.group
+          %p クレジットカード一覧
+          = link_to new_payment_path, class: 'payment-add' do
+            = fa_icon('credit-card', text: 'クレジットカードを追加する')
+      .credit-card-right-content__main__bottom
+        = link_to '', class: 'payment-delete__link' do
+          = fa_icon('chevron-right', text: '支払い方法について', right:true)
+
+= render 'layouts/footer'

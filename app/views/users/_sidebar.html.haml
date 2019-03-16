@@ -1,0 +1,26 @@
+.side-bar
+  .mypage
+    %ul.content
+      - mypage_elements.each do |key, value|
+        = link_to value, class: 'mypage-link' do
+          %li.mypage-link__content
+            = key
+            = fa_icon("angle-right")
+
+  %h3 メルペイ
+  .mypage
+    %ul.content
+      - mypage_elements_merpay.each do |element|
+        = link_to '#', class: 'mypage-link' do
+          %li.mypage-link__content
+            = element
+            = fa_icon("angle-right")
+  %h3 設定
+  .mypage
+    %ul.content
+      - mypage_elements_setting.each do |key, value|
+        = link_to value, class: 'mypage-link' do
+          %li.mypage-link__content
+            = key
+            = fa_icon("angle-right")
+= render 'layouts/sellform_link_button'

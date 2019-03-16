@@ -1,0 +1,13 @@
+= render 'layouts/header'
+.wrapper
+  = render 'users/sidebar'
+  .registration-wrapper
+    .registration-nav
+      クレジットカード情報入力
+    .registration
+      .registration-delivery--edit
+        = form_for @payment, html: {id: 'payment-form'} do |payment|
+          = render 'devise/registrations/payment_elements', payment: payment
+          = payment.button '追加する', type: 'button', class: 'payment-form__btn'
+
+= render 'layouts/footer'

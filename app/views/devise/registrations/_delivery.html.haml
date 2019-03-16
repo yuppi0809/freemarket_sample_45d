@@ -1,0 +1,4 @@
+.registration-delivery
+  = f.fields_for :profile, Profile.new do |profile|
+    = render 'delivery_elements', profile: profile
+    = profile.button '次へ進む', type: 'button', class: 'registration-delivery__btn'

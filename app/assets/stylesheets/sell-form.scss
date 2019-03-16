@@ -1,11 +1,6 @@
 @import "variable";
 .sell-form-wrapper {
   width: 100%;
-  &__header-logo {
-    margin-top: 30px;
-    margin-bottom: 10px;
-    text-align: center;
-  }
   .sell-form {
     width: 700px;
     margin: 0 auto;
@@ -33,7 +28,69 @@
         font-size: 10px;
         margin-left: 5px;
       }
+      .dropzone-container {
+        #preview {
+          float: left;
+        }
+        .dropzone-area {
+          width: 100%;
+          height: 160px;
+          background: #F5F5F5;
+          text-align: center;
+          line-height: 160px;
+          position: relative;
+          float: right;
+          border: 1px dashed $border-color;
+          .dropzone-box {
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            display: block;
+            p {
+              // word-break: break-all;
+            }
+            #upload-image {
+              display: none;
+            }
+          }
+        }
+      }
+      #preview {
+        .img_view {
+          height: 160px;
+          width: 120px;
+          float: left;
+          margin-right: 10px;
+          border: 1px solid $border-color;
+          img {
+            width: 120px;
+            height: 120px;
+          }
+          .btn_wrapper {
+            width: 120px;
+            height: 40px;
+            color: #0399E8;
+            .btn {
+              text-align: center;
+              line-height: 100%;
+              float: left;
+              width: 60px;
+              height: 100%;
+              cursor: pointer;
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
       .form-group {
+        &#size {
+          display: none;
+        }
+        &#brand {
+          display: none;
+        }
         margin-bottom: 20px;
         &__label {
           font-weight: bold;
@@ -42,6 +99,15 @@
           font-weight: bold;
           color: #fff;
           background: #EA352D;
+          padding: 5px;
+          border-radius: 5px;
+          font-size: 10px;
+          margin-left: 5px;
+        }
+        &__optional {
+          font-weight: bold;
+          color: #fff;
+          background: #cccccc;
           padding: 5px;
           border-radius: 5px;
           font-size: 10px;
@@ -69,6 +135,29 @@
       &__sell-form-box {
         float: right;
         .form-group {
+          .select-wrapper-all {
+            .select-wrapper {
+            position: relative;
+            &__select {
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+              appearance: none;
+              margin-top: 10px;
+              width: 400px;
+              box-sizing: border-box;
+              height: 50px;
+              background: #fff;
+              border: 1px solid $border-color;
+              padding: 10px;
+            }
+            &__icon {
+              position: absolute;
+              top: 25px;
+              right: 20px;
+            }
+          }
+        }
           .select-wrapper {
             position: relative;
             &__select {
@@ -143,34 +232,6 @@
         color: #fff;
         line-height: 50px;
         cursor: pointer;
-      }
-    }
-  }
-  .sell-form-footer {
-    padding-top: 30px;
-    padding-bottom: 40px;
-    width: 456px;
-    margin: auto;
-    text-align: center;
-    a {
-      text-decoration: none;
-      color: black;
-      margin-top: 20px;
-    }
-    ul {
-      margin-bottom: 30px;
-      li {
-        float: left;
-        margin-left: 30px;
-          &:hover {
-            opacity: 0.6;
-            text-decoration: none;
-          }
-        a {
-          font-size: 10px;
-          color: black;
-          text-decoration: none;
-        }
       }
     }
   }

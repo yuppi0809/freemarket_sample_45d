@@ -1,0 +1,3 @@
+var likeContainer = $(".item-container__links__left").find(".like-container")
+
+likeContainer.html("#{ escape_javascript(render partial: 'products/show-links', locals: {like:@like, product:@product})}")

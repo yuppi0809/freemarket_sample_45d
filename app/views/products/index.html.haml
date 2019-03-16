@@ -1,15 +1,14 @@
+= render 'layouts/header'
 %main.products-field
   .pickup-products-container
     %h2.pickup-head
       ピックアップカテゴリー
-    = render "category"
-    = render "category"
-    = render "category"
+    = render partial: "category", collection: @categories, as: 'category'
 
   .pickup-products-container
     %h2.pickup-head
       ピックアップブランド
-    = render "category"
-    = render "category"
-    = render "category"
+    = render partial: "brand", collection: @brands, as: 'brand'
+= render 'layouts/footer'
+= render 'layouts/sellform_link_button'
 

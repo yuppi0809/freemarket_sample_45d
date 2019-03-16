@@ -1,0 +1,114 @@
+= render 'layouts/header'
+.container
+  .vertical-container
+    .item-container
+      %h2.item-container__title=@product.name
+
+      .item-container__float.group
+        .item-container__images
+          .slides-container.group
+            - if @images.present?
+              -@images.each do |image|
+                .my-slides
+                  = image_tag image.image
+            - else
+              .my-slides
+                = image_tag "noimage.png"
+          .item-container__images__dots
+            - @images.each do |image|
+              .dot
+                = image_tag image.image
+        =render partial: 'show-table', locals: { product: @product }
+
+      .item-container__price-info
+        %span.price=display_price(@product.price)
+        %span.taxes (税込)
+        %span.shipping-fee=display_delivery_fee(@product.delivery_fee)
+
+      -unless current_user == @product.user
+        =link_to "購入画面に進む", confirm_purchase_product_path(@product), class: "item-container__purchase-btn"
+
+      .item-container__description
+        %p=@product.description
+
+      .item-container__links.group
+        .item-container__links__left
+          %span.like-container
+            =render partial: "show-links", locals: {like:@like, product:@product}
+          %button.left-link.report
+            %i.fa.fa-flag-o
+            %span 不適切な商品の報告
+        .item-container__links__right
+          =link_to "#", class: "safety" do
+            %i.fa.fa-lock
+            %span あんしん・安全への取り組み
+
+    .show-page-comments
+      %form
+        %p.show-page-comments__warning 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %input.show-page-comments__text{type:"textarea"}
+        %input.show-page-comments__submit-btn{type: "submit", value: "コメントする", style: "font-size:20px"}
+
+    .page-navigator.group
+      -if @product.checkPrevItem
+        = link_to product_path(@prev_item), class: "prev-item" do
+          =fa_icon("chevron-left", text: @prev_item.name)
+      -if @product.checkNextItem
+        = link_to product_path(@next_item), class: "next-item" do
+          =fa_icon("chevron-right",text:@next_item.name, right: true)
+
+    .sns-icons-container.group
+      .sns-icons
+        =link_to root_path do
+          %li.sns-icon
+        =link_to root_path do
+          %li.sns-icon
+        =link_to root_path do
+          %li.sns-icon
+        =link_to root_path do
+          %li.sns-icon
+
+    .items-container
+      %h2.items-container__title
+        =link_to "#{@product.user.nickname}さんのその他の出品", "#"
+      .items-container__images.group
+        -@products.each do |product|
+          .item
+            =link_to product_path(product), class:"item__link" do
+              =image_tag product.show_image_or_no_image, class: "item__image"
+
+              .item__info
+                %p.item__info__name=product.name
+                .item__info__nums
+                  %span.price=display_price(product.price)
+                  %span.likes
+                    %i.fa.fa-heart-o
+                    %span=product.likes_count
+
+    .items-container
+      %h2.items-container__title
+        =link_to "#{@product.third_category.name} (#{@product.first_category.name}) その他の商品", "#"
+      .items-container__images.group
+        -@category_products.each do |product|
+          .item
+            =link_to product_path(product), class:"item__link" do
+              =image_tag product.show_image_or_no_image, class: "item__image"
+              .item__info
+                %p.item__info__name=product.name
+                .item__info__nums
+                  %span.price=display_price(product.price)
+                  %span.likes
+                    %i.fa.fa-heart-o
+                    %span=product.likes_count
+= render 'layouts/footer'
+
+.modal.hidden
+  .modal__window.hidden
+    .modal__window__top
+      %p 確認
+      %p 不適切な商品を報告しますか
+    .modal__window__bottom.group
+      .left
+        キャンセル
+      .right
+        報告

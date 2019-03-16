@@ -1,0 +1,27 @@
+.buy-container__logo
+  = link_to root_path do
+    = image_tag "mercari_logo_horizontal.png"
+.user-session-wrapper
+  .move-to-registration
+    .move-to-registration__text
+      アカウントをお持ちでない方はこちら
+    = link_to '新規会員登録', new_user_registration_path, class: 'move-to-registration__btn'
+  .user-session
+    = link_to '#', class: 'user-session__facebook' do
+      %p Facebookでログイン
+      = image_tag('facebook-logo.png', class: 'facebook-logo')
+    = link_to '#', class: 'user-session__google' do
+      %p Googleでログイン
+      = image_tag('google-logo.png', class: 'google-logo')
+    = form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: 'session-form', class: 'session-form'}) do |f|
+      .session-field
+        = f.label 'メールアドレス'
+        = f.email_field :email, autofocus: true, placeholder: 'メールアドレス', class: 'session-field__email'
+      .session-field
+        = f.label 'パスワード'
+        = f.password_field :password, placeholder: 'パスワード', class: 'session-field__password'
+      / = recaptcha_tags
+      = f.submit "ログイン", class: 'session-form__btn'
+    = link_to 'パスワードをお忘れの方', '#', class: 'forgot-password'
+
+= render 'products/buy-footer'

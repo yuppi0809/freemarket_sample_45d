@@ -1,0 +1,37 @@
+%table.item-container__detail
+  %tr
+    %td 出品者
+    %td=link_to product.user.nickname,"#"
+  %tr
+    %td カテゴリー
+    %td
+      =link_to product.first_category.name
+      %br
+      =link_to do
+        =fa_icon("angle-right", text: product.second_category.name)
+      %br
+      =link_to do
+        =fa_icon("angle-right", text: product.third_category.name)
+
+  %tr
+    %td ブランド
+    %td
+      =create_link_if_present(product.brand)
+  %tr
+    %td 商品のサイズ
+    %td=product.size
+  %tr
+    %td 商品の状態
+    %td=product.product_status
+  %tr
+    %td 配送料の負担
+    %td=product.delivery_fee
+  %tr
+    %td 配送の方法
+    %td ゆうゆうメルカリ便
+  %tr
+    %td 配送元地域
+    %td=link_to product.local, root_path
+  %tr
+    %td 発送日の目安
+    %td=product.lead_time
