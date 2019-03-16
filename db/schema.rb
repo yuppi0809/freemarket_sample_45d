@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190308020659) do
+ActiveRecord::Schema.define(version: 20190311062336) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20190308020659) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
+  end
+
+  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_likes_on_product_id", using: :btree
+    t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
 
   create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -109,6 +118,8 @@ ActiveRecord::Schema.define(version: 20190308020659) do
     t.index ["verify_sms"], name: "index_users_on_verify_sms", unique: true, using: :btree
   end
 
+  add_foreign_key "likes", "products"
+  add_foreign_key "likes", "users"
   add_foreign_key "payments", "users"
   add_foreign_key "product_images", "products"
   add_foreign_key "products", "users"

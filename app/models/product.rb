@@ -6,6 +6,7 @@ class Product < ApplicationRecord
   has_many :product_images, dependent: :destroy
   belongs_to :user
   accepts_nested_attributes_for :product_images
+  has_many :likes, dependent: :destroy
 
   # enum
   enum delivery_fee:{"送料込み（出品者負担）": 0, "着払い": 1}
@@ -43,5 +44,9 @@ class Product < ApplicationRecord
 
   def show_image_or_no_image
     self.product_images.present? ? self.product_images.first.image : "noimage.png"
+  end
+
+  def check_if_user_liked(user_id)
+   likes.find_by(user_id: user_id)
   end
 end
