@@ -41,11 +41,12 @@
     .buy-container__main__payment
       .buy-container__main__payment__content
         %p 支払方法
-        %p
-          = @payment.hide_last_four_digits
-          %br>/
-          = @payment.replace_expiration
-        = image_tag("master-card.svg")
+        - unless @payment.blank?
+          %p
+            = @payment.hide_last_four_digits
+            %br>/
+            = @payment.replace_expiration
+          = image_tag("master-card.svg")
         .payment-edit
           = link_to '', class: "payment-edit__link" do
             = fa_icon("chevron-right", text:"変更する", right:true)
