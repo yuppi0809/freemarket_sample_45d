@@ -47,7 +47,7 @@
             %span.form-group__require
               必須
           .select-wrapper
-            = f.select :size, Product.sizes.keys.to_a, {prompt: "---"}, {class: "select-wrapper__select"}
+            = f.select :size, Product.sizes.keys, {prompt: "---"}, {class: "select-wrapper__select"}
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
         .form-group#brand
           %label.form-group__label
@@ -55,7 +55,7 @@
             %span.form-group__optional
               任意
           .select-wrapper
-            = f.select :brand, Product.product_statuses.keys.to_a, {prompt: "---"}, {class: "select-wrapper__select"}
+            = f.select :brand, Product.product_statuses_i18n.invert, {prompt: "---"}, {class: "select-wrapper__select"}
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
 
         .form-group
@@ -64,7 +64,7 @@
             %span.form-group__require
               必須
           .select-wrapper
-            = f.select :product_status, Product.product_statuses.keys.to_a, {prompt: "---"}, {class: "select-wrapper__select"}
+            = f.select :product_status, Product.product_statuses_i18n.invert, {prompt: "---"}, {class: "select-wrapper__select"}
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
     .sell-form-container.clearfix
       %h3.sell-form-container__sell-sub-head
@@ -76,7 +76,7 @@
             %span.form-group__require
               必須
           .select-wrapper
-            = f.select :delivery_fee, Product.delivery_fees.keys.to_a, {prompt: "---"}, { class: "select-wrapper__select"}
+            = f.select :delivery_fee, Product.delivery_fees_i18n.invert, {prompt: "---"}, { class: "select-wrapper__select"}
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
         .form-group
           %label.form-group__label
@@ -84,7 +84,7 @@
             %span.form-group__require
               必須
           .select-wrapper
-            = f.select :local, Product.locals.keys.to_a, {prompt: "---"}, { class: "select-wrapper__select"}
+            = f.select :local, Product.locals.keys, {prompt: "---"}, { class: "select-wrapper__select"}
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
         .form-group
           %label.form-group__label
@@ -92,7 +92,7 @@
             %span.form-group__require
               必須
           .select-wrapper
-            = f.select :lead_time, Product.lead_times.keys.to_a, {prompt: "---"}, { class: "select-wrapper__select"}
+            = f.select :lead_time, Product.lead_times_i18n.invert, {prompt: "---"}, { class: "select-wrapper__select"}
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
     .sell-form-container.clearfix
       %h3.sell-form-container__sell-sub-head

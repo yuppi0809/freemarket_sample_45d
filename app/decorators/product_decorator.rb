@@ -7,10 +7,10 @@ class ProductDecorator < Draper::Decorator
   end
 
   def display_delivery_fee
-    if object.delivery_fee === "送料込み（出品者負担）"
+    if object.delivery_fee === "include"
       return "送料込み"
     else
-      return object.delivery_fee
+      return object.delivery_fee_i18n
     end
   end
 end
