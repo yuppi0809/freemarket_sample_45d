@@ -18,7 +18,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_parameter)
-        binding.pry
     respond_to do |format|
       if @product.save
         params[:product_images][:image].each do |image|
