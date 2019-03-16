@@ -19,6 +19,7 @@ module ApplicationHelper
   end
 
   def mypage_elements
+
     elements = {
       'マイページ': '#',
       'お知らせ': '#',
@@ -69,6 +70,7 @@ module ApplicationHelper
     else
       return option
     end
+
   end
 
   def registration_steps
