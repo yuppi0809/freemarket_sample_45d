@@ -95,6 +95,8 @@ GEM
       activemodel-serializers-xml (~> 1.0)
       activesupport (~> 5.0)
       request_store (~> 1.0)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erb2haml (0.1.5)
       html2haml
     erubis (2.7.0)
@@ -326,6 +328,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   draper
+  enum_help
   erb2haml
   factory_bot_rails
   faker
