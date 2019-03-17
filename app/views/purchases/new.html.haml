@@ -24,7 +24,7 @@
             %p.purchase-price
               = @product.edit_price_layout
         = form_tag(action: :create, method: :post) do
-          %script.payjp-button{'data-key': ENV['PAYJP_PUBLIC_KEY'], src: "https://checkout.pay.jp", type: "text/javascript", 'data-text': '購入する'}
+          %script.payjp-button{'data-key': PAYJP_PUBLIC_KEY, src: "https://checkout.pay.jp", type: "text/javascript", 'data-text': '購入する'}
     .buy-container__main__shipping
       .buy-container__main__shipping__content
         %p 配送先
