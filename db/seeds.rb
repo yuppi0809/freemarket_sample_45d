@@ -1,20 +1,43 @@
-men, women, book = Category.create([{name: "メンズ"}, {name: "レディース"}, {name: "本"}])
-mtops, mbottoms = men.children.create([{name: "トップス"}, {name: "ボトムス"}])
-wtops, wbottoms = women.children.create([{name: "トップス"}, {name: "ボトムス"}])
-novel, commic = book.children.create([{name: "小説"}, {name: "マンガ"}])
-mtshirts, mjacket = mtops.children.create([{name: "Tシャツ"}, {name: "ジャケット"}])
-mdenim, mchino = mbottoms.children.create([{name: "デニム"}, {name: "チノパン"}])
-wtshirts, wjacket = wtops.children.create([{name: "Tシャツ"}, {name: "ジャケット"}])
-wdenim, wchino = wbottoms.children.create([{name: "デニム"}, {name: "チノパン"}])
-fiction, nonfiction = novel.children.create([{name: "フィクション"}, {name: "ノンフィクション"}])
-boycommic, girlcommic = commic.children.create([{name: "少年漫画"}, {name: "少女漫画"}])
+require 'csv'
 
-brands = ['ユニクロ', 'アメリカンイーグル', 'シャネル', 'ビームス']
-
-brands.each do |brand|
-  Brand.create(name: brand)
+CSV.read("db/csv/category.csv", headers: true).each do |row|
+  user = Category.create!(
+    id: row['id'],
+    name: row['name'],
+    created_at: row['create_at'],
+    updated_at: row['updated_at'],
+    ancestry: row['ancestry']
+    )
 end
 
+CSV.read("db/csv/medium_category.csv", headers: true).each do |row|
+  user = Category.create!(
+    id: row['id'],
+    name: row['name'],
+    created_at: row['created_at'],
+    updated_at: row['updated_at'],
+    ancestry: row['ancestry']
+    )
+end
+
+CSV.read("db/csv/small_category.csv", headers: true).each do |row|
+  user = Category.create!(
+    id: row['id'],
+    name: row['name'],
+    created_at: row['created_at'],
+    updated_at: row['updated_at'],
+    ancestry: row['ancestry']
+  )
+end
+
+CSV.read("db/csv/brand.csv", headers: true).each do |row|
+  user = Brand.create!(
+    id: row['id'],
+    name: row['name'],
+    created_at: row['created_at'],
+    updated_at: row['updated_at']
+  )
+end
   brand_id = 1
 16.times do |n|
   name = Faker::JapaneseMedia::OnePiece.character
