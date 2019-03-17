@@ -22,16 +22,16 @@
     %td=product.size
   %tr
     %td 商品の状態
-    %td=product.product_status
+    %td=product.product_status_i18n
   %tr
     %td 配送料の負担
-    %td=product.delivery_fee
+    %td=product.delivery_fee_i18n
   %tr
     %td 配送の方法
     %td ゆうゆうメルカリ便
   %tr
     %td 配送元地域
-    %td=link_to product.local, root_path
+    %td=link_to product.prefecture.name, root_path
   %tr
     %td 発送日の目安
-    %td=product.lead_time
+    %td=product.lead_time_i18n

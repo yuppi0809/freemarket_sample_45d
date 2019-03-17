@@ -43,12 +43,11 @@
     height:400px;
     overflow:none;
     overflow: hidden;
-
+    position: relative;
 
     .slides-container{
       height:80%;
       width: (calc(304px*4));
-
 
       .my-slides{
         height:100%;
@@ -102,33 +101,15 @@
   }
 
   &__purchase-btn{
-    margin: 16px 0 16px 0;
-    display:block;
-    width:100%;
-    background-color: red;
-    border: 1px solid #ea352d;
-    color: $white;
-    text-decoration: none;
-    text-align: center;
-    font-size: 170%;
-    font-weight: bold;
-    padding: 10px 0;
-    font-size: 14px;
 
-  }
-  &__delete{
-    margin: 16px 0 0 0;
-    display:block;
-    width:100%;
-    background-color: #aaa;
-    border: 1px solid #aaa;
-    color: $white;
-    text-decoration: none;
-    text-align: center;
-    font-size: 170%;
-    font-weight: bold;
-    padding: 10px 0;
-    font-size: 14px;
+    @include btn($white);
+    background-color: $btn-red;
+    font-size: 120%;
+    &--sold {
+      @include btn($white);
+      background-color: $text-color-grey;
+      font-size: 120%;
+    }
   }
 
   &__description{
@@ -283,7 +264,7 @@ table{
       height: 53px;
       list-style:none;
       float:left;
-      background-image:url("social-icons-sprite.jpeg");
+      background-image:url("/images/social-icons-sprite.jpg");
       background-position: 75px 162px;
       margin-right:8px;
       border-radius:10px;

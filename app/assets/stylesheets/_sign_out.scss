@@ -1,3 +1,39 @@
+.wrapper {
+  width: 1020px;
+  margin: 0 auto;
+  display: flex;
+  padding: 40px 0;
+  .side-bar {
+    width: 280px;
+    padding: 0 40px;
+    .mypage {
+      width: 100%;
+      background-color: #fff;
+      .content{
+        font-size: 14px;
+        font: 66.66667% sans-serif;
+        &__mypage{
+          border-bottom: solid 0.5px #eee;
+          min-height: 48px;
+          line-height: 48px;
+          padding-left: 16px;
+          position: relative;
+          .mypage__link {
+            text-decoration: none;
+            color: black;
+          }
+          .fa-angle-right{
+            position: absolute;
+            top: 30%;
+            right: 10px;
+            color: #ccc;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
 h3{
   font-size: 16px;
   margin-top: 20px;

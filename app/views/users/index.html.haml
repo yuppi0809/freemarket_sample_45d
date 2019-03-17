@@ -3,5 +3,6 @@
   = render 'sidebar'
 
   .sign-out
-    = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "sign-out__btn"
+    .sign-out__btn
+      = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "sign-out__btn"
 = render 'layouts/footer'
