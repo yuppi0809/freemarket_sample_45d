@@ -50,7 +50,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       :birth_day,
       :verify_sms,
       profile_attributes: [
-        :prefecture,
+        :prefecture_id,
         :city,
         :address,
         :postal_code,
