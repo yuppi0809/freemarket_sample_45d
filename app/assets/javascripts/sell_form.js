@@ -23,7 +23,7 @@ $(function() {
       type: 'GET',
       url: 'http://localhost:3000/categories/new',
       data: {category_id: category_id},
-      dateType: 'json'
+      dataType: 'json'
     })
     .done(function(categories) {
       var select_wrapper = $('<div class="select-wrapper">');
