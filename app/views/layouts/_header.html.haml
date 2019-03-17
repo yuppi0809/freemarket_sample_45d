@@ -16,47 +16,9 @@
           %li.menu__category
             = link_to "カテゴリーから探す", "#", class: "init-bottom", id: "header-category-button"
             %ul.menu__first-level
-              %li
-                = link_to 'レディース', "#", class: "init-right"
-                %ul.menu__second-level
-                  %li
-                    = link_to 'トップス', "#"
-                    %ul.menu__third-level
-                      %li
-                        = link_to 'Tシャツ', "#"
-                      %li
-                        = link_to 'パーカ', "#"
-                  %li
-                    = link_to 'ボトムス', "#"
-              %li
-                = link_to 'レディース', "#", class: "init-right"
-              %li
-                = link_to 'レディース', "#", class: "init-right"
-              %li
-                = link_to 'レディース', "#", class: "init-right"
-              %li
-                = link_to 'レディース', "#", class: "init-right"
-              %li
-                = link_to 'レディース', "#", class: "init-right"
-              %li
-                = link_to 'レディース', "#", class: "init-right"
-              %li
-                = link_to 'レディース', "#", class: "init-right"
-              %li
-                = link_to 'レディース', "#", class: "init-right"
-              %li
-                = link_to 'レディース', "#", class: "init-right"
-              %li
-                = link_to 'レディース', "#", class: "init-right"
-              %li
-                = link_to 'レディース', "#", class: "init-right"
-              %li
-                = link_to 'レディース', "#", class: "init-right"
-              %li
-                = link_to 'レディース', "#", class: "init-right"
-
-          / %li.menu__brand
-          /   = link_to "ブランドから探す", "#", id: "header-brand-button"
+              = render partial: 'first_categories', collection: @first_categories, as: 'category'
+          %li.menu__brand
+            = link_to "ブランドから探す", '#', class: 'init-bottom'
         %ul.header-bottom__nav--right
           - unless user_signed_in?
             %li
