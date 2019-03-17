@@ -86,4 +86,12 @@ module ApplicationHelper
       button_tag "売り切れました", class: "item-container__purchase-btn--sold"
     end
   end
+
+  def profile_nil?(profile)
+    if profile.blank?
+      return ''
+    else
+      return profile.prefecture_id
+    end
+  end
 end
