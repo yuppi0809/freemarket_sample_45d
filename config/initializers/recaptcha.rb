@@ -1,4 +1,2 @@
-Recaptcha.configure do |config|
-  config.site_key = ENV["RECAPTCHA_SITE_KEY"]
-  config.secret_key = ENV["RECAPTCHA_SECRET_KEY"]
-end
+RECAPTCHA_SITE_KEY = Rails.application.secrets.payjp_secret_key
+RECAPTCHA_SECRET_KEY = Rails.application.secrets.recaptcha_secret_key

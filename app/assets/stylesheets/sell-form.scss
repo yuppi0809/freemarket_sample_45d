@@ -1,11 +1,6 @@
 @import "variable";
 .sell-form-wrapper {
   width: 100%;
-  &__header-logo {
-    margin-top: 30px;
-    margin-bottom: 10px;
-    text-align: center;
-  }
   .sell-form {
     width: 700px;
     margin: 0 auto;
@@ -33,40 +28,59 @@
         font-size: 10px;
         margin-left: 5px;
       }
-      .dropzone-area {
-        width: 100%;
-        height: 200px;
-        background: #F5F5F5;
-        text-align: center;
-        line-height: 200px;
-        position: relative;
-        border: 1px dashed $border-color;
-        .dropzone-box {
-          position: absolute;
-          cursor: pointer;
+      .dropzone-container {
+        #preview {
+          float: left;
+        }
+        .dropzone-area {
           width: 100%;
-          height: 100%;
-          display: block;
-          #upload-image {
-            visibility: hidden;
+          height: 160px;
+          background: #F5F5F5;
+          text-align: center;
+          line-height: 160px;
+          position: relative;
+          float: right;
+          border: 1px dashed $border-color;
+          .dropzone-box {
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            display: block;
+            p {
+              // word-break: break-all;
+            }
+            #upload-image {
+              display: none;
+            }
           }
         }
       }
       #preview {
-        img {
-          width: 100px;
-          height: 100px;
-          margin-left: 10px;
-          float: left;
-        }
         .img_view {
-          height: 100px;
-          width: 100px;
+          height: 160px;
+          width: 120px;
           float: left;
           margin-right: 10px;
-          .img_del {
-            color: blue;
-            display: block;
+          border: 1px solid $border-color;
+          img {
+            width: 120px;
+            height: 120px;
+          }
+          .btn_wrapper {
+            width: 120px;
+            height: 40px;
+            color: #0399E8;
+            .btn {
+              text-align: center;
+              line-height: 100%;
+              float: left;
+              width: 60px;
+              height: 100%;
+              cursor: pointer;
+              &:hover {
+                text-decoration: underline;
+              }
+            }
           }
         }
       }
@@ -218,34 +232,6 @@
         color: #fff;
         line-height: 50px;
         cursor: pointer;
-      }
-    }
-  }
-  .sell-form-footer {
-    padding-top: 30px;
-    padding-bottom: 40px;
-    width: 456px;
-    margin: auto;
-    text-align: center;
-    a {
-      text-decoration: none;
-      color: black;
-      margin-top: 20px;
-    }
-    ul {
-      margin-bottom: 30px;
-      li {
-        float: left;
-        margin-left: 30px;
-          &:hover {
-            opacity: 0.6;
-            text-decoration: none;
-          }
-        a {
-          font-size: 10px;
-          color: black;
-          text-decoration: none;
-        }
       }
     }
   }

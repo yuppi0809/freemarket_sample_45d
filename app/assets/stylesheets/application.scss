@@ -5,14 +5,17 @@
 @import "products/index";
 @import "products/show";
 @import "products/confirm_purchase";
+@import "products/status_sold";
 @import "payments/index";
 @import "header";
 @import "footer";
 @import "sell-form";
 @import "font-awesome";
+@import "users/edit";
 @import "sign_out";
 @import "users/show";
 @import "users/user_session";
 @import "users/user_registration";
 @import "users/registration_header";
 @import "listings";
+@import "sidebar";

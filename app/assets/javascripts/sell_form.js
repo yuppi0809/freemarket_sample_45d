@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
 
   function buildMiddlecategory(category) {
     var html = `
@@ -19,9 +19,10 @@ $(function() {
     $('#middle_category').remove();
     $('#small_category').remove();
     var category_id = $(this).val();
+    var url =
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:3000/categories/new',
+      url: '/categories/new',
       data: {category_id: category_id},
       dateType: 'json'
     })
@@ -42,7 +43,7 @@ $(function() {
     var category_id = $(this).val();
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:3000/categories/new',
+      url: '/categories/new',
       data: {category_id: category_id},
       dateType: 'json'
     })

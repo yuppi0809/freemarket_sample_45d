@@ -24,7 +24,7 @@
   .registration-field__require
     必須
   %br
-  = profile.select :prefecture, Profile.prefectures.keys, {include_blank: '---'}, {class: 'registration-field__prefecture'}
+  = profile.select :prefecture_id, options_from_collection_for_select(Prefecture.all, :id, :name, profile_nil?(@profile)), {include_blank: '---'}, {class: 'registration-field__prefecture'}
 .registration-field
   = profile.label '市区町村'
   .registration-field__require

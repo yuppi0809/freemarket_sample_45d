@@ -33,27 +33,22 @@
       }
     }
   }
-  h3{
-    font-size: 16px;
-    margin-top: 20px;
-    font-weight: bold;
-  }
-  .sign-out {
-    width: 700px;
-    height: 179px;
-    background-color: #fff;
-    &__btn {
-      height: 48px;
-      width: 300px;
-      background-color: red;
-      margin: 65.5px auto;
-      text-align: center;
-      font-size: 14px;
-      line-height: 48px;
-      &__red {
-        color: #fff;
-        text-decoration: none;
-      }
-    }
+}
+h3{
+  font-size: 16px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+.sign-out {
+  width: 700px;
+  height: 179px;
+  background-color: #fff;
+  &__btn {
+    @include btn($white);
+    display: block;
+    width: 300px;
+    background-color: $btn-red;
+    margin: 65.5px auto;
   }
 }
+

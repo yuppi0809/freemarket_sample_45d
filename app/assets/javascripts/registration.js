@@ -208,8 +208,8 @@ $(document).on('turbolinks:load', function(){
       $('.registration-step__verify').css(stepTextColor)
       $('.registration-step__verify .step-line').css(stepLineColor)
       scroll()
-    }
     // }
+    }
   })
   $('.registration-verify__btn').on('click', function(){
     if(validateVerifySms()){
