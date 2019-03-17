@@ -87,7 +87,7 @@
             %span.form-group__require
               必須
           .select-wrapper
-            = f.select :local, Product.locals.keys, {prompt: "---"}, { class: "select-wrapper__select"}
+            = f.select :prefecture_id, options_from_collection_for_select(Prefecture.all, :id, :name), {prompt: "---"}, { class: "select-wrapper__select"}
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
         .form-group
           %label.form-group__label
