@@ -1,0 +1,17 @@
+ja:
+  enums:
+    product:
+      product_status:
+        brand_new: 新品、未使用
+        like_new: 未使用に近い
+        little_scratch: 目立った傷、汚れなし
+        not_noticeable_scratch: やや傷汚れあり
+        noticeable_scratch: 傷や汚れあり
+        bad: 全体に状態が悪い
+      lead_time:
+        one_to_two: 1~2日で発送
+        two_to_three: 2~3日で発送
+        four_to_seven: 4~7日で発送
+      delivery_fee:
+        include: 送料込み（出品者負担）
+        exclude: 着払い

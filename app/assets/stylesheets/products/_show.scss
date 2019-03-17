@@ -39,12 +39,11 @@
     height:400px;
     overflow:none;
     overflow: hidden;
-
+    position: relative;
 
     .slides-container{
       height:80%;
       width: (calc(304px*4));
-
 
       .my-slides{
         height:100%;
@@ -98,15 +97,14 @@
   }
 
   &__purchase-btn{
-    display:block;
-    width:100%;
-    background-color: red;
-    color: $white;
-    text-decoration: none;
-    text-align: center;
-    font-size: 170%;
-    font-weight: bold;
-    padding: 10px 0;
+    @include btn($white);
+    background-color: $btn-red;
+    font-size: 120%;
+    &--sold {
+      @include btn($white);
+      background-color: $text-color-grey;
+      font-size: 120%;
+    }
   }
 
   &__description{

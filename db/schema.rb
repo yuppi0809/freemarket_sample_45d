@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190311062336) do
+ActiveRecord::Schema.define(version: 20190317034415) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 20190311062336) do
     t.integer  "product_status",                   null: false
     t.integer  "transaction_status",               null: false
     t.integer  "delivery_fee",                     null: false
-    t.integer  "local",                            null: false
     t.integer  "lead_time",                        null: false
     t.string   "brand"
     t.integer  "user_id"
@@ -74,13 +73,13 @@ ActiveRecord::Schema.define(version: 20190311062336) do
     t.integer  "brand_id"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.integer  "prefecture_id",                    null: false
     t.index ["name"], name: "index_products_on_name", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
 
   create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "profile",              limit: 65535
-    t.integer  "prefecture",                         null: false
     t.string   "city",                               null: false
     t.string   "address",                            null: false
     t.string   "postal_code",                        null: false
@@ -93,6 +92,7 @@ ActiveRecord::Schema.define(version: 20190311062336) do
     t.integer  "user_id",                            null: false
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+    t.integer  "prefecture_id",                      null: false
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
