@@ -19,5 +19,6 @@ Rails.application.routes.draw do
     get 'confirm_purchase', on: :member
   end
 
-  resources :categories, only: :new
+  resources :categories, only: [:new, :show]
 end
+
