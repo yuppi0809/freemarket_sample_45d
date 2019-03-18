@@ -1,0 +1,47 @@
+.registration-field
+  = profile.label 'お名前'
+  .registration-field__require
+    必須
+  = profile.text_field :delv_first_name, class: 'registration-field__delv-first-name', placeholder: '例）山田'
+.registration-field--hidden-label
+  = profile.label 'お名前'
+  = profile.text_field :delv_last_name, class: 'registration-field__delv-last-name', placeholder: '例）彩'
+.registration-field
+  = profile.label 'お名前カナ'
+  .registration-field__require
+    必須
+  = profile.text_field :delv_first_name_kana, class: 'registration-field__delv-first-name-kana', placeholder: '例）ヤマダ'
+.registration-field--hidden-label
+  = profile.label 'お名前カナ'
+  = profile.text_field :delv_last_name_kana, class: 'registration-field__delv-last-name-kana', placeholder: '例）アヤ'
+.registration-field
+  = profile.label '郵便番号'
+  .registration-field__require
+    必須
+  = profile.text_field :postal_code, class: 'registration-field__postal-code', placeholder: '例）123-4567'
+.registration-field
+  = profile.label '都道府県'
+  .registration-field__require
+    必須
+  %br
+  = profile.select :prefecture_id, options_from_collection_for_select(Prefecture.all, :id, :name, profile_nil?(@profile)), {include_blank: '---'}, {class: 'registration-field__prefecture'}
+.registration-field
+  = profile.label '市区町村'
+  .registration-field__require
+    必須
+  = profile.text_field :city, class: 'registration-field__city', placeholder: '例）横浜市緑区'
+.registration-field
+  = profile.label '番地'
+  .registration-field__require
+    必須
+  = profile.text_field :address, class: 'registration-field__address', placeholder: '例）青山1-1-1'
+.registration-field
+  = profile.label '建物名'
+  .registration-field__require--any
+    任意
+  = profile.text_field :building_name, class: 'registration-field__building-name', placeholder: '例）柳ビル103'
+.registration-field
+  = profile.label '電話番号'
+  .registration-field__require--any
+    任意
+  = profile.text_field :telephone_num, class: 'registration-field__telephone-num', placeholder: '例）09012345678'

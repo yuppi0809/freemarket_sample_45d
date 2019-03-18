@@ -8,6 +8,14 @@
 .vertical-container{
   width: 700px;
   margin: 0 auto;
+
+  .fa-heart-o{
+    color:lightgrey;
+    font-weight: bold;
+  }
+  .fa-heart{
+    color:red;
+  }
 }
 
 .item-container{
@@ -31,12 +39,11 @@
     height:400px;
     overflow:none;
     overflow: hidden;
-
+    position: relative;
 
     .slides-container{
       height:80%;
       width: (calc(304px*4));
-
 
       .my-slides{
         height:100%;
@@ -54,6 +61,7 @@
       width:100%;
       height: 20%;
       margin:0;
+      background-color: #fafafa;
 
       .dot{
         width:25%;
@@ -83,22 +91,20 @@
     }
   }
 
-
   .opacity{
     background-color:grey;
     opacity:.3;
   }
 
   &__purchase-btn{
-    display:block;
-    width:100%;
-    background-color: red;
-    color: $white;
-    text-decoration: none;
-    text-align: center;
-    font-size: 170%;
-    font-weight: bold;
-    padding: 10px 0;
+    @include btn($white);
+    background-color: $btn-red;
+    font-size: 120%;
+    &--sold {
+      @include btn($white);
+      background-color: $text-color-grey;
+      font-size: 120%;
+    }
   }
 
   &__description{
@@ -108,42 +114,45 @@
 
   &__links{
     margin-top:20px;
-    font-size: 85%;
 
     a{
       text-decoration: none;
+
+      &:hover{
+        opacity:.8;
+      }
     }
 
-    a:nth-child(2){
-      color: black;
-      background-color: #eff1f2;
-      padding:8px 15px 8px 15px;
-      border-radius: 15px;
-    }
-
-    a:nth-child(1){
-      color: $skyBlue;
-    }
-
-    a:hover{
-      opacity:.8;
-    }
-
-    button{
-      font-size: 90%;
-      border:none;
-      background-color: #eff1f2;
-      padding:8px 15px 8px 15px;
-      border-radius: 15px;
-      cursor:pointer;
-      margin-right: 15px;
-    }
     &__left{
       float:left;
     }
 
     &__right{
       float:right;
+    }
+
+    .left-link,
+    .like-uncliked{
+      color: black;
+      background-color: #eff1f2;
+      border:none;
+    }
+
+    .like{
+      @extend .report;
+      font-size:85%;
+    }
+
+    .report{
+      padding:8px 15px 8px 15px;
+      border-radius: 15px;
+      margin-right: 15px;
+      cursor:pointer;
+
+    }
+
+    .safety{
+      color: $skyBlue;
     }
   }
 }
@@ -250,7 +259,7 @@ table{
       height: 53px;
       list-style:none;
       float:left;
-      background-image:url("social-icons-sprite.jpeg");
+      background-image:url("/images/social-icons-sprite.jpg");
       background-position: 75px 162px;
       margin-right:8px;
       border-radius:10px;
@@ -296,8 +305,14 @@ table{
     margin:0 2% 2% 0;
     box-shadow: 0 0 30px rgb(194, 195, 196);
 
+      &__link{
+        text-decoration: none;
+        color:black;
+      }
+
       &__image{
         height:224px;
+        width: 100%;
       }
 
       &__info{
@@ -329,6 +344,64 @@ table{
     }
   }
 }
+
+.modal{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background-color: rgba(0,0,0,.3);
+  top:0;
+  left:0;
+  display:none;
+
+  &__window{
+    width:600px;
+    background-color: $white;
+    position: absolute;
+    top: 20px;
+    left:50%;
+    transform:translateX(-50%);
+
+    &__top{
+      text-align: center;
+      padding:50px;
+      p:nth-child(1){
+        font-size: 150%;
+      }
+    }
+
+    &__bottom{
+      height:70px;
+      background-color: $white;
+      border-top:1px lightgrey solid;
+      text-align: center;
+
+      .left{
+        width:50%;
+        height: 100%;
+        float:left;
+        line-height: 70px;
+        cursor:pointer;
+      }
+
+      .right{
+        width:50%;
+        height: 100%;
+        float:left;
+        border-left: 1px lightgrey solid;
+         line-height: 70px;
+         box-sizing:border-box;
+      }
+    }
+  }
+}
+
+.like-clicked{
+  border: 1px solid red;
+  background-color: none;
+  color:red;
+}
+
 
 .group:before,
 .group:after {

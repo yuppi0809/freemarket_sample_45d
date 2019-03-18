@@ -1,39 +1,37 @@
 %table.item-container__detail
   %tr
     %td 出品者
-    %td わああああああああああああああああ
+    %td=link_to product.user.nickname,"#"
   %tr
     %td カテゴリー
     %td
-      =link_to "レディース"
+      =link_to product.first_category.name
       %br
       =link_to do
-        %i.fa.fa-angle-right
-        %span トップス
+        =fa_icon("angle-right", text: product.second_category.name)
       %br
       =link_to do
-        %i.fa.fa-angle-right
-        %span ボレロ
+        =fa_icon("angle-right", text: product.third_category.name)
 
   %tr
     %td ブランド
     %td
-      =link_to "フレディーアンドグロスター", root_path
+      =create_link_if_present(product.brand)
   %tr
     %td 商品のサイズ
-    %td M
+    %td=product.size
   %tr
     %td 商品の状態
-    %td やや傷や汚れあり
+    %td=product.product_status_i18n
   %tr
     %td 配送料の負担
-    %td 送料込み(出品者負担)
+    %td=product.delivery_fee_i18n
   %tr
     %td 配送の方法
     %td ゆうゆうメルカリ便
   %tr
     %td 配送元地域
-    %td=link_to "東京都", root_path
+    %td=link_to product.prefecture.name, root_path
   %tr
     %td 発送日の目安
-    %td 1~2日で発送
+    %td=product.lead_time_i18n

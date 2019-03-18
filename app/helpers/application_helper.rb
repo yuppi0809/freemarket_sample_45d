@@ -19,7 +19,22 @@ module ApplicationHelper
   end
 
   def mypage_elements
-    elements = {'マイページ': '#', 'お知らせ': '#', 'やることリスト': '#', 'いいね！一覧': '#', '出品する': 'http://localhost:3000/products/new', '出品した商品 - 出品中': '#', '出品した商品 - 取引中': '#', '出品した商品 - 売却済み': '#', '購入した商品 - 過去の取引': '#', 'ニュース一覧': '#', '評価一覧': '#', 'ガイド': '#', 'お問い合わせ': '#'}
+
+    elements = {
+      'マイページ': '#',
+      'お知らせ': '#',
+      'やることリスト': '#',
+      'いいね！一覧': '#',
+      '出品する': new_product_path,
+      '出品した商品 - 出品中': '#',
+      '出品した商品 - 取引中': '#',
+      '出品した商品 - 売却済み': '#',
+      '購入した商品 - 過去の取引': '#',
+      'ニュース一覧': '#',
+      '評価一覧': '#',
+      'ガイド': '#',
+      'お問い合わせ': '#'
+    }
   end
 
   def mypage_elements_merpay
@@ -27,7 +42,21 @@ module ApplicationHelper
   end
 
   def mypage_elements_setting
-    elements = {"プロフィール": '#', "発送元・お届け先住所変更": '#', "支払い方法": "http://localhost:3000/users/#{current_user.id}/credit_cards", "メール/パスワード": '#', "本人情報": 'http://localhost:3000/users/mypage/identification', "電話番号の確認": '#', "ログアウト": '#'}
+    elements = {
+      "プロフィール": '#',
+      "発送元・お届け先住所変更": edit_profile_path(current_user.id),
+      "支払い方法": payment_path(current_user.id),
+      "メール/パスワード": '#',
+      "本人情報": user_path(current_user.id),
+      "電話番号の確認": '#',
+      "ログアウト": users_path
+    }
+  end
+
+  def create_link_if_present(item)
+    if item.present?
+      content_tag(:a, "#{item.name}", href: "#")
+    end
   end
 
   def registration_steps
@@ -42,5 +71,26 @@ module ApplicationHelper
 
   def get_status
     return '--complete' if controller.action_name == 'complete'
+  end
+  def add_sold_frame(status)
+    if status == 'sold'
+      render 'status_sold'
+    end
+  end
+
+  def link_to_purchase(product)
+    if product.transaction_status == 'listing'
+      link_to "購入画面に進む", new_product_purchase_path(product.id), class: "item-container__purchase-btn"
+    else
+      button_tag "売り切れました", class: "item-container__purchase-btn--sold"
+    end
+  end
+
+  def profile_nil?(profile)
+    if profile.blank?
+      return ''
+    else
+      return profile.prefecture_id
+    end
   end
 end

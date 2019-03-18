@@ -1,7 +1,7 @@
 .sell-form-wrapper
-  %h1.sell-form-wrapper__header-logo
-    = link_to 'https://www.mercari.com/jp/' do
-      = image_tag('mercari_logo_horizontal.png', size: "200x100")
+  .buy-container__logo
+    = link_to root_path do
+      = image_tag "mercari_logo_horizontal.png"
   = form_for @product, html: {class: "sell-form dropzone", id: "item-dropzone"} do |f|
     %h2.sell-form__header
       商品情報を入力
@@ -11,10 +11,13 @@
       %span.sell-form-container__require
         必須
       = f.fields_for :product_images do |image|
-        .dropzone-area#preview
-          = image.label :image, class: "dropzone-box", for: "upload-image" do
-            ここに写真をドラッグアンドまたはクリックしてください
-            = image.file_field :image, id: "upload-image", class: "upload-image"
+        .dropzone-container.clearfix
+          #preview
+          .dropzone-area
+            = image.label :image, class: "dropzone-box", for: "upload-image" do
+              .input_area
+                = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+              %p ここに写真をドラッグアンドまたはクリックしてください
     .sell-form-container
       .form-group
         %label.form-group__label
@@ -47,7 +50,7 @@
             %span.form-group__require
               必須
           .select-wrapper
-            = f.select :size, Product.sizes.keys.to_a, {prompt: "---"}, {class: "select-wrapper__select"}
+            = f.select :size, Product.sizes.keys, {prompt: "---"}, {class: "select-wrapper__select"}
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
         .form-group#brand
           %label.form-group__label
@@ -55,7 +58,7 @@
             %span.form-group__optional
               任意
           .select-wrapper
-            = f.select :brand, Product.product_statuses.keys.to_a, {prompt: "---"}, {class: "select-wrapper__select"}
+            = f.select :brand, Product.product_statuses_i18n.invert, {prompt: "---"}, {class: "select-wrapper__select"}
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
 
         .form-group
@@ -64,7 +67,7 @@
             %span.form-group__require
               必須
           .select-wrapper
-            = f.select :product_status, Product.product_statuses.keys.to_a, {prompt: "---"}, {class: "select-wrapper__select"}
+            = f.select :product_status, Product.product_statuses_i18n.invert, {prompt: "---"}, {class: "select-wrapper__select"}
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
     .sell-form-container.clearfix
       %h3.sell-form-container__sell-sub-head
@@ -76,7 +79,7 @@
             %span.form-group__require
               必須
           .select-wrapper
-            = f.select :delivery_fee, Product.delivery_fees.keys.to_a, {prompt: "---"}, { class: "select-wrapper__select"}
+            = f.select :delivery_fee, Product.delivery_fees_i18n.invert, {prompt: "---"}, { class: "select-wrapper__select"}
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
         .form-group
           %label.form-group__label
@@ -84,7 +87,7 @@
             %span.form-group__require
               必須
           .select-wrapper
-            = f.select :local, Product.locals.keys.to_a, {prompt: "---"}, { class: "select-wrapper__select"}
+            = f.select :prefecture_id, options_from_collection_for_select(Prefecture.all, :id, :name), {prompt: "---"}, { class: "select-wrapper__select"}
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
         .form-group
           %label.form-group__label
@@ -92,7 +95,7 @@
             %span.form-group__require
               必須
           .select-wrapper
-            = f.select :lead_time, Product.lead_times.keys.to_a, {prompt: "---"}, { class: "select-wrapper__select"}
+            = f.select :lead_time, Product.lead_times_i18n.invert, {prompt: "---"}, { class: "select-wrapper__select"}
             = fa_icon 'chevron-down', class: "select-wrapper__icon"
     .sell-form-container.clearfix
       %h3.sell-form-container__sell-sub-head
@@ -117,7 +120,7 @@
             販売利益
           .form-group-price__right
             %span#profit -
-        = f.hidden_field :transaction_status, value: "出品中"
+        = f.hidden_field :transaction_status, value: "listing"
     .sell-form-btn-content
       %p
         禁止されている出品、行為を必ずご確認ください。
@@ -128,16 +131,4 @@
       %input{type: "submit", value: "出品する", class: "sell-form-btn-content__submit"}
       %a.sell-form-btn-content__back
         戻る
-  .sell-form-footer
-    .nav
-      %ul.clearfix
-        %li
-          = link_to 'プライバシーポリシー', "#"
-        %li
-          = link_to 'メルカリ利用条約', "#"
-        %li
-          = link_to '特定商品取引に関する表記', "#"
-
-    = link_to 'メルカリ', "https://www.mercari.com/jp/"
-    .p
-      2019 merukari
+= render 'buy-footer'
