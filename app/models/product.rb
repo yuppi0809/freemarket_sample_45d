@@ -16,10 +16,9 @@ class Product < ApplicationRecord
   enum size: { S: 0, M: 1, L: 2}
   enum lead_time: { one_to_two: 0, two_to_three: 1, four_to_seven: 2}
   enum transaction_status: { listing: 0, in_progress: 1, sold: 2 }
-
   validates :name, presence: true, length: {maximum: 40}
   validates :description, presence: true, length: {maximum: 1000}
-  # validates :size, presence: true
+  validates  :size, presence: true
   validates :product_status, presence: true
   validates :delivery_fee, presence: true
   validates :prefecture_id, presence: true

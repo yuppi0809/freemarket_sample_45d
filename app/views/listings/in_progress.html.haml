@@ -7,9 +7,9 @@
     %section.mypage-tab__container
       %h2.mypage-tab__head 出品した商品
       %ul.listing__tabs
-        %li.active
-          %h3= link_to '出品中', user_listings_path
         %li
+          %h3= link_to '出品中', user_listings_path
+        %li.active
           %h3= link_to '取引中', in_progress_user_listings_path
         %li
           %h3= link_to '売却済み', solds_user_listings_path
@@ -21,5 +21,5 @@
           - else
             .none-content
               = image_tag "mercari_logo_grey-ish", class: 'logo'
-              %p 出品中の商品がありません
+              %p 取引中の商品がありません
 = render 'layouts/footer'

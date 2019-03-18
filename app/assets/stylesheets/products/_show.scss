@@ -22,6 +22,10 @@
   background-color: $white;
   padding:20px 30px 50px 30px;
   box-sizing:border-box;
+  p{
+    text-align: center;
+    font-size: 16px
+    }
 
   &__title{
     font-weight:bold;
@@ -97,6 +101,7 @@
   }
 
   &__purchase-btn{
+
     @include btn($white);
     background-color: $btn-red;
     font-size: 120%;
