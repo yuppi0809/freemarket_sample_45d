@@ -38,4 +38,3 @@ CSV.read("db/csv/brand.csv", headers: true).each do |row|
     updated_at: row['updated_at']
   )
 end
-end
