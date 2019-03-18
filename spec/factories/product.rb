@@ -3,10 +3,10 @@ FactoryBot.define do
     name                 {'アメリカンイーグルのTシャツ'}
     description          {'買ったばっかり'}
     size                 {'M'}
-    product_status       {'新品、未使用'}
-    delivery_fee         {'着払い'}
-    local                {'北海道'}
-    lead_time            {'1~2日で発送'}
+    product_status       {0}
+    delivery_fee         {0}
+    prefecture_id        {1}
+    lead_time            {0}
     price                {'300'}
     transaction_status   {0}
     first_category_id       {create(:category).id}
