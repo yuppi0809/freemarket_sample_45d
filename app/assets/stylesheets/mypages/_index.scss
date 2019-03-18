@@ -124,6 +124,11 @@
   }
 }
 
+.active{
+  border-top: 2px solid red;
+  background-color: $white !important;
+}
+
 
 .group:before,
 .group:after {
