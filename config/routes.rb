@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     end
   end
   resources :payments, only:[:index, :new, :create, :show, :destroy]
+  resources :mypages, only:[:index]
   resources :profiles, only: [:new, :create, :edit, :update]
   resources :products, only: [:new, :create, :show, :index] do
     resources :purchases, only: [:new, :create]
