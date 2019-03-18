@@ -45,4 +45,19 @@
         .my-page-right-content__main__button
           =link_to "一覧を見る", "#"
 
+    .my-page-right-content__bottom
+      .my-page-right-content__bottom__title
+        購入した商品
+      .my-page-right-content__bottom__tabs.group
+        .tab
+          取引中
+        .tab
+          過去の取引
+      .my-page-right-content__bottom__main#in-progress
+        =image_tag("mercari_logo_grey-ish.svg")
+        %p 取引中の商品はありません
+      .my-page-right-content__bottom__main#past-transaction
+        =image_tag("mercari_logo_grey-ish.svg")
+        %p 過去の取引はありません
+
 = render 'layouts/footer'
