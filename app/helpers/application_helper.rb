@@ -72,7 +72,6 @@ module ApplicationHelper
   def get_status
     return '--complete' if controller.action_name == 'complete'
   end
-
   def add_sold_frame(status)
     if status == 'sold'
       render 'status_sold'

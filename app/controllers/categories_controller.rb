@@ -5,4 +5,8 @@ class CategoriesController < ApplicationController
       form.json{@middlecategory}
     end
   end
+  def show
+    @category = Category.find(params[:id])
+    @products = @category.find_products(@category)
+  end
 end

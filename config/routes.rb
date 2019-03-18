@@ -24,5 +24,6 @@ Rails.application.routes.draw do
     resources :purchases, only: [:new, :create]
     resources :likes, only: [:create, :destroy]
   end
-  resources :categories, only: :new
+  resources :categories, only: [:new, :show]
 end
+
