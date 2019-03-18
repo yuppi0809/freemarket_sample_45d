@@ -26,9 +26,9 @@ module ApplicationHelper
       'やることリスト': '#',
       'いいね！一覧': '#',
       '出品する': new_product_path,
-      '出品した商品 - 出品中': '#',
-      '出品した商品 - 取引中': '#',
-      '出品した商品 - 売却済み': '#',
+      '出品した商品 - 出品中': user_listings_path,
+      '出品した商品 - 取引中': in_progress_user_listings_path,
+      '出品した商品 - 売却済み': solds_user_listings_path,
       '購入した商品 - 過去の取引': '#',
       'ニュース一覧': '#',
       '評価一覧': '#',
@@ -72,7 +72,6 @@ module ApplicationHelper
   def get_status
     return '--complete' if controller.action_name == 'complete'
   end
-
   def add_sold_frame(status)
     if status == 'sold'
       render 'status_sold'

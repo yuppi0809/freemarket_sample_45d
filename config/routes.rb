@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :new, :show] do
     resources :listings, only:[:index, :update, :show, :destroy], shallow:true do
+      collection do
+        get 'in_progress'
+        get 'solds'
+      end
     end
   end
   resources :payments, only:[:index, :new, :create, :show, :destroy]
@@ -20,5 +24,6 @@ Rails.application.routes.draw do
     resources :purchases, only: [:new, :create]
     resources :likes, only: [:create, :destroy]
   end
-  resources :categories, only: :new
+  resources :categories, only: [:new, :show]
 end
+
