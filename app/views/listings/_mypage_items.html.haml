@@ -1,0 +1,14 @@
+%li
+  =link_to listing_path(product), class: "mypage-item__link" do
+    %figure
+    .mypage-item__body
+      .mypage-item__text
+        =product.name
+      .mypage-item
+        %span.listing-item__count
+          = fa_icon "heart"
+          %span
+            =product.likes_count
+        %span.listing-item__count
+          = fa_icon "comment"
+    = fa_icon 'angle-right'

@@ -39,10 +39,9 @@
           = @product.description
 
       =link_to "商品の編集", root_path, class: "item-container__purchase-btn"
-      or
+      %p or
       =link_to "出品を再開する", root_path, class: "item-container__purchase-btn"
-      or
-      =link_to '削除', listing_path, method: :delete, class: "item-container__purchase-btn"
+      =link_to 'この商品を削除する', listing_path, method: :delete, class: "item-container__delete"
 
 
     .show-page-comments
