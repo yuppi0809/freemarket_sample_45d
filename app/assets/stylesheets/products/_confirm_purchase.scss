@@ -129,6 +129,13 @@ height: 100%;
       }
     }
 
+    #payjp_checkout_box input[type=button] {
+      @include btn($white);
+      background-image: none;
+      background-color: $btn-red;
+      padding: 0;
+    }
+
     &__shipping p:nth-child(1){
       font-weight: bold;
     }

@@ -19,15 +19,16 @@ module ApplicationHelper
   end
 
   def mypage_elements
+
     elements = {
       'マイページ': '#',
       'お知らせ': '#',
       'やることリスト': '#',
       'いいね！一覧': '#',
       '出品する': new_product_path,
-      '出品した商品 - 出品中': '#',
-      '出品した商品 - 取引中': '#',
-      '出品した商品 - 売却済み': '#',
+      '出品した商品 - 出品中': user_listings_path(current_user.id),
+      '出品した商品 - 取引中': in_progress_user_listings_path(current_user.id),
+      '出品した商品 - 売却済み': solds_user_listings_path(current_user.id),
       '購入した商品 - 過去の取引': '#',
       'ニュース一覧': '#',
       '評価一覧': '#',
@@ -58,19 +59,6 @@ module ApplicationHelper
     end
   end
 
-  def display_price(price)
-    new_price = number_with_delimiter(price, :delimiter => ',')
-    return "¥ #{new_price}"
-  end
-
-  def display_delivery_fee(option)
-    if option === "送料込み（出品者負担）"
-      return "送料込み"
-    else
-      return option
-    end
-  end
-
   def registration_steps
     steps = [
       {name: '会員情報', class: 'registration-step__user-info'},
@@ -83,5 +71,26 @@ module ApplicationHelper
 
   def get_status
     return '--complete' if controller.action_name == 'complete'
+  end
+  def add_sold_frame(status)
+    if status == 'sold'
+      render 'status_sold'
+    end
+  end
+
+  def link_to_purchase(product)
+    if product.transaction_status == 'listing'
+      link_to "購入画面に進む", new_product_purchase_path(product.id), class: "item-container__purchase-btn"
+    else
+      button_tag "売り切れました", class: "item-container__purchase-btn--sold"
+    end
+  end
+
+  def profile_nil?(profile)
+    if profile.blank?
+      return ''
+    else
+      return profile.prefecture_id
+    end
   end
 end

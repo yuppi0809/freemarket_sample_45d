@@ -1,11 +1,16 @@
 = render 'layouts/header'
+- breadcrumb :product, @product
+.breadcrumbs
+  = breadcrumbs separator: "#{fa_icon("angle-right", class: "breadcrumbs__seperator")} ", class: "breadcrumbs__container"
 .container
   .vertical-container
     .item-container
-      %h2.item-container__title=@product.name
+      %h2.item-container__title
+        = @product.name
 
       .item-container__float.group
         .item-container__images
+          = add_sold_frame(@product.transaction_status)
           .slides-container.group
             - if @images.present?
               -@images.each do |image|
@@ -18,18 +23,21 @@
             - @images.each do |image|
               .dot
                 = image_tag image.image
-        =render partial: 'show-table', locals: { product: @product }
+        = render partial: 'show-table', locals: { product: @product }
 
       .item-container__price-info
-        %span.price=display_price(@product.price)
+        %span.price
+          = @product.edit_price_layout
         %span.taxes (税込)
-        %span.shipping-fee=display_delivery_fee(@product.delivery_fee)
+        %span.shipping-fee
+          = @product.display_delivery_fee
 
       -unless current_user == @product.user
-        =link_to "購入画面に進む", confirm_purchase_product_path(@product), class: "item-container__purchase-btn"
+        = link_to_purchase(@product)
 
       .item-container__description
-        %p=@product.description
+        %p
+          = @product.description
 
       .item-container__links.group
         .item-container__links__left
@@ -50,53 +58,57 @@
         %input.show-page-comments__submit-btn{type: "submit", value: "コメントする", style: "font-size:20px"}
 
     .page-navigator.group
-      -if @product.checkPrevItem
+      - if @product.checkPrevItem
         = link_to product_path(@prev_item), class: "prev-item" do
-          =fa_icon("chevron-left", text: @prev_item.name)
-      -if @product.checkNextItem
+          = fa_icon("chevron-left", text: @prev_item.name)
+      - if @product.checkNextItem
         = link_to product_path(@next_item), class: "next-item" do
-          =fa_icon("chevron-right",text:@next_item.name, right: true)
+          = fa_icon("chevron-right",text:@next_item.name, right: true)
 
     .sns-icons-container.group
       .sns-icons
-        =link_to root_path do
+        = link_to root_path do
           %li.sns-icon
-        =link_to root_path do
+        = link_to root_path do
           %li.sns-icon
-        =link_to root_path do
+        = link_to root_path do
           %li.sns-icon
-        =link_to root_path do
+        = link_to root_path do
           %li.sns-icon
 
     .items-container
       %h2.items-container__title
-        =link_to "#{@product.user.nickname}さんのその他の出品", "#"
+        = link_to "#{@product.user.nickname}さんのその他の出品", "#"
       .items-container__images.group
-        -@products.each do |product|
+        - @products.each do |product|
           .item
-            =link_to product_path(product), class:"item__link" do
-              =image_tag product.show_image_or_no_image, class: "item__image"
+            = link_to product_path(product), class:"item__link" do
+              = image_tag product.show_image_or_no_image, class: "item__image"
 
               .item__info
-                %p.item__info__name=product.name
+                %p.item__info__name
+                  = product.name
                 .item__info__nums
-                  %span.price=display_price(product.price)
+                  %span.price
+                    = product.edit_price_layout
                   %span.likes
                     %i.fa.fa-heart-o
                     %span=product.likes_count
 
     .items-container
       %h2.items-container__title
-        =link_to "#{@product.third_category.name} (#{@product.first_category.name}) その他の商品", "#"
+        = link_to "#{@product.third_category.name} (#{@product.first_category.name}) その他の商品", "#"
       .items-container__images.group
-        -@category_products.each do |product|
+        - @category_products.each do |product|
           .item
-            =link_to product_path(product), class:"item__link" do
-              =image_tag product.show_image_or_no_image, class: "item__image"
+            = link_to product_path(product), class:"item__link", 'data-turbolinks':false do
+              = image_tag product.show_image_or_no_image, class: "item__image"
               .item__info
-                %p.item__info__name=product.name
+                %p.item__info__name
+                  = product.name
                 .item__info__nums
-                  %span.price=display_price(product.price)
+                  %span.price
+                    = product.edit_price_layout
                   %span.likes
                     %i.fa.fa-heart-o
                     %span=product.likes_count

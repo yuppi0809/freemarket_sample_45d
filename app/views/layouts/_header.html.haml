@@ -12,11 +12,13 @@
           %input{type: "submit", class: "header-top__submit hidden", id: "header-submit"}
     .header-bottom
       %nav.header-bottom__nav
-        %ul.header-bottom__nav--left
-          %li
-            = link_to "カテゴリーから探す", "#", id: "header-category-button"
-          %li
-            = link_to "ブランドから探す", "#", id: "header-brand-button"
+        %ul.menu
+          %li.menu__category
+            = link_to "カテゴリーから探す", "#", class: "init-bottom", id: "header-category-button"
+            %ul.menu__first-level
+              = render partial: 'products/first_categories', collection: @first_categories, as: 'category'
+          %li.menu__brand
+            = link_to "ブランドから探す", '#', class: 'init-bottom'
         %ul.header-bottom__nav--right
           - unless user_signed_in?
             %li

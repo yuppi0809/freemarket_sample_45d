@@ -1,0 +1,53 @@
+.buy-container
+  .buy-container__logo
+    = link_to root_path do
+      = image_tag "mercari_logo_horizontal.png"
+  .buy-container__main
+    .buy-container__main__top
+      %h2 購入を確定しますか?
+    .buy-container__main__mid
+      .buy-container__main__mid__content
+        = image_tag @product.product_images.first.image.url
+        %p.product-description
+          = @product.name
+        #purchase-form
+          .product-info
+            %span.product-info__price
+              = @product.edit_price_layout
+            %span.product-info__shipping-fee
+              = @product.delivery_fee_i18n
+          .point-btn
+            ポイントはありません
+          .purchase-info.group
+            %p.purchase-price-label
+              支払い金額
+            %p.purchase-price
+              = @product.edit_price_layout
+        = form_tag(action: :create, method: :post) do
+          %script.payjp-button{'data-key': PAYJP_PUBLIC_KEY, src: "https://checkout.pay.jp", type: "text/javascript", 'data-text': '購入する'}
+    .buy-container__main__shipping
+      .buy-container__main__shipping__content
+        %p 配送先
+        %p
+          〒
+          = @profile.postal_code
+          %br>/
+          = @profile.full_address
+          %br>/
+          = @profile.full_name
+        .shipping-edit
+          = link_to '', class: "shipping-edit__link" do
+            = fa_icon("chevron-right", text:"変更する", right:true)
+    .buy-container__main__payment
+      .buy-container__main__payment__content
+        %p 支払方法
+        - unless @payment.blank?
+          %p
+            = @payment.hide_last_four_digits
+            %br>/
+            = @payment.replace_expiration
+          = image_tag("master-card.svg")
+        .payment-edit
+          = link_to '', class: "payment-edit__link" do
+            = fa_icon("chevron-right", text:"変更する", right:true)
+  =render 'products/buy-footer'

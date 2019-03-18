@@ -1,0 +1,12 @@
+.prof-container
+  .prof-container__main
+    .prof-container__main--head
+      %h2.prof-header プロフィール
+      .setting-prof__icon
+        = image_tag("https://rr.img.naver.jp/mig?src=http%3A%2F%2Fstat.ameba.jp%2Fuser_images%2F20120624%2F11%2Fhitomi4694%2F3c%2F66%2Fj%2Fo0500045112044342662.jpg&twidth=1200&theight=1200&qlt=80&res_format=jpg&op=r" ,class: "setting-prof__icon__image")/
+        %input.nickname{name: "nickname", placeholder: "  例)AYA☆セール中", type: "text", value: "",class: "setting-prof__icon__text"}/
+      .prof-content
+        %textarea.prof-content__textarea{name: "introduction", placeholder: "例)こんにちは☆ご覧いただきありがとうございます!かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるように心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪" }
+        %button.prof-content__button{type:"submit" } 変更する
+
+
