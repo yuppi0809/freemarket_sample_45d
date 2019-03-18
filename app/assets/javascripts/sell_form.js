@@ -24,7 +24,7 @@ $(document).on('turbolinks:load', function() {
       type: 'GET',
       url: '/categories/new',
       data: {category_id: category_id},
-      dateType: 'json'
+      dataType: 'json'
     })
     .done(function(categories) {
       var select_wrapper = $('<div class="select-wrapper">');

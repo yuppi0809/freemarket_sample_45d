@@ -1,0 +1,4 @@
+%li
+  = link_to category.name, category
+  %ul.menu__third-level
+    = render partial: 'products/third_categories', collection: category.children, as: 'category'
