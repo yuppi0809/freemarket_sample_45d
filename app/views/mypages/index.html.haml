@@ -1,4 +1,48 @@
 = render 'layouts/header'
 .wrapper
   = render 'users/sidebar'
+  .my-page-wrapper
+    .my-page-right-content
+      .my-page-right-content__top
+        .my-page-right-content__top__content
+          =image_tag("user_avatar.png")
+          %p.username=current_user.nickname
+          %span 評価
+          %span.num 0
+          %span 出品数
+          %span.num 1
+      .my-page-right-content__tabs.group
+        .tab
+          お知らせ
+        .tab
+          やることリスト
+      %ul.my-page-right-content__main#notifictaion
+        %li.my-page-right-content__main__column
+          =image_tag("mercari_profile")
+          .message
+            .message__text 商品を買ってもらうには？タイトルと説明文を確認しましょう。
+            =fa_icon("clock-o")
+            %span 2時間前
+          =fa_icon("chevron-right", class: "chevron-icon")
+        %li.my-page-right-content__main__column
+          =image_tag("mercari_profile")
+          .message
+            .message__text 商品を買ってもらうには？タイトルと説明文を確認しましょう。
+            =fa_icon("clock-o")
+            %span 2時間前
+          =fa_icon("chevron-right", class: "chevron-icon")
+        .my-page-right-content__main__button
+          =link_to "一覧を見る", "#"
+
+      %ul.my-page-right-content__main#todo-list
+        %li.my-page-right-content__main__column
+          =image_tag("mercari_profile")
+          .message
+            .message__text 商品を買ってもらうには？タイトルと説明文を確認しましょう。
+            =fa_icon("clock-o")
+            %span 2時間前
+          =fa_icon("chevron-right", class: "chevron-icon")
+        .my-page-right-content__main__button
+          =link_to "一覧を見る", "#"
+
 = render 'layouts/footer'
