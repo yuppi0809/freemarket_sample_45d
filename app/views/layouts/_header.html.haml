@@ -16,7 +16,7 @@
           %li.menu__category
             = link_to "カテゴリーから探す", "#", class: "init-bottom", id: "header-category-button"
             %ul.menu__first-level
-              = render partial: 'first_categories', collection: @first_categories, as: 'category'
+              = render partial: 'products/first_categories', collection: @first_categories, as: 'category'
           %li.menu__brand
             = link_to "ブランドから探す", '#', class: 'init-bottom'
         %ul.header-bottom__nav--right
