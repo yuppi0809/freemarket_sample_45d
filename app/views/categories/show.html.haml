@@ -1,7 +1,7 @@
 = render 'layouts/header'
 %main.category-items-container
   %h1.category-items-container__header
-    レディース
+    = @category.name
   %section.items-box-content.clearfix
     = render partial: 'category_item_show', collection: @products, as: 'product'
 = render 'layouts/footer'
