@@ -8,8 +8,8 @@ crumb :product do |product|
   parent :root
 end
 
-crumb :users do
-  link "マイページ"
+crumb :user do
+  link "マイページ", mypages_path
   parent :root
 end
 
