@@ -37,6 +37,11 @@ crumb :user_authentification do
   link "本人情報確認"
   parent :user, current_user
 end
+
+crumb :user_payment_method do |payment|
+  link "お支払い方法", payment
+  parent :user, current_user
+end
 # crumb :projects do
 #   link "Projects", projects_path
 # end
