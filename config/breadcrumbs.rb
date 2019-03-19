@@ -23,6 +23,10 @@ crumb :user_transaction_in_progress do
   parent :user, current_user
 end
 
+crumb :user_transaction_sold do
+  link "出品した商品 - 売却済"
+  parent :user, current_user
+end
 # crumb :projects do
 #   link "Projects", projects_path
 # end
