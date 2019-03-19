@@ -15,3 +15,7 @@ ja:
       delivery_fee:
         include: 送料込み（出品者負担）
         exclude: 着払い
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 保存できませんでした
