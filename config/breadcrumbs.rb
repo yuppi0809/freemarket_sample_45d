@@ -8,11 +8,45 @@ crumb :product do |product|
   parent :root
 end
 
-crumb :users do
-  link "マイページ"
+crumb :user do
+  link "マイページ", mypages_path
   parent :root
 end
 
+crumb :user_transaction do
+  link "出品した商品 - 出品中"
+  parent :user, current_user
+end
+
+crumb :user_transaction_in_progress do
+  link "出品した商品 - 取引中"
+  parent :user, current_user
+end
+
+crumb :user_transaction_sold do
+  link "出品した商品 - 売却済"
+  parent :user, current_user
+end
+
+crumb :user_logout do
+  link "ログアウト"
+  parent :user, current_user
+end
+
+crumb :user_authentification do
+  link "本人情報確認"
+  parent :user, current_user
+end
+
+crumb :user_payment_method do |payment|
+  link "お支払い方法", payment
+  parent :user, current_user
+end
+
+crumb :user_shipping_info do
+  link "発送元・お届け先住所変更"
+  parent :user, current_user
+end
 # crumb :projects do
 #   link "Projects", projects_path
 # end

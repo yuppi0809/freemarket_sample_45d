@@ -1,4 +1,7 @@
 = render 'layouts/header'
+- breadcrumb :user_shipping_info, current_user
+.breadcrumbs
+  = breadcrumbs separator: "#{fa_icon("angle-right", class: "breadcrumbs__seperator")} ", class: "breadcrumbs__container"
 .wrapper
   = render 'users/sidebar'
   .registration-wrapper
