@@ -1,4 +1,7 @@
 = render 'layouts/header'
+- breadcrumb :user_transaction_in_progress, current_user
+.breadcrumbs
+  = breadcrumbs separator: "#{fa_icon("angle-right", class: "breadcrumbs__seperator")} ", class: "breadcrumbs__container"
 %main.l-container.clearfix
   .wrapper
     = render 'users/sidebar'

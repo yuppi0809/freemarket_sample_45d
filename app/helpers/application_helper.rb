@@ -21,7 +21,7 @@ module ApplicationHelper
   def mypage_elements
 
     elements = {
-      'マイページ': '#',
+      'マイページ': mypages_path,
       'お知らせ': '#',
       'やることリスト': '#',
       'いいね！一覧': '#',
