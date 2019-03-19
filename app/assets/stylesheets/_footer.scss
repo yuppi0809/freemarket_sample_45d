@@ -1,6 +1,7 @@
 .banner {
   width: 100%;
-  background-image: url(http://cly7796.net/wp/wp-content/uploads/2017/07/implement-background-loop-animation-with-css-250x188.jpg);
+  background: url("/images/blurry-room.jpg") right center;
+  background-size: cover;
   .banner-container {
     &:after {
       content: "";
