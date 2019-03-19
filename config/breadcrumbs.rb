@@ -17,6 +17,12 @@ crumb :user_transaction do
   link "出品した商品 - 出品中"
   parent :user, current_user
 end
+
+crumb :user_transaction_in_progress do
+  link "出品した商品 - 取引中"
+  parent :user, current_user
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
