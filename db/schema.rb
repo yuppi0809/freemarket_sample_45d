@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190317034415) do
+ActiveRecord::Schema.define(version: 20190318103036) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -56,24 +56,24 @@ ActiveRecord::Schema.define(version: 20190317034415) do
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",                             null: false
-    t.text     "description",        limit: 65535, null: false
-    t.integer  "price",                            null: false
-    t.integer  "likes_count"
+    t.string   "name",                                         null: false
+    t.text     "description",        limit: 65535,             null: false
+    t.integer  "price",                                        null: false
+    t.integer  "likes_count",                      default: 0
     t.integer  "size"
-    t.integer  "product_status",                   null: false
-    t.integer  "transaction_status",               null: false
-    t.integer  "delivery_fee",                     null: false
-    t.integer  "lead_time",                        null: false
+    t.integer  "product_status",                               null: false
+    t.integer  "transaction_status",                           null: false
+    t.integer  "delivery_fee",                                 null: false
+    t.integer  "lead_time",                                    null: false
     t.string   "brand"
     t.integer  "user_id"
     t.integer  "first_category_id"
     t.integer  "second_category_id"
     t.integer  "third_category_id"
     t.integer  "brand_id"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.integer  "prefecture_id",                    null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+    t.integer  "prefecture_id",                                null: false
     t.index ["name"], name: "index_products_on_name", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
@@ -94,6 +94,14 @@ ActiveRecord::Schema.define(version: 20190317034415) do
     t.datetime "updated_at",                         null: false
     t.integer  "prefecture_id",                      null: false
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
+  end
+
+  create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.string   "uid"
+    t.string   "provider"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
