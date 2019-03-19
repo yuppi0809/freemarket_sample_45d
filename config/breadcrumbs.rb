@@ -42,6 +42,11 @@ crumb :user_payment_method do |payment|
   link "お支払い方法", payment
   parent :user, current_user
 end
+
+crumb :user_shipping_info do
+  link "発送元・お届け先住所変更"
+  parent :user, current_user
+end
 # crumb :projects do
 #   link "Projects", projects_path
 # end
