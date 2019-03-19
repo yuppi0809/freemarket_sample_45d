@@ -1,0 +1,145 @@
+.my-page-right-content{
+  background-color: $white;
+  width:700px;
+  color: $darkerGrey;
+
+  &__top{
+    width: 100%;
+    padding: 35px 0;
+    background: url("/images/sparkle.jpg") center center;
+    background-size: cover;
+
+    &__content{
+      width:300px;
+      margin: 0 auto;
+      text-align: center;
+
+      .username{
+        font-size: 90%;
+        margin:5px 0 3px 0;
+      }
+
+      .num{
+        font-weight: bold;
+        margin: 0 5px;
+      }
+
+      img{
+        width: 20%;
+        height:20%;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &__tabs{
+    text-align: center;
+    font-weight: bold;
+
+    .tab{
+      width:50%;
+      padding: 20px 0;
+      float:left;
+      background-color:#eee;
+    }
+  }
+
+  .my-page-right-content__main{
+
+    &__column{
+      padding:20px 15px;
+      border-bottom:.5px solid #eee;
+      position: relative;
+      z-index:0;
+      img{
+        width:50px;
+        height:50px;
+        display:inline-block;
+        vertical-align: middle;
+      }
+
+      .chevron-icon{
+        position:absolute;
+        top:50%;
+        right:0;
+        transform: translateY(-50%);
+        margin-right:10px;
+
+      }
+      .message{
+      display:inline-block;
+      vertical-align: middle;
+      margin-left:10px;
+      }
+
+    }
+    &__button{
+      padding:20px 15px;
+      a{
+        width:100%;
+        display: block;
+        text-decoration: none;
+        background-color: #eee;
+        color: black;
+        padding:15px 0;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.my-page-right-content__bottom{
+  margin-top:50px;
+  background-color: $white;
+
+  &__title{
+    background-color: #f9f9f9;
+    padding: 20px;
+    font-weight: bold;
+  }
+
+  &__tabs{
+    @extend .my-page-right-content__tabs;
+
+    .tab{
+      width:50%;
+      padding: 20px 0;
+      float:left;
+      background-color:#eee;
+    }
+  }
+  &__main{
+  text-align: center;
+  padding: 50px 0;
+    img{
+      width:100px;
+      height:100px;
+    }
+
+    p{
+      color: grey;
+      margin-top: 10px;
+    }
+
+  }
+}
+
+.active{
+  border-top: 2px solid red;
+  background-color: $white !important;
+}
+
+
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+
+.group:after {
+  clear: both;
+}
+
+.group {
+  zoom: 1;
+}
