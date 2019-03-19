@@ -32,6 +32,11 @@ crumb :user_logout do
   link "ログアウト"
   parent :user, current_user
 end
+
+crumb :user_authentification do
+  link "本人情報確認"
+  parent :user, current_user
+end
 # crumb :projects do
 #   link "Projects", projects_path
 # end
