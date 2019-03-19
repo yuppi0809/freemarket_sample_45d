@@ -22,20 +22,38 @@
         margin-bottom: 10px;
       }
       .link-to-app {
+        height:67px;
         &:after {
           content: "";
           display: block;
           clear: both;
         }
         ul {
+          line-height:67px;
           li {
             float: left;
             margin-right: 10px;
+
+            &:nth-child(2):hover,
+            &:nth-child(3):hover{
+              opacity: .85;
+            }
+
+            img{
+              vertical-align: middle;
+            }
+
+            &:nth-child(1) img{
+              width:70px;
+              height:70px;
+              margin-right: 10px;
+            }
+
+            &:nth-child(2) img,
+            &:nth-child(3) img{
+              border-radius: 4px;
+            }
           }
-        }
-        img {
-        width: 100px;
-        height: 100px;
         }
       }
     }
