@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    session["devise.google_data"] = nil
+    provider = session[:provider_name]
+    session["devise.#{provider}_data"] = nil
   end
 end

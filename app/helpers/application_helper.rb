@@ -96,7 +96,7 @@ module ApplicationHelper
   end
 
   def sns_credential?
-    if session["devise.google_data"]
+    if session["devise.google_data"] || session["devise.facebook_data"]
       'registration--hidden'
     end
   end
