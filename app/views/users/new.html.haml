@@ -11,7 +11,7 @@
     = link_to '#', class: 'registration__facebook' do
       %p Facebookで登録
       = image_tag('facebook-logo.png', class: 'facebook-logo')
-    = link_to '#', class: 'registration__google' do
+    = link_to user_google_oauth2_omniauth_authorize_path, class: 'registration__google' do
       %p Googleで登録
       = image_tag('google-logo.png', class: 'google-logo')
 
