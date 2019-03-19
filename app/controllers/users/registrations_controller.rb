@@ -14,7 +14,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @user.password = password
       @user.password_confirmation = password
     end
-    binding.pry
   end
 
   def create
