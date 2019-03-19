@@ -27,7 +27,7 @@
               = link_to "新規会員登録", new_user_path, class: "header-signup-button"
           - else
             %li
-              = link_to users_path, class: 'header_mypage' do
+              = link_to mypages_path, class: 'header_mypage' do
                 = image_tag('elric.png')
                 マイページ
             %li
