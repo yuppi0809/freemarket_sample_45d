@@ -13,6 +13,10 @@ crumb :user do
   parent :root
 end
 
+crumb :user_transaction do
+  link "出品した商品 - 出品中"
+  parent :user, current_user
+end
 # crumb :projects do
 #   link "Projects", projects_path
 # end
