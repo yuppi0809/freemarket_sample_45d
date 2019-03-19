@@ -2,8 +2,11 @@ class User < ApplicationRecord
   devise :database_authenticatable,
          :registerable,
          :rememberable,
-         :validatable
+         :validatable,
+         :omniauthable,
+         omniauth_providers: %i(google_oauth2)
 
+  has_many :sns_credentials, dependent: :destroy
   has_one :profile
   has_many :payments
   has_many :products
@@ -26,5 +29,19 @@ class User < ApplicationRecord
   with_options uniqueness: true do
     validates :nickname
     validates :verify_sms
+  end
+
+  protected
+
+  def self.find_for_oauth(auth)
+    sns = SnsCredential.where(uid: auth.uid, provider: auth.provider).first
+    unless sns
+      @user = User.create(
+        nickname: auth.info.name,
+        email:    auth.info.email,
+        password: Devise.friendly_token[0,20]
+      )
+    end
+    @user
   end
 end

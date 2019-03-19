@@ -5,11 +5,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   def new
-    super
+    password = Devise.friendly_token[0,20]
+    @user = User.new
+    if session["devise.google_data"]
+      @user.nickname = session["devise.google_data"]["info"]["name"]
+      @user.email = session["devise.google_data"]["info"]["email"]
+      @user.password = password
+      @user.password_confirmation = password
+    end
   end
 
   def create
+    sns = SnsCredential.new(uid: session["devise.google_data"]["uid"], provider: session["devise.google_data"]["provider"])
     super
+    sns.user_id = session["warden.user.user.key"][0][0]
+    sns.save
   end
 
   # GET /resource/edit
