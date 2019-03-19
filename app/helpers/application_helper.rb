@@ -94,4 +94,10 @@ module ApplicationHelper
       return profile.prefecture_id
     end
   end
+
+  def sns_credential?
+    if session["devise.google_data"]
+      'registration--hidden'
+    end
+  end
 end

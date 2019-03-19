@@ -10,22 +10,23 @@
           = f.label 'ニックネーム'
           .registration-field__require
             必須
-          = f.text_field :nickname, class: 'registration-field__nickname', placeholder: '例）メルカリ太郎'
+          = f.text_field :nickname, value: @user.nickname, class: 'registration-field__nickname', placeholder: '例）メルカリ太郎'
         .registration-field
           = f.label 'メールアドレス'
           .registration-field__require
             必須
-          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'registration-field__email', placeholder: 'PC・携帯どちらでも可'
-        .registration-field
-          = f.label 'パスワード'
-          .registration-field__require
-            必須
-          = f.password_field :password, autocomplete: "new-password", class: 'registration-field__password', placeholder: '6文字以上'
-        .registration-field
-          = f.label 'パスワード（確認）'
-          .registration-field__require
-            必須
-          = f.password_field :password_confirmation, autocomplete: "new-password", class: 'registration-field__password-confirmation', placeholder: '6文字以上'
+          = f.email_field :email, autofocus: true, autocomplete: "email", value: @user.email, class: 'registration-field__email', placeholder: 'PC・携帯どちらでも可'
+        %div{class: sns_credential? }
+          .registration-field
+            = f.label 'パスワード'
+            .registration-field__require
+              必須
+            = f.password_field :password, value: @user.password, autocomplete: "new-password", class: 'registration-field__password', placeholder: '6文字以上'
+          .registration-field
+            = f.label 'パスワード（確認）'
+            .registration-field__require
+              必須
+            = f.password_field :password_confirmation, value: @user.password_confirmation, autocomplete: "new-password", class: 'registration-field__password-confirmation', placeholder: '6文字以上'
         .registration-field
           = f.label '本人確認'
           %p.registration-field__notice
