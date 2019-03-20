@@ -1,7 +1,7 @@
 .product-container
-  = link_to "#", class: "item-head" do
+  = link_to category_path(category), class: "item-head" do
     = category.name
     新着アイテム
   .product-container__item-box
-    = render partial: "item", collection: category.first_category_products.limit(4), as: 'product'
-  = link_to "全ての商品を見る", "#", class: "link-to-all-product"
+    = render partial: "item", collection: category.first_category_products.order("created_at DESC").limit(4), as: 'product'
+  = link_to "全ての商品を見る", category_path(category), class: "link-to-all-product"
