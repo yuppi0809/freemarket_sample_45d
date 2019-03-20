@@ -75,6 +75,8 @@ header {
           color: #333333;
           text-decoration: none;
           height: 60px;
+          font-size: 14px;
+
         }
       }
       &__category {
@@ -103,6 +105,8 @@ header {
           background: #fff;
           border: 1px solid $border-color;
           width: auto;
+          z-index: 9999;
+
           li {
             width: 224px;
             height: 40px;
@@ -183,11 +187,21 @@ header {
       li {
         float: left;
         margin-left: 10px;
+
+        &:nth-child(1) a{
+        vertical-align: top;
+        }
+
+        &:nth-child(2) a,
+        &:nth-child(3) a{
+        vertical-align: middle;
+        }
       }
       a {
         text-decoration: none;
         color: #333;
         font-weight: lighter;
+
         img {
         width: 26px;
         height: 26px;
