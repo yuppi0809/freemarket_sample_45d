@@ -47,6 +47,12 @@ crumb :user_shipping_info do
   link "発送元・お届け先住所変更"
   parent :user, current_user
 end
+
+crumb :category_list do
+  link "カテゴリ一覧"
+  parent :root
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
