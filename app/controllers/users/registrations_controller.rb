@@ -22,8 +22,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       sns = SnsCredential.new(uid: session["devise.#{provider}_data"]["uid"], provider: session["devise.#{provider}_data"]["provider"])
     end
     super
-    sns.user_id = session["warden.user.user.key"][0][0]
-    sns.save
+    unless sns.blank?
+      sns.user_id = session["warden.user.user.key"][0][0]
+      sns.save
+    end
   end
 
   # GET /resource/edit
