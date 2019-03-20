@@ -5,7 +5,6 @@ class ProductsController < ApplicationController
   def index
     @categories = Category.limit(3)
     @brands = Brand.order("RAND()").limit(4)
-    @first_categories = Category.where(ancestry: nil)
   end
 
   def new

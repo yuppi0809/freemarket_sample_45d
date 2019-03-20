@@ -1,4 +1,4 @@
 %li{value: category.id}
   = link_to category.name, category, class: "init-right"
   %ul.menu__second-level
-    = render partial: 'second_categories', collection: category.children, as: 'category'
+    = render partial: 'products/second_categories', collection: category.children, as: 'category'
