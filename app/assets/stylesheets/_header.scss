@@ -103,6 +103,8 @@ header {
           background: #fff;
           border: 1px solid $border-color;
           width: auto;
+          z-index: 9999;
+
           li {
             width: 224px;
             height: 40px;
