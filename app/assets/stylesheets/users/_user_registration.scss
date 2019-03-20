@@ -13,6 +13,9 @@
   .registration {
     font-size: 14px;
     padding: 50px 180px;
+    &--hidden {
+      display: none;
+    }
     &__email {
       @include btn($color: $darkerGrey);
       background-color: $bottom-color;

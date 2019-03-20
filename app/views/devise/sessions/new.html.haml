@@ -5,12 +5,12 @@
   .move-to-registration
     .move-to-registration__text
       アカウントをお持ちでない方はこちら
-    = link_to '新規会員登録', new_user_registration_path, class: 'move-to-registration__btn'
+    = link_to '新規会員登録', new_user_path, class: 'move-to-registration__btn'
   .user-session
-    = link_to '#', class: 'user-session__facebook' do
+    = link_to user_facebook_omniauth_authorize_path, class: 'user-session__facebook' do
       %p Facebookでログイン
       = image_tag('facebook-logo.png', class: 'facebook-logo')
-    = link_to '#', class: 'user-session__google' do
+    = link_to user_google_oauth2_omniauth_authorize_path, class: 'user-session__google' do
       %p Googleでログイン
       = image_tag('google-logo.png', class: 'google-logo')
     = form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: 'session-form', class: 'session-form'}) do |f|

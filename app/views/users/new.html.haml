@@ -8,10 +8,10 @@
     = link_to new_user_registration_path, class: 'registration__email' do
       %p メールアドレスで登録
       = fa_icon 'envelope', class: 'email-logo'
-    = link_to '#', class: 'registration__facebook' do
+    = link_to user_facebook_omniauth_authorize_path, class: 'registration__facebook' do
       %p Facebookで登録
       = image_tag('facebook-logo.png', class: 'facebook-logo')
-    = link_to '#', class: 'registration__google' do
+    = link_to user_google_oauth2_omniauth_authorize_path, class: 'registration__google' do
       %p Googleで登録
       = image_tag('google-logo.png', class: 'google-logo')
 
