@@ -1,7 +1,9 @@
 .banner {
   width: 100%;
-  background-image: url(http://cly7796.net/wp/wp-content/uploads/2017/07/implement-background-loop-animation-with-css-250x188.jpg);
+  background: url("/images/blurry-room.jpg") right center;
+  background-size: cover;
   .banner-container {
+    position: relative;
     &:after {
       content: "";
       clear: both;
@@ -10,32 +12,52 @@
     width: 750px;
     margin: 0 auto;
     &-left {
-      float:left;
+      position: absolute;
+      top:50%;
+      transform:translateY(-50%);
       color: #fff;
-      margin-top: 20px;
+      text-shadow: 1px 1px rgba(0,0,0,.5);
       h2 {
         font-weight: bold;
-        font-size: 20px;
+        font-size: 25px;
       }
       p {
-        font-size: 30px;
+        font-size: 35px;
         margin-bottom: 10px;
       }
       .link-to-app {
+        height:67px;
         &:after {
           content: "";
           display: block;
           clear: both;
         }
         ul {
+          line-height:67px;
           li {
             float: left;
             margin-right: 10px;
+
+            &:nth-child(2):hover,
+            &:nth-child(3):hover{
+              opacity: .85;
+            }
+
+            img{
+              vertical-align: middle;
+            }
+
+            &:nth-child(1) img{
+              width:70px;
+              height:70px;
+              margin-right: 10px;
+            }
+
+            &:nth-child(2) img,
+            &:nth-child(3) img{
+              border-radius: 4px;
+            }
           }
-        }
-        img {
-        width: 100px;
-        height: 100px;
         }
       }
     }
@@ -45,6 +67,7 @@
       img {
         width: 300px;
         height: 262px;
+        vertical-align: bottom;
       }
     }
   }

@@ -2,8 +2,11 @@ class User < ApplicationRecord
   devise :database_authenticatable,
          :registerable,
          :rememberable,
-         :validatable
+         :validatable,
+         :omniauthable,
+         omniauth_providers: %i[facebook google_oauth2]
 
+  has_many :sns_credentials, dependent: :destroy
   has_one :profile
   has_many :payments
   has_many :products
