@@ -1,4 +1,7 @@
 = render 'layouts/header'
+- breadcrumb @category.check_for_category_hirearchy, @category
+.breadcrumbs
+  = breadcrumbs separator: "#{fa_icon("angle-right", class: "breadcrumbs__seperator")} ", class: "breadcrumbs__container"
 %main.category-items-container
   %h1.category-items-container__header
     = @category.name
