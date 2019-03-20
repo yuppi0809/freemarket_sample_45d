@@ -2,8 +2,8 @@ class SnsCredential < ApplicationRecord
   belongs_to :user
 
   with_options presence: true do
-    validate :uid
-    validate :user_id
-    validate :provider
+    validates :uid
+    validates :user_id
+    validates :provider
   end
 end
