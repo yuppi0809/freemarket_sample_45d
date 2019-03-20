@@ -53,6 +53,21 @@ crumb :category_list do
   parent :root
 end
 
+crumb :first_category do |first_category|
+  link first_category.name, category_path(first_category)
+  parent :category_list
+end
+
+crumb :second_category do |second_category|
+  link second_category.name, category_path(second_category)
+  parent :first_category, second_category.parent
+end
+
+crumb :third_category do |third_category|
+  link third_category.name, category_path(third_category)
+  parent :second_category, third_category.parent
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
